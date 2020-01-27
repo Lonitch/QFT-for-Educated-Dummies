@@ -154,3 +154,149 @@ Further, L, H, and $\mathcal{H}$ are not Lorentz scalars.
 \end{qt}
 
 \section{Schrodinger vs. Heisenberg Pictures}
+In Schrodinger picture, the expectation value is calculated as:
+$$
+\overline{\mathcal{O}}=\int \psi^{\dagger} \mathcal{O} \psi d^{3} x=\langle\psi|\mathcal{O}| \psi\rangle
+$$
+The time derivative of the expectation value is
+\begin{equation}
+\frac{d \bar{\mathcal{O}}}{d t}=\frac{d}{d t}\langle\psi|\mathcal{O}| \psi\rangle=\left\langle\frac{\partial \psi}{\partial t}|\mathcal{O}| \psi\right\rangle+\left\langle\psi\left|\frac{\partial \mathcal{O}}{\partial t}\right| \psi\right\rangle+\left\langle\psi|\mathcal{O}| \frac{\partial \psi}{\partial t}\right\rangle
+\end{equation}
+where we use partial derivative in the brackets because our states and operators are functions of $x^i$ and $t$.
+
+In the Schródinger picture (S.P.), the solutions to the Schrödinger equation
+
+\begin{equation}
+i \frac{\partial \psi_{S}}{\partial t}=H \psi_{S} \quad \text { or } \quad i \frac{\partial}{\partial t}|\psi\rangle_{S}=H|\psi\rangle_{S}
+\label{schrodinger-equation}
+\end{equation}
+\redp{In the Schrodinger picture, the operators are usually not time dependent.} For example, using the familiar momentum operator $p_1^S=i\partial/\partial x^1$ for the S.P. in the $x^1$ direction, with 
+$$
+\psi_{S}=A e^{-i\left(E t-p\cdot x\right)}=|\psi\rangle_{S} \quad A^{\dagger} A=\frac{1}{V}
+$$
+we have
+$$
+\begin{array}{l}
+{\bar{p}_{1}=\int A^{+} e^{i\left( Et-p^{\prime}x^{\prime}\right)}\left(i \frac{\partial}{\partial x^{1}}\right) A e^{-i\left(Et-p^{\prime}x^{\prime}\right)} d^{3} x={}_{s}\langle\psi|p_{1}^{S}| \psi\rangle_{s}}
+\end{array}
+$$
+Since there is no $t$ in the operator, we have
+$$
+\frac{d p_{1}^{S}}{d t}=\frac{\partial p_{1}^{S}}{\partial t}=0
+$$
+and
+\begin{equation}
+\frac{d \bar{p}_{1}}{d t}=\frac{d}{d t}\left\langle\psi\left|p_{1}^{s}\right| \psi\right\rangle=\left\langle\frac{\partial \psi}{\partial t}\left|p_{1}^{s}\right| \psi\right\rangle_{s}+s\left\langle\psi\left|\frac{\partial p_{1}^{s}}{\partial t}\right| \psi\right\rangle_{s}+s\left\langle\psi\left|p_{1}^{s}\right| \frac{\partial \psi}{\partial t}\right\rangle_{s}
+\end{equation}
+Using (\ref{schrodinger-equation}), and its complex conjugate, we have
+\begin{equation}
+\frac{d \bar{p}_{1}}{d t}=_{S}\left\langle\psi\left|\left(i H p_{1}^{S}+\frac{\partial p_{1}^{S}}{\partial t}-i p_{1}^{S} H\right)\right| \psi\right\rangle_{S}=_{S}\left\langle\psi\left|-i\left[p_{1}^{S}, H\right]\right| \psi\right\rangle_{S}+_{S}\left\langle\psi\left|\frac{\partial p_{1}^{S}}{\partial t}\right| \psi\right\rangle_{S}
+\end{equation}
+where the last term is equal to zero.\redp{Recall the old NRQM adage that the expectation value of any operator without explicit time dependence that commutes with the Hamiltonian is conserved (its time derivative is zero.)}
+
+\textbf{\redp{The Schrodinger picture states and operators can be transformed to states and operators having different form via what is known as a unitary transformation. The particular unitary transformation (where $U$ is a unitary operator) for this is}}
+\begin{qt}
+\begin{equation}
+U=e^{-i A t} \quad\left(=e^{-i H t / \hbar} \text { in non-natural units }\right)
+\end{equation}
+where states and operators transform as
+\begin{equation}
+\begin{array}{ll}
+{U^{\dagger}|\psi\rangle_{S}=|\psi\rangle_{H}} & {U^{\dagger} \mathcal{O}^{S} U=\mathcal{O}^{H}} \\
+{U|\psi\rangle_{H}=|\psi\rangle_{S}} & {U O^{H} U^{\dagger}=\mathcal{O}^{S}}
+\end{array}
+\end{equation}
+\end{qt}
+We find that in the first relation the state is now \redp{time independent} in H.P. 
+
+Taking the time derivative in the second relation, we have:
+\begin{equation}
+\begin{aligned}
+\frac{d}{d t}\left(U^{\dagger} \mathcal{O}^{S} U\right) &=(i H) \underbrace{e^{i A^{\prime}} \mathcal{O}^{S}}_{\mathcal{O}^{H}}+\underbrace{e^{i H_{t}}\left(\frac{\partial \mathcal{O}^{S}}{\partial t}\right) e^{-i H_{l}}}_{\text {defined as } \hat{\partial} O^{H} / \partial t}+\underbrace{e^{i H t} \mathcal{O}^{S} e^{-t H t}}_{\mathcal{O}^{H}}(-i H) \\
+&=\frac{d \mathcal{O}^{H}}{d t}=-i\left[\mathcal{O}^{H}, H\right]+\frac{\hat{\partial} \mathcal{O}^{H}}{\partial t}
+\end{aligned}
+\end{equation}
+In this note, $\frac{\hat{\partial} \mathcal{O}^{H}}{\partial t}$ will always be zero. Nonetheless, we see that in the H.P., an operator time derivative can be \textbf{non-zero},\redp{and the operator is time dependent}.
+\begin{mybox}
+A unitary transformation is called unitary because its operation on (transformation of ) a state vector leaves the magnitude of the state vector unchanged, i.e., the state vector magnitude is multiplied by unity.
+
+A unitary transformation can be thought of as "rotating" a (complex number) state vector in Hilbert space (the complex space where each coordinate axis is an eigenvector) without changing the "length".
+
+Recall, from classical mechanics, that an orthogonal transformation represented by a real matrix $\mathbf{A}$ has an inverse equal to the transpose of that matrix, i.e., $\mathrm{A}^{-1}=\mathrm{A}^{\mathrm{T}}$. In the complex space of state vectors, a unitary transformation $U$ has an analogous form for its inverse, the complex conjugate transpose, i.e., $\underline{U}^{-1}=U^{+}$ and so $U^{\dagger} U=1 .$ The following example may make this clearer.
+
+Do a Taylor expansion of $U=e^{-i H t}$ above about $t$, when $U$ is operating on an energy eigenstate., i.e.,
+\begin{equation}
+U\left|\psi_{E}\right\rangle= e^{-iHt}\left|\psi_{E}\right\rangle=\left(1-i t H-\frac{1}{2} t^{2} H^{2}+\ldots\right)\left|\psi_{E}\right\rangle= e^{-i E t}\left|\psi_{E}\right\rangle
+\end{equation}
+\end{mybox}
+\textbf{Note:} Although it is common to write $U=e^{-iHt}$,\bluep{it is implied that $H$ (if you think of it as $i\partial/\partial t$) does not act on $t$. To be proper, the $t$ should be placed before the $H$, as we did in the expansion above, but it usually is not done that way.}
+
+\redp{Because $H=H^S$ commutes with itself, $U$ and $U^+$ commute with $H$, so using $\mathcal{O}^S=H^S=H$, we have}
+\begin{equation}
+    H=H^S=H^H
+\end{equation}
+and after inserting $UU^+=1$, we find
+\begin{equation}
+\begin{aligned}
+\frac{d \overline{\mathcal{O}}}{d t} &=s\left(\psi\left|U U^{\dagger}\left(-i\left[\mathcal{O}^{S}, H\right]\right) U U^{\dagger}\right| \psi\right\rangle_{s}+_{S}\left\langle\psi\left|U U^{+} \frac{\partial \mathcal{O}^{S}}{\partial t} U U^{\dagger}\right| \psi\right\rangle_{S} \\
+&=_{H}\left\langle\psi\left|\left(-i\left[\mathcal{O}^{H}, H\right]\right)\right| \psi\right\rangle_{H}+{}_{H}\left\langle\psi\left|\frac{\hat{\partial} \mathcal{O}^{\mu}}{\partial t}\right| \psi\right\rangle_{H}
+\end{aligned}
+\end{equation}
+\section{Extrapolation to Field Theory}
+\textbf{According to the correspondence principle, in the macroscopic limit, our quantum relations must reduce to the usual classical relations.} So the principle provides us with a key part of our method for quantization. That is, in going from classical theory to NRQM, we must take
+$$\left\{x^{\prime}, p_{j}\right\}=\delta_{j}^{i} \quad \substack{\longrightarrow\\ \text { 1st quantization }} \quad\left[x^{i}, p_{j}\right]=i \hbar \delta_{j}^{i}$$
+For field theory, we have
+\begin{qt}
+\begin{equation}
+\left\{\phi^{r}(\mathrm{x}, t), \pi,(\mathrm{y}, t)\right\}=\delta^{r}{ }_s \delta(\mathrm{x}-\mathrm{y})\substack{\longrightarrow\\ \text{2nd quantization}}\left[\phi^{r}, \pi_{s}\right]=i \hbar \delta^{r}{ }_s \delta(\mathbf{x}-\mathbf{y}) 
+\end{equation}
+and
+\begin{equation}
+    \left[\phi^{r}, \phi^{s}\right]=\left[\pi_{r}, \pi_{s}\right]=0
+\end{equation}
+\end{qt}
+Again, \redp{Quantization is a means for deducing quantum theory from classical theory.}
+
+\section{Appendix: some useful math relations}
+First, we have four-velocity of relativity $u^{\mu}$ for an object as:
+\begin{equation}
+u^{\mu}=\frac{d x^{\mu}}{d \tau}=\frac{d}{d \tau}\left[\begin{array}{ccc}
+{x^{0}} & {x^{1}} & {x^{2}}
+\end{array}\right]=\left[\begin{array}{cccc}
+{u^{0}} & {u^{1}} & {u^{2}} & {u^{3}}
+\end{array}\right]
+\end{equation}
+where
+\begin{equation}
+u^{i}=\frac{d x^{i}}{d \tau}=\frac{d x^{i}}{\sqrt{1-v^{2} / c^{2}} d t}=\frac{v^{i}}{\sqrt{1-v^{2} / c^{2}}}=\gamma v^{i}
+\end{equation}
+\begin{equation}
+u^{0}=\frac{d x^{0}}{d \tau}=c \frac{d t}{d \tau}=\frac{c}{\sqrt{1-v^{2} / c^{2}}}=\gamma c
+\end{equation}
+Thus,
+\begin{equation}
+(u)^{2}=\left|u^{\mu}\right|^{2}=\mu^{\mu} u_{\mu}=\frac{d x^{\mu}}{d \tau} \frac{d x_{\mu}}{d \tau}=\gamma^{2}\left(c^{2}-\left(v^{1}\right)^{2}-\left(v^{2}\right)^{2}-\left(v^{3}\right)^{2}\right)=c^{2}
+\end{equation}
+
+The magnitude of the \redp{4-momentum $p^{\mu}=mu^{\mu}$} is  then found from:
+\begin{equation}
+(p)^{2}=\left|p^{\mu}\right|^{2}=p^{\mu} p_{\mu}=m^{2} u^{\mu} u_{\mu}=m^{2} c^{2} \quad\left(=m^{2} \text { in natural units }\right)
+\end{equation}
+\bluep{Note that $p^0=\gamma mc=E/c$, where $E$ is relativistic energy, and $p^i$ is relativistic 3-momentum.} Or
+\begin{equation}
+    \begin{array}{l}
+{p^{\mu} p_{\mu}=m^{2} c^{2}=g_{\mu \nu} p^{\mu} p^{\nu}=\left[\begin{array}{cccc}
+{E / c} & {p^{1}} & {p^{2}} & {p^{3}}
+\end{array}\right]\left[\begin{array}{c}
+{E / c} \\
+{-p^{1}} \\
+{-p^{2}} \\
+{-p^{3}}
+\end{array}\right]}
+\end{array}
+\end{equation}
+
+and
+\begin{equation}
+\frac{E^{2}}{c^{2}}=p^{2}+m^{2} c^{2}
+\end{equation}

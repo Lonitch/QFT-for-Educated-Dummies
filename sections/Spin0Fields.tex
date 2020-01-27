@@ -1,0 +1,138 @@
+\chapter{Scalars: Spin 0 Fields}
+\section{Deducing Klein-Gordon Equation}
+If we squared the operators in the original Schrodinger equation, we obtain
+\begin{equation}
+\left(i \hbar \frac{\partial}{\partial t}\right)\left(i \hbar \frac{\partial}{\partial t}\right) \phi=H^{2} \phi=\left(\mathbf{p}_{o p e r}^{2} c^{2}+m^{2} c^{4}\right) \phi
+\end{equation}
+which becomes
+\begin{equation}
+-\frac{\hbar^{2}}{c^{2}} \frac{\partial^{2}}{\partial t^{2}} \phi=\left(-\hbar^{2} \frac{\partial}{\partial X_{i}} \frac{\partial}{\partial X_{i}}+m^{2} c^{2}\right) \phi
+\end{equation}
+In a compact form, we have
+\begin{equation}
+-\frac{\partial}{\partial x^{0}} \frac{\partial}{\partial x_{0}} \phi=\left(\frac{\partial}{\partial x^{i}} \frac{\partial}{\partial x_{i}}+\frac{m^{2} c^{2}}{\hbar^{2}}\right) \phi
+\end{equation}
+where we define $\mu^2=\frac{m^{2} c^{2}}{\hbar^{2}}$. Re-arranging, we have the Klein-Gordon equation
+\begin{qt}
+    \begin{equation}
+\left(\partial_{\mu} \partial^{\mu}+\mu^{2}\right) \phi=0
+\end{equation}
+The operation $\partial_{\mu} \partial^{\mu}=\partial^{\mu} \partial_{\mu}$ is called the \textbf{d'Alembertian} operator, and is the 4D Minkowski coordinates analogue of the 3D Laplacian operator of Cartesian coordinates.
+\end{qt}
+\subsection{The solutions to the Klein-Gordon Equation}
+\begin{equation}
+\phi(x)=\sum_{n=1}^{\infty} \frac{1}{\sqrt{2 V E_{n} / \hbar}}\left(A_{n} e^{-\frac{i}{\hbar}\left(E_{n} t-\mathbf{p}_{n} \cdot \mathbf{x}\right)}+\underbrace{B_{n}^{\dagger} e^{\frac{i}{\hbar}\left(E_{n} t-\mathbf{p}_{n} \cdot \mathbf{x}\right)}}_{\text {absent in NRQM }}\right)
+\end{equation}
+Because we are using the square of the relativistic Hamiltonian in RQM, \bluep{we get additional solutions of exponential form $+i(E_nt-\mathbf{p}_n\cdot\mathcal{x})/\hbar$ that also solve the relativistic Klein-Gordon equation}.
+
+With an aim towards using natural units, we note the following relations, where wave number $k_{i}$ $=2 \pi / \lambda_{i}$ and we use the deBroglie relation $p^{i}=\hbar k^{i}$
+\begin{qt}
+    \begin{equation}
+p_{\mu}=\left[\begin{array}{c}
+{E / c} \\
+{p_{i}}
+\end{array}\right]=\left[\begin{array}{c}
+{E / c} \\
+{-p^{i}}
+\end{array}\right]=\hbar k_{\mu}=\left[\begin{array}{c}
+{\hbar \omega / c} \\
+{-\hbar k^{\prime}}
+\end{array}\right]
+\end{equation}
+in natural units
+\begin{equation}
+p_{\mu}=\left[\begin{array}{c}
+{E} \\
+{-p^{i}}
+\end{array}\right]=k_{\mu}=\left[\begin{array}{c}
+{\omega} \\
+{-k^{i}}
+\end{array}\right]
+\end{equation}
+\end{qt}
+Recall the notation introduced in the previous chapter, we have
+\begin{equation}
+p x=p_{\mu} x^{\mu}=E t-p^{i} x^{i}=p^{\mu} x_{\mu}
+\end{equation}
+\begin{equation}
+k x=k_{\mu} x^{\mu}=\omega t-k^{i} x^{i}=\frac{E t}{\hbar}-\frac{p^{i} x^{i}}{\hbar}=\frac{p_{\mu}}{\hbar} x^{\mu}
+\end{equation}
+In natural unit
+\begin{equation}
+E=\omega, \quad p_{i}=k_{i}, \quad p_{\mu}=k_{\mu}, \quad p x=k x
+\end{equation}
+\bluep{For free fields, a given wave with wave number vector $\mathbf{k}$ has a particular energy, and we can designate that energy via either $E_{\mathbf{k}} \text { or } \omega_{\mathbf{k}} .$ It is common practice for scalars to use $\mathbf{k} \text { (rather than } \mathbf{p})$ and $\mathbf{k}$ (rather than $E_{\mathbf{p}}$ or $E_{\mathbf{k}}$.)}
+
+The Klein-Gordon equation solutions then become, in natural units
+\begin{equation}
+\phi(x)=\sum_{k} \frac{1}{\sqrt{2 V_{e l}}}\left(A_{k} e^{-i k x}+B_{k}^{\dagger} e^{i k x}\right)
+\end{equation}
+\begin{mybox}
+In RQM, the solution $\phi$ is that of a general (sum of eigenstates) single particle state. Each eigenstate has mathematical form of
+$$
+\phi_{k, A}=\frac{e^{-i k x}}{\sqrt{V}}
+$$
+$$
+\quad \phi_{\mathrm{k}, B^{\dagger}}=\frac{e^{i k x}}{\sqrt{V}}
+$$
+Each of these forms has what is called \textbf{unit norm}. That is, all such eigenstates are \textbf{orthonormal}:
+\begin{equation}
+\int \phi_{k, A}^{\dagger} \phi_{k^{\prime},A} d^{3} x=\frac{1}{V} \int e^{i k x} e^{-i k^{\prime} x} d^{3} x=\delta_{k k^{\prime}}
+\end{equation}
+Similar relations exist for $\phi_{k, B^{\dagger}}$.
+\end{mybox}
+
+\subsection{Deducing probability density in RQM}
+Starting from the Klein-Gordon equation, first post-multiply it by $\phi^{\dagger}$, then subtract the complex conjugate equation post-multiplied by $\phi$,
+\begin{equation}
+\begin{array}{c}
+{\left\{\frac{\partial^{2}}{\partial t^{2}} \phi=\left(\nabla^{2}-\mu^{2}\right) \phi\right\} \phi^{\dagger}} \\
+{-\left\{\frac{\partial^{2}}{\partial t^{2}} \phi^{\dagger}=\left(\nabla^{2}-\mu^{2}\right) \phi^{\dagger}\right\} \phi}
+\end{array}
+\end{equation}
+Since $\mu^{2} \phi^{\dagger} \phi-\mu^{2} \phi \phi^{\dagger}=0$, we obtain
+\begin{equation}
+i \frac{\partial}{\partial t}\left(\frac{\partial \phi}{\partial t} \phi^{\dagger}-\frac{\partial \phi^{\dagger}}{\partial t} \phi\right)=i \nabla \cdot\left((\nabla \phi) \phi^{\dagger}-\left(\nabla \phi^{\dagger}\right) \phi\right)
+\end{equation}
+where probability density and the probability current for a Klein-Gordon particle are
+\begin{qt}
+    \begin{equation}
+\rho=j^{0}=i\left(\frac{\partial \phi}{\partial t} \phi^{\dagger}-\frac{\partial \phi^{\dagger}}{\partial t} \phi\right)
+\end{equation}
+and
+\begin{equation}
+\mathbf{j}=-i\left((\nabla \phi) \phi^{\dagger}-\left(\nabla \phi^{\dagger}\right) \phi\right) \quad j^{i}=-i\left(\phi_{,i} \phi^{\dagger}-\phi_{, i}^{\dagger} \phi\right)=i\left(\phi^{,i} \phi^{\dagger}-\phi^{\dagger, i} \phi\right)
+\end{equation}
+\end{qt}
+Now we can define the \redp{4-currents} as
+\begin{equation}
+j^{\mu}=\left[\begin{array}{l}
+{\rho} \\
+{\mathbf{j}}
+\end{array}\right]=\left[\begin{array}{l}
+{\rho} \\
+{j^{i}}
+\end{array}\right]=\left[\begin{array}{l}
+{j^{0}} \\
+{j^{i}}
+\end{array}\right]=i\left(\phi^{\mu} \phi^{\dagger}-\phi^{\dagger,\mu} \phi\right)
+\end{equation}
+The \redp{4D continuity equation} is then
+\begin{qt}
+    \begin{equation}
+\frac{\partial j^{\mu}}{\partial x^{\mu}}=\partial_{\mu} j^{\mu}=j^{\mu}{ }_{,\mu}=0
+\label{4d-continuity-eq}
+\end{equation}
+\end{qt}
+(\ref{4d-continuity-eq}) tells us the important fact that \bluep{the 4-divergence of the 4-current of any conserved quantity is zero}.
+
+\bluep{The total probability of unity is a relativistic invariant. Further $A_{k}$ here are constants that do not vary with frame.}\redp{So the probability of  finding any particular state is also independent of what frame the measurements are taken in.}
+
+\subsection{Negative Energies in RQM}
+If we apply traditional Hamiltonian operator $H$ as $i\partial/\partial t$ to $\phi_{\mathbf{k},B^{\dagger}}$:
+\begin{equation}
+i \frac{\partial \phi_{\mathbf{k}, B^{\dagger}}}{\partial t}=i \frac{\partial}{\partial t} \frac{e^{i k x}}{\sqrt{V}}=-\omega_{\mathbf{k}} \frac{e^{i k x}}{\sqrt{V}}=-\omega_{\mathbf{k}} \phi_{\mathbf{k}, B^{\dagger}}=E_{\mathbf{k}, B^{\prime}} \phi_{\mathbf{k}, B^{+}}
+\end{equation}
+Since $\omega_{\mathbf{k}}$ is always a positive number, we have states with \redp{negative energies in RQM, and we need QFT to solve this dilemma}. 
+
+\section{Klein-Gordon Equation in Quantum Field Theory}
