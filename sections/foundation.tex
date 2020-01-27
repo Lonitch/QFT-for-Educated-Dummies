@@ -1,0 +1,156 @@
+\chapter{Foundations}
+\section{Natural Units and Dimensions}
+Convenient systems of units start with arbitrary definitions for units of certain fundamental. quantities and derive the remaining units from laws of nature. To see how this works, assume we know three basic laws of nature and we want to devise a system of units from scratch. We will do this first for the cgs system and then for natural units.
+The three lawas are:
+\begin{qt}
+\begin{itemize}
+    \item The distance $L$ traveled by a photon is the speed of light multiplied by its time of travel. $L=c t$
+    \item The energy of a massive particle is equal to its mass (at rest) $m$ times the speed of light squared. $E=mc^2$
+    \item The energy of a photon is proportional to its frequency $f$. The constant of proportionality is Planck's constant $h . E=h f$ or re-expressed as $E=\hbar \omega$
+\end{itemize}
+\end{qt}
+In natural units:\redp{the $c$ and $\hbar$ are dimensionless and equal to 1. The unit for energy is $MeV$}.
+
+\section{Notation}
+We shall use a notation defining \textbf{contravariant components $x^{\mu}$ of the $4 \mathrm{D}$ position vector} as $3 \mathrm{D}$ Cartesian coordinates $X_{i}$ plus $c t$ (see Appendix $\bar{A}$ if you are not comfortable with this), i.e.,
+\begin{equation}
+x^{\mu}=\left[\begin{array}{l}
+{x^{0}} \\
+{x^{1}} \\
+{x^{2}} \\
+{x^{3}}
+\end{array}\right]=\left[\begin{array}{l}
+{c t} \\
+{X_{1}} \\
+{X_{2}} \\
+{X_{3}}
+\end{array}\right]=\left[\begin{array}{l}
+{c t, X_{i}}
+\end{array}\right]^{T}
+\end{equation}
+From special relativity, we know the differential proper time passed on an object (with $c=1$ ) is
+\begin{equation}
+(d \tau)^{2}=(d t)^{2}-d X_{1} d X_{1}-d X_{2} d X_{2}-d X_{3} d X_{3}
+\end{equation}
+If we define \textbf{covariant components} of the 4D position vector as
+\begin{equation}
+x_{\mu}=\left[\begin{array}{l}
+{x_{0}} \\
+{x_{1}} \\
+{x_{2}} \\
+{x_{3}}
+\end{array}\right]=\left[\begin{array}{c}
+{t} \\
+{-X_{1}} \\
+{-X_{2}} \\
+{-X_{3}}
+\end{array}\right]=\left[t,-X_{i}\right]^{T}
+\end{equation}
+then
+\begin{equation}
+(d \tau)^{2}=d x^{0} d x_{0}+d x^{1} d x_{1}+d x^{2} d x_{2}+d x^{3} d x_{3}=d x^{\mu} d x_{\mu}
+\end{equation}
+Using metric tensor $g_{\mu\nu}$, we have the following relation:
+\begin{equation}
+x_{\mu}=g_{\mu \nu} x^{\nu}=\left[\begin{array}{cccc}
+{1} & {0} & {0} & {0} \\
+{0} & {-1} & {0} & {0} \\
+{0} & {0} & {-1} & {0} \\
+{0} & {0} & {0} & {-1}
+\end{array}\right]\left[\begin{array}{c}
+{x^{0}} \\
+{x^{1}} \\
+{x^{2}} \\
+{x^{3}}
+\end{array}\right]
+\end{equation}
+\redp{The inverse of $g_{\mu\nu}$, $g^{\mu\nu}$, has the exact same form.}Thus,
+\begin{equation}
+(d \tau)^{2}=g_{\mu v} d x^{\mu} d x^{v}=g^{\mu v} d x_{\mu} d x_{v}
+\end{equation}
+\begin{qt}
+Partial derivative w.r.t. $x^{\mu}$ and $x_{\mu}$ are:
+\begin{equation}
+\partial_{\mu}=\frac{\partial}{\partial x^{\mu}}=\left(\frac{\partial}{\partial t}, \frac{\partial}{\partial x^{i}}\right)^{T}=\left(\frac{\partial}{\partial t} \cdot \frac{\partial}{\partial X_{i}}\right)^{T}
+\end{equation}
+and
+\begin{equation}
+\partial^{\mu}=\frac{\partial}{\partial x_{\mu}}=\left(\frac{\partial}{\partial t}, \frac{\partial}{\partial x_{i}}\right)^{T}=\left(\frac{\partial}{\partial t},-\frac{\partial}{\partial X_{i}}\right)^{T}
+\end{equation}
+\end{qt}
+For a matrix, we can raise the index as
+\begin{equation}
+M^{\mu \nu}=g^{\mu \alpha} g^{\nu \beta} M_{\alpha \beta}
+\end{equation}
+\section{Review of Variational Methods}
+Recall also, that given the Lagrangian, we could find the Hamiltonian $H,$ via the Legendre transformation (employing a Cartesian system where $x^{i}=x_{i}$ and $p^{i}=p_{i}$),
+\begin{equation}
+H=p_{i} \dot{x}^{i}-L, \quad \text { where } p_{i}=\frac{\partial L}{\partial \dot{x}^{i}}=m \dot{x}^{i}\left(=p^{\prime} \text { for Cartesian system }\right)
+\end{equation}
+$p_{i}$ is the conjugate, or canonical, momentum of $x$ '. (Note that a contravariant component in the denominator is effectively equivalent to a covariant component in the entire entity, and vice versa.) Hence, we can define:
+\begin{qt}
+\textbf{First quantization}
+
+Keeping the classical Hamiltonian and, changing Poisson brackets to commutators, we could just as readily have used the Lagrangian L, or the equations of motion instead.
+\end{qt}
+\subsection{Classical Field Theory}
+From particle theory to field theory, we have the following things changed:
+\begin{qt}
+$$L, H, e t c \rightarrow \mathcal{L}, \mathcal{H},$$ 
+\[
+x^{i}(t) \rightarrow \phi^{r}\left(x^{\mu}\right)
+\]
+$$t \rightarrow x^{\mu}$$
+\end{qt}
+Classical field theory is analogous in many ways to classical particle Lagrangian $L$, we have the Lagrangian density $\mathcal{L}$. Instead of time $t$ as an independent variable, we have $x^{\mu}=x^{0}, x^{1}, x^{2}, x^{3}=t, {x^{i}}$ as independent variables. Instead of a particle described by $x^{i}(t),$ \textbf{we have a field value described by $\phi(x^{\mu})$, where $r$ designates different field types, or possibly, different spatial components of the same vector field.}
+\begin{qt}
+The Euler-Lagrange equation for fields becomes
+\begin{equation}
+\frac{\partial}{\partial x^{\mu}}\left(\frac{\partial \mathcal{L}}{\partial \phi^{r}, \mu}\right)-\frac{\partial \mathcal{L}}{\partial \phi^{r}}=0
+\end{equation}
+and
+\begin{equation}
+\mathcal{H}=\pi_{r} \dot{\phi}^{r}-\mathcal{L}, \quad \text { where } \pi_{r}=\frac{\partial \mathcal{L}}{\partial \dot{\phi}^{r}}
+\end{equation}
+with $\pi_r$ being the conjugate momentum density of the field $\phi^r$. And the action is
+\begin{equation}
+S=\int_{T} \int_{V} \mathcal{L}\left(\phi, \phi_{,\mu}\right) d^{3} \mathbf{x} d t=\int_{\Omega} \mathcal{L}\left(\phi, \phi_{, \mu}\right) d^{4} x
+\end{equation}
+\end{qt}
+\subsection{Key concepts in field theory}
+For fields
+\begin{equation}
+\frac{\partial \phi}{\partial t}=\frac{d \phi}{d t}=\dot{\phi}
+\end{equation}
+This is generally not true for other quantities. For fields, 
+\begin{equation}
+\frac{d \phi}{d t}=\frac{\partial \phi}{\partial x^{\prime}} \frac{d x^{\prime}}{d t}+\frac{\partial \phi}{\partial t} \frac{d t}{d t}
+\end{equation}
+\redp{where $\frac{dx^i}{dt}$ are equal to zero}.
+
+For a single particle, particle position coordinates are the generalized coordinates and particle momentum components are its conjugate momenta. For fields, each field is itself a generalized coordinate and each field has its own conjugate momentum (density). As noted, this field conjugate momentum (density) is different from the physical momentum (density) that the field possesses.
+
+For conjugate and physical momentum densities, we have the following density relation
+$$
+p_{t}=\frac{\partial L}{\partial \dot{x}^{t}} \quad \frac{\text { for small particle in medium, }}{\text { divide by particle volume }}, \quad \mathcal{R}_{i}=\frac{\partial \mathcal{L}}{\partial \dot{x}^{i}}
+$$
+We note carefully that our $x^i$ here is the position coordinate of a point fixed relative to the field and thus is time dependent. Further, the total derivative $\dot{x}^i$ equals the partial derivative w.r.t. time, since $x^i$ in the present case is only a function of time. Now take the \redp{conjugate momentum density relation for relativistic fields},
+$$
+\pi_{r}=\frac{\partial \mathcal{L}}{\partial \dot{\phi}^{r}}
+$$
+and
+$$
+\frac{\mathcal{R}_{i}}{\pi_{r}}=\frac{\partial \mathcal{L} / \partial \dot{x}^{i}}{\partial \mathcal{L} / \partial \dot{\phi}^{r}}=\frac{\partial \dot{\phi}^{r}}{\partial \dot{x}^{\prime}}=\frac{\partial \phi^{r} / \partial t}{\partial x^{i} / \partial t}=\frac{\partial \phi^{r}}{\partial x^{i}} \quad \rightarrow \quad \mathcal{R}_{i}=\pi_{r} \frac{\partial \phi^{r}}{\partial x^{i}} \quad \rightarrow \quad \mathcal{R}^{i}=-\pi_{r} \frac{\partial \phi^{r}}{\partial x^{i}}
+$$
+The partial derivative of $\phi^{r}$ with respect to either of our definitions of $x^{i}$ (time dependent as the moving position of a point fixed to the field, or time independent as coordinates fixed in space) is the same because by definition, partial derivative means we hold everything else here constant, Thus, the above relation holds in field theory when we consider the $x^{i}$ as independent variables (coordinates fixed in space).
+
+The field equation (equations of motion) for relativistic fields keep the exact same form in any inertial frame of reference, i.e., they are \redp{Lorentz invariant}. Four scalars(world scalars) are \redp{invariant under a Lorentz transformation and look exactly the same to any observer.}
+\begin{qt}
+The mass $m$ in relativity of a free particle is four scalar, where $m^2=p^{\mu}p_{\mu}$.
+
+Demanding that the Euler-Lagrange equation be Lorentz invariant, we know that, within that equation, $x^{\mu}$,$\phi^r$, and derivatives of $x^{\mu}$ are Lorentz covariant or invariant. \redp{So, in order for the whole equation to be Lorentz invariant, the Lagrangian density $\mathcal{L}$ must be invariant.}
+
+Further, L, H, and $\mathcal{H}$ are not Lorentz scalars.
+\end{qt}
+
+\section{Schrodinger vs. Heisenberg Pictures}
