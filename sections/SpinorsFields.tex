@@ -1,0 +1,219 @@
+\chapter{Spinors: Spin 1/2 Fields}
+\section{Dirac's Approach to RQM:}
+Dirac's primary goal was a 1st order relativistic Schrodinger equation, and he postulated that if it existed, it must have the general form of 
+\begin{equation}
+i \frac{\partial}{\partial t}|\psi\rangle= H|\psi\rangle=(a \cdot \mathbf{p}+\beta m)|\psi\rangle
+\label{1st-order-relativistic-SDE}
+\end{equation}
+In \ref{1st-order-relativistic-SDE}, $\mathbf{p}$ is particle three momentum (an operator in quantum theories), and the vector $\alpha$ and the scalar $\beta$ would have to be determined. Thus, the equation would be first order in the time derivative. To find $\alpha$ and $\beta$, Dirac reasoned that $H^{2}$ and $|\psi\rangle$ must also satisfy the usual relativistic energy momentum relation (and therefore the Klein-Gordon equation)
+$$
+-\frac{\partial^{2}}{\partial t^{2}}|\psi\rangle= H^{2}|\psi\rangle=\left(\mathbf{p}^{2}+m^{2}\right)|\psi\rangle
+$$
+Thus
+$$
+-\frac{\partial^{2}}{\partial t^{2}}|\psi\rangle= H^{2}|\psi\rangle=\left(\alpha_{i} p_{i}+\beta m\right)\left(\alpha_{j} p_{j}+\beta m\right)|\psi\rangle
+$$
+$$
+=\left(\alpha_{i}^{2} p_{i}^{2}+\underbrace{\left(\alpha_{i} \alpha_{j}+\alpha_{j} \alpha_{i}\right)}_{\text {must }=0}p_{i}p_{j}+\underbrace{\left(\alpha_{i} \beta+\beta \alpha_{i}\right)}_{\text {must }=0} p_{i} m+\beta^{2} m^{2}\right)|\psi\rangle
+$$
+Therefore, $\alpha_{i}^{2}=1$ and $\beta^{2}=1$. In summary, we have anti-commutators relationship:
+\begin{qt}
+    \begin{equation}
+\begin{aligned}
+&\left[\alpha_{i}, \alpha_{j}\right]_{+}=\left[\alpha_{i}, \beta\right]_{+}=0 \quad i \neq j \quad \alpha_{1}, \alpha_{2}, \alpha_{3}, \beta \text { all anti-commute with each other, }\\
+&\left(\alpha_{1}\right)^{2}=\left(\alpha_{2}\right)^{2}=\left(\alpha_{3}\right)^{2}=(\beta)^{2}=1 \text { (the identity matrix) }
+\end{aligned}
+\label{standard-condition}
+\end{equation}
+\end{qt}
+\bluep{If $\alpha_{i}$ and $\beta$ were numbers they would have to commute and could not possibly anti-commute. Hence, they can only be matrices. since these matrices are operators operating on $|\psi\rangle,$ then $|\psi\rangle$ itself must be a multicomponent object (i.e., a column matrix, at least.)}. Use the relations above, one can show that the \redp{$\alpha$ and $\beta$ matrices are traceless, hermitian, have $\pm$ eigenvalues, and must have an even dimension of at least four}.
+
+Square matrices in a 4D space must be  $4\mathrm{X} 4,$ and thus if $|\psi\rangle$ is a column matrix (a vector), it must have four components (a 4D vector). Take care to note the \bluep{4D space we are talking about here is not the four-dimensional physical space of relativity theory, but an abstract pace, often called \textbf{spinor space}}.
+\subsection{Standard presentation}
+Choosing the minimum dimension case (four), Dirac and Pauli came up with a set of matrices which solve all of the conditions in (\ref{standard-condition}):
+$$
+\beta=\left[\begin{array}{cccc}
+{1} \\
+{} & {1} \\
+{} & {} & {-1} \\
+{} & {} & {} & {-1}
+\end{array}\right]
+$$
+$$
+\alpha_{1}=\left[\begin{array}{cccc}
+{}&{}&{}&{1} \\
+{}&{}&{1} \\
+{} & {1} \\
+{1}
+\end{array}\right] \quad \alpha_{2}=\left[\begin{array}{cccc}
+{}&{}&{}&{-i} \\
+{}&{}&{i} \\
+{} & {-i} \\
+{i}
+\end{array}\right] \quad \alpha_{3}=\left[\begin{array}{cccc}
+{}&{}&{1} \\
+{}&{}&{}& {-1} \\
+{1}\\
+{}&{-1} 
+\end{array}\right]
+$$
+which are commonly written using Pauli matrices
+$$
+\beta=\left[\begin{array}{cc}
+{I} & {0} \\
+{0} & {-I}
+\end{array}\right] \quad \alpha_{1}=\left[\begin{array}{cc}
+{0} & {\sigma_{1}} \\
+{\sigma_{1}} & {0}
+\end{array}\right] \quad \alpha_{2}=\left[\begin{array}{cc}
+{0} & {\sigma_{2}} \\
+{\sigma_{2}} & {0}
+\end{array}\right] \quad \alpha_{3}=\left[\begin{array}{cc}
+{0} & {\sigma_{3}} \\
+{\sigma_{3}} & {0}
+\end{array}\right]
+$$
+If we define \textbf{gamma matrices} or \redp{\textbf{Dirac matrices}} as:
+\begin{equation}
+\gamma^{0}=\beta \quad \gamma^{1}=\beta \alpha_{1} \quad \gamma^{2}=\beta \alpha_{2} \quad \gamma^{3}=\beta \alpha_{3}
+\end{equation}
+we find the \textbf{Hermiticity conditions} as
+\begin{equation}
+\gamma^{\mu \dagger}=\gamma^{0} \gamma^{\mu} \gamma^{0}
+\end{equation}
+\subsection{Dirac equation expressed with Dirac matrices}
+Pre-multiplied $\beta$, Dirac's original $1^{st}$ order equation takes on the form
+\begin{equation}
+i \beta \frac{\partial}{\partial t}|\psi\rangle=\left(\beta \alpha_{i} p_{i}+\beta^{2} m\right) | \psi\rangle=\left(-i \gamma^{i} \frac{\partial}{\partial x^{i}}+m\right)|\psi\rangle
+\end{equation}
+or rearranged as what is formally called the \textbf{Dirac equation}:
+\begin{equation}
+\sum_{\eta=1}^{4}\left(\sum_{\mu=0}^{3} i\left(\gamma^{\mu}\right)_{\kappa \eta} \partial_{\mu}-m \delta_{\kappa \eta}\right)|\psi\rangle_{\eta}=0 \quad \kappa=1,2,3,4
+\end{equation}
+where we have written out the $4 \mathrm{X} 4$ spinor space indices in $\kappa$ and $\eta$. Note the Dirac equation is actually \textbf{four separate non-matrix equations}, one for each value of the index $\kappa$. And each of these equations entails a sum of matrix components (sum over $\mu$ ), each post multiplied by one of the four components (in $\eta$ index) of the column vector $|\psi\rangle$.
+\begin{qt}
+    The common way to write the Dirac equation is to hide the spinor space indices in $\kappa$ and $\eta$,
+    \begin{equation}
+\left(i \gamma^{\mu} \partial_{\mu}-m\right)|\psi\rangle= 0
+\label{convenient-Dirac-eq}
+\end{equation}
+Another notation commonly used, which is the most streamlined of all, is
+$$
+\not \partial=\gamma^{\mu} \partial_{\mu} \quad \text { so, the Dirac equation } \rightarrow(i \not \partial-m)|\psi\rangle= 0
+$$
+\end{qt}
+Also, $m \rightarrow \frac{m c}{\hbar} \quad$ in non-natural units in the Dirac equation.
+
+\subsection{Solutions to the Dirac equation}
+Write out (\ref{convenient-Dirac-eq}) fully as:
+$$
+i \gamma^{\mu} \partial_{\mu}|\psi\rangle= i\left(\gamma^{0} \partial_{0}+\gamma^{1} \partial_{1}+\gamma^{2} \partial_{2}+\gamma^{3} \partial_{3}\right)|\psi\rangle= m|\psi\rangle=
+$$
+$$
+=i\left(\left[\begin{array}{cccc}
+{\partial_{0}} & {0} & {\partial_{3}} & {\partial_{1}-i \partial_{2}} \\
+{0} & {\partial_{0}} & {\partial_{1}+i \partial_{2}} & {-\partial_{3}} \\
+{-\partial_{3}} & {-\partial_{1}+i \partial_{2}} & {-\partial_{0}} & {0} \\
+{-\partial_{1}-i \partial_{2}} & {\partial_{3}} & {0} & {-\partial_{0}}
+\end{array}\right]\right) \left| \begin{array}{l}
+{\psi_{1}} \\
+{\psi_{2}} \\
+{\psi_{3}} \\
+{\psi_{4}}
+\end{array}\right\rangle=
+m\left|\begin{array}{l}
+{\psi_{1}} \\
+{\psi_{2}} \\
+{\psi_{3}} \\
+{\psi_{4}}
+\end{array}\right\rangle
+$$
+The Dirac equation solutions in the Dirac-Pauli (standard) representation are
+\begin{qt}
+$$
+\left|\psi^{(1)}\right\rangle=\sqrt{\frac{E+m}{2 m}}\left(\begin{array}{c}
+{1} \\
+{0} \\
+{\frac{p^{3}}{E+m}} \\
+{\frac{p^{1}+i p^{2}}{E+m}}
+\end{array}\right)  \underbrace{e^{-i p x}}_{\text {4D physical space part}}=u_1e^{-i p x}
+$$
+$$
+\left|\psi^{(2)}\right\rangle=\sqrt{\frac{E+m}{2 m}}\left(\begin{array}{c}
+{0} \\
+{1} \\
+{\frac{p^{1}-i p^{2}}{E+m}} \\
+{\frac{-p^{3}}{E+m}}
+\end{array}\right) e^{-i p x}=u_2e^{-i p x}
+$$
+$$
+\left|\psi^{(3)}\right\rangle=\sqrt{\frac{E+m}{2 m}}\left(\begin{array}{c}
+{\frac{p^{3}}{E+m}} \\
+{\frac{p^{1}+i p^{2}}{E+m}}\\
+{1} \\
+{0} 
+\end{array}\right) e^{i p x}=v_2e^{i p x}
+$$
+\begin{equation}
+\left|\psi^{(4)}\right\rangle=\sqrt{\frac{E+m}{2 m}}\left(\begin{array}{c}
+{\frac{p^{1}-i p^{2}}{E+m}}\\
+{\frac{-p^{3}}{E+m}} \\
+{0} \\
+{1} 
+\end{array}\right) e^{i p x}=v_1e^{i p x}
+\label{four-spinors}
+\end{equation}
+\end{qt}
+We have defined new symbols $u_{r}(\mathbf{p})$ and $v_{r}(\mathbf{p})(r=1,2),$ which are the column vectors multiplied by the constant shown, are functions only of $\mathbf{p}$ for a given $m(\text { since } E=\sqrt{\mathbf{p}^{2}+m^{2}}),$ and go by the name \textbf{spinors}, or \textbf{\redp{four-spinors}}. Note that \bluep{the particles represented by $|\psi^{(n)}\rangle$ are also often called spinors.}
+
+\textbf{$u_{1}$ represents spin up, and $u_{2}$ represents spin down in the particle at-rest system. As you might expect, we will find the solutions containing $v_{r}(\mathbf{p})$ are associated with antiparticles; and those with $u_{r}(\mathbf{p}),$ with particles.}\redp{Take care to note the reverse order numbering on $v_{2,1}$ from $u_{1,2},$ which is customary.}
+
+If we take \textbf{inner products of four spinors}, we have
+$$
+u_{1}^{\dagger}(\mathbf{p}) u_{1}(\mathbf{p})=\frac{E}{m}
+$$
+More generally
+\begin{equation}
+u_{\underline{r}L}^{\dagger}(\mathbf{p}) u_{\underline{r}}(\mathbf{p})=v_{\underline{r}}^{\dagger}(\mathbf{p}) v_{\underline{r}}(\mathbf{p})=\frac{E}{m}
+\end{equation}
+Where underline means no summation. Also, spinors are \textbf{orthogonal}
+\begin{equation}
+\begin{aligned}
+&u_{r}^{\dagger}(\mathbf{p}) u_{s}(\mathbf{p})=v_{r}^{\dagger}(\mathbf{p}) v_{s}(\mathbf{p})=\frac{E}{m} \delta_{r s}\\
+&u_{r}^{\dagger}(\mathbf{p}) v_{s}(-\mathbf{p})=0
+\end{aligned}
+\end{equation}
+Therefore, the eigensolutions are also orthogonal
+\begin{equation}
+\left\langle\psi^{(m)} | \psi^{(n)}\right\rangle= 0 \text { for } m \neq n
+\end{equation}
+For example
+$$
+\left\langle\psi^{(1)} | \psi^{(3)}\right\rangle=\int u_{1}^{\dagger}(\mathbf{p}) e^{+i p x} v_{2}(\mathbf{p}) e^{+i p x} d^{3} x=\underbrace{u_{1}^{\dagger}(\mathbf{p}) v_{2}(\mathbf{p})}_{=0 \text { for } \mathbf{p}=0} \underbrace{\int e^{+i p x} e^{+i p x} d^{3} x}_{=0 \text { for } \mathbf{p} \neq 0}=0
+$$
+where we follow \textbf{Cesaro integration}:$\int_{0}^{\infty} \sin x d x=1$ and $\int_{0}^{\infty} \cos x d x=0$.
+\begin{qt}
+The most general solution to the Dirac equation is:
+\begin{equation}
+\psi_{\text {state}}=|\psi\rangle=\sum_{r, \mathbf{p}} \sqrt{\frac{m}{V E_{\mathrm{p}}}}\left(C_{r}(\mathbf{p}) u_{r}(\mathbf{p}) e^{-i p x}+D_{r}^{\dagger}(\mathbf{p}) v_{r}(\mathbf{p}) e^{i p x}\right)
+\label{general-Dirac-state}
+\end{equation}
+Unlike the Klein-Gordon equation, the Dirac equation is a matrix equation. So, rather than complex conjugate form of the wave equation, we need to consider \textbf{taking a complex conjugate pose of that equation}, we define  and use the \textbf{adjoint}
+\begin{equation}
+\bar{\psi}_{\text {state}}=\psi_{\text {state}}^{\dagger} \gamma^{0}=|\psi\rangle^{\dagger} \gamma^{0}=\left\langle\psi\left|\gamma^{0}=\langle\bar{\psi}|\right.\right.
+\end{equation}
+\redp{where an inner product between the row vector $|\psi\rangle^{\dagger}=\langle\psi|=\psi^{+}$ state and the gamma matrix are implied.} The adjoint Dirac equation is
+\begin{equation}
+i \partial_{\mu}\left\langle\bar{\psi}\left|\gamma^{\mu}+m\langle\bar{\psi}|=0\right.\right.
+\label{adjoint-Dirac-eq}
+\end{equation}
+\end{qt}
+Adjoint spinors are defined as the row vectors
+\begin{equation}
+\bar{u}_{r}=u_{r}^{\dagger} \gamma^{0} \quad \bar{v}_{r}=v_{r}^{\dagger} \gamma^{0}
+\end{equation}
+which, gives us the \textbf{\underline{discrete plane wave adjoint general solution form}}:
+\begin{equation}
+\bar{\psi}_{\text {state}}=\langle\bar{\psi}|=\sum_{r, \mathrm{p}} \sqrt{\frac{m}{V E_{\mathrm{p}}}}\left(D_{r}(\mathrm{p}) \bar{v}_{\mathrm{r}}(\mathrm{p}) e^{-i p x}+C_{r}^{\dagger}(\mathrm{p}) \bar{u}_{r}(\mathrm{p}) e^{i p x}\right)
+\end{equation}
+\subsection{Probability density for Dirac Fermions}
