@@ -131,28 +131,28 @@ $$
 The Dirac equation solutions in the Dirac-Pauli (standard) representation are
 \begin{qt}
 $$
-\left|\psi^{(1)}\right\rangle=\sqrt{\frac{E+m}{2 m}}\left(\begin{array}{c}
+\left|\psi^{(1)}\right\rangle=\underbrace{\sqrt{\frac{E+m}{2 m}}\left(\begin{array}{c}
 {1} \\
 {0} \\
 {\frac{p^{3}}{E+m}} \\
 {\frac{p^{1}+i p^{2}}{E+m}}
-\end{array}\right)  \underbrace{e^{-i p x}}_{\text {4D physical space part}}=u_1e^{-i p x}
+\end{array}\right) }_{u_1} \underbrace{e^{-i p x}}_{\text {4D physical space part}}=u_1e^{-i p x}
 $$
 $$
-\left|\psi^{(2)}\right\rangle=\sqrt{\frac{E+m}{2 m}}\left(\begin{array}{c}
+\left|\psi^{(2)}\right\rangle=\underbrace{\sqrt{\frac{E+m}{2 m}}\left(\begin{array}{c}
 {0} \\
 {1} \\
 {\frac{p^{1}-i p^{2}}{E+m}} \\
 {\frac{-p^{3}}{E+m}}
-\end{array}\right) e^{-i p x}=u_2e^{-i p x}
+\end{array}\right)}_{u_2} e^{-i p x}=u_2e^{-i p x}
 $$
 $$
-\left|\psi^{(3)}\right\rangle=\sqrt{\frac{E+m}{2 m}}\left(\begin{array}{c}
+\left|\psi^{(3)}\right\rangle=\underbrace{\sqrt{\frac{E+m}{2 m}}\left(\begin{array}{c}
 {\frac{p^{3}}{E+m}} \\
 {\frac{p^{1}+i p^{2}}{E+m}}\\
 {1} \\
 {0} 
-\end{array}\right) e^{i p x}=v_2e^{i p x}
+\end{array}\right)}_{v_2} e^{i p x}=v_2e^{i p x}
 $$
 \begin{equation}
 \left|\psi^{(4)}\right\rangle=\sqrt{\frac{E+m}{2 m}}\left(\begin{array}{c}
@@ -177,12 +177,15 @@ More generally
 u_{\underline{r}L}^{\dagger}(\mathbf{p}) u_{\underline{r}}(\mathbf{p})=v_{\underline{r}}^{\dagger}(\mathbf{p}) v_{\underline{r}}(\mathbf{p})=\frac{E}{m}
 \end{equation}
 Where underline means no summation. Also, spinors are \textbf{orthogonal}
+\begin{qt}
 \begin{equation}
 \begin{aligned}
 &u_{r}^{\dagger}(\mathbf{p}) u_{s}(\mathbf{p})=v_{r}^{\dagger}(\mathbf{p}) v_{s}(\mathbf{p})=\frac{E}{m} \delta_{r s}\\
 &u_{r}^{\dagger}(\mathbf{p}) v_{s}(-\mathbf{p})=0
 \end{aligned}
+\label{coefficient-orthogonality}
 \end{equation}
+\end{qt}
 Therefore, the eigensolutions are also orthogonal
 \begin{equation}
 \left\langle\psi^{(m)} | \psi^{(n)}\right\rangle= 0 \text { for } m \neq n
@@ -545,21 +548,21 @@ Note that $u_{1}$ and $u_{2}$ actually exist in spinor space (they are spinor sp
 \begin{qt}
 \underline{Summary}
 
-1. $\left.u_{1}(\mathrm{p}) e^{-i p x} \text { and } u_{2}(\mathrm{p}) e^{-i p x} \text { is each always an eigenstate of the Dirac equation (for any } \mathbf{p}\right)$
+1. $u_{1}(\mathrm{p}) e^{-i p x}$ and  $u_{2}(\mathrm{p}) e^{-i p x}$ is each always an eigenstate of the Dirac equation (for any $\mathbf{p}$)
 
 2. $u_{1}(\mathrm{p}) e^{-i p x}$ and $u_{2}(\mathrm{p}) e^{-i p x}$ is each sometimes an eigenstate of $z$ spin, i.e. of $\Sigma_{3}\left(\text { for } \mathbf{p}=0 \text { or }=p^{3} \mathbf{i}_{3}\right)$
 
 3. $u_{1}(\mathbf{p}) e^{-i p x}$ and $u_{2}(\mathbf{p}) e^{-i p x}$ are always basis vectors for any general state $|\psi\rangle$ (for any $\mathbf{p}$ )
 
-4. $u_{1}(p)$ and $u_{2}(p)$ is each sometimes an eigenstate of $z$ spin, i.e. of $\Sigma_{3}\left(\text { for } \mathbf{p}=0 \text { or }=p^{3} \mathbf{i}_{3}\right)$
+4. $u_{1}(p)$ and $u_{2}(p)$ is each sometimes an eigenstate of $z$ spin, i.e. of $\Sigma_{3}$ for $\mathbf{p}=0$ or$=p^{3} \mathbf{i}_{3}$)
 
 5. $u_{1}(\mathbf{p})$ and $u_{2}(\mathbf{p})$ are always basis vectors in $4 \mathrm{D}$ spinor space (for any $\mathbf{p}$) 
 
-6.\textbf{$u_{1}(\mathrm{p})$ and $u_{2}(\mathrm{p})$ change orientation, as visualized in physical space, as $\mathrm{p}$ changes.}
+6. \textbf{$u_{1}(\mathrm{p})$ and $u_{2}(\mathrm{p})$ change orientation, as visualized in physical space, as $\mathrm{p}$ changes.}
 
 7. Spin S (often in relativity as $\Sigma$ ) changes direction with p, but differently than $u_{1}$ and $u_{2}$
 \end{qt}
-Any general spin state $u$ can be represented as a linear combination of $u_{1}$ and  $u_{2}$ (for any $\mathbf{p}$ )
+Any general spin state $u$ can be represented as a linear combination of $u_{1}$ and  $u_{2}$ (for any $\mathbf{p}$)
 $$
 u(\mathrm{p})=C_{1}(\mathrm{p}) u_{1}(\mathrm{p})+C_{2}(\mathrm{p}) u_{2}(\mathrm{p})
 $$
@@ -567,3 +570,382 @@ Any general particle state includes a spin part plus a spacetime part(for any gi
 $$
 \left|\psi_{\mathfrak{p}}\right\rangle=\sqrt{\frac{m}{2 V E_{\mathrm{p}}}} u(\mathbf{p}) e^{-i p x}=\sqrt{\frac{m}{2 V E_{\mathrm{p}}}}\left(C_{1}(\mathrm{p}) u_{1}(\mathrm{p}) e^{-i p x}+C_{2}(\mathrm{p}) u_{2}(\mathrm{p}) e^{-i p x}\right)
 $$
+\subsection{RQM Helicity operator}
+For massless particles ($v=c$), the velocity vector must perfectly align with the spin vector. This alignment is called \textbf{perfect helicity}. In general, if the spin axis (using the right-hand rule), of a particle is in the direction of $v$ one
+says the particle has \textbf{positive helicity}. If spin points in the direction of $- v$, the particle has \textbf{negative helicitv}. 
+
+The degree  of helicity a particle has be define in terms of the angle between the spin vector and the velocity vector. It is maximum if that angle is zero.\textbf{ The dot product of the spin vector with a unit vector in the $\mathbf{p}$ (or equivalently, the $v$) direction has come to be the mathematical definition of helicity}.
+
+\bluep{Our spin operator $\Sigma$ in RQM plays the role of a 3-vector in physical space that points in the direction of spin.} The inner product in physical space of the spin operator $\Sigma$ and the unit vector in the $\mathbf{p}$ direction would then be \textbf{helicity operator}:
+\begin{qt}
+\begin{equation}
+\Sigma_{p}=\Sigma \cdot i_{p}=\Sigma \cdot \frac{p}{|p|}=\Sigma_{1} \frac{p^{1}}{|p|}+\Sigma_{2} \frac{p^{2}}{|p|}+\Sigma_{3} \frac{p^{3}}{|p|}
+\label{helicity-operator}
+\end{equation}
+(\ref{helicity-operator}) is a $4\times4$ matrix in spinor space because each $\Sigma_i$ is a matrix. (\ref{helicity-operator}) is a scalar in physical space because it is the inner product of two vectors.
+\end{qt}
+\begin{example}
+Consider a case where a particle is in the first eigenstate of (\ref{four-spinors}), and if $p^3\neq0$, we have
+$$
+\Sigma \cdot \frac{\mathbf{p}}{|\mathbf{p}|}\left|\psi^{(1)}\right\rangle=\Sigma_{3} \underbrace{\frac{p^{3}}{|\mathbf{p}|}}_{=1}\left|\psi^{(1)}\right\rangle=\frac{1}{2}\left[\begin{array}{cccc}
+{1} \\
+{} & {-1} \\
+{} & {} & {1} \\
+{} & {} & {} & {-1}
+\end{array}\right]\sqrt{\frac{E+m}{2 m}}\left(\begin{array}{c}
+{1} \\
+{0} \\
+{\frac{p^3}{E+m}} \\
+{0}
+\end{array}\right)e^{-ipx}=\frac{1}{2}\left|\psi^{(1)}\right\rangle
+$$
+\end{example}
+\begin{example}
+Note that if $p^3$ were negative (-z direction)
+$$
+\Sigma_{3}\left|\psi^{(1)}\right\rangle=\frac{1}{2}\left[\begin{array}{cccc}
+{1} \\
+{} & {-1} \\
+{} & {} & {1} \\
+{} & {} & {} & {-1}
+\end{array}\right]\sqrt{\frac{E+m}{2 m}}\left(\begin{array}{c}
+{1} \\
+{0} \\
+{\frac{p^{3}}{E+m}} \\
+{0}
+\end{array}\right) e^{-i p x}=\frac{1}{2}\left|\psi^{(1)}\right\rangle
+$$
+but
+$$
+\Sigma \cdot \frac{\mathbf{p}}{|\mathbf{p}|}\left|\psi^{(1)}\right\rangle=\Sigma_{3} \underbrace{\frac{p^{3}}{|\mathbf{p}|}}_{=-1}\left|\psi^{(1)}\right\rangle=-\frac{1}{2}\left|\psi^{(1)}\right\rangle
+$$
+\end{example}
+In general, a $+1 / 2$ helicity state for spinors means the spin is in the direction of $p$; a $-1 / 2$ helicity eigenvalue means spin is in the direction of $-p$.
+
+\section{The Dirac Equation in QFT}
+The Dirac equation for fields (where we will, as with scalar fields, work in the Heisenberg picture), is
+\begin{equation}
+\left(i \gamma^{\mu} \partial_{\mu}-m\right) \psi=0
+\end{equation}
+Its eigensolutions
+\begin{equation}
+\psi^{(1)}=u_{1} e^{-i p x} \quad \psi^{(2)}=u_{2} e^{-i p x} \quad \psi^{(3)}=v_{2} e^{i p x} \quad \psi^{(4)}=v_{1} e^{i p x}
+\end{equation}
+\textbf{\underline{The adjoint Dirac equation for fields is}}
+\begin{equation}
+i \partial_{\mu} \bar{\psi} \gamma^{\mu}+m \bar{\psi}=0
+\end{equation}
+with adjoint eigensolutions
+\begin{equation}
+\bar{\psi}=\psi^{\dagger} \gamma^{0} \rightarrow \bar{\psi}^{(1)}=u_{1}^{\dagger} \gamma_{e}^{0} e^{i p x}=\bar{u}_{\mathrm{l}} e^{i p x} \quad \bar{\psi}^{(2)}=\bar{u}_{2} e^{i \phi x} \quad \bar{\psi}^{(3)}=\bar{v}_{2} e^{-i \varphi x} \quad \bar{\psi}^{(4)}=\bar{v}_{1} e^{-\dot{\varphi} x}
+\end{equation}
+\begin{qt}
+the general discrete plane wave solutions are
+\begin{equation}
+\begin{aligned}
+\psi &=\sum_{r, \mathbf{p}} \sqrt{\frac{m}{V E_{\mathrm{p}}}}\left(c_{r}(\mathbf{p}) u_{r}(\mathbf{p}) e^{-i p x}+d_{r}^{\dagger}(\mathbf{p}) v_{r}(\mathbf{p}) e^{i p x}\right) \\
+&=\quad \psi^{+} \quad+\quad \psi^{-}
+\end{aligned}
+\end{equation}
+\begin{equation}
+\begin{aligned}
+&\bar{\psi}=\sum_{r, p} \sqrt{\frac{m}{V E_{p}}}\left(d_{r}(p) \bar{v}_{r}(p) e^{-i p x}+c_{r}^{\dagger}(p) \bar{u}_{r}(p) e^{i p x}\right)\\
+&=\quad \bar{\psi}^{+} \quad+\quad \bar{\psi}^{-}
+\end{aligned}
+\end{equation}
+\end{qt}
+The general continuous plane wave solutions are
+\begin{equation}
+\begin{aligned}
+&\psi=\sum_{r} \sqrt{\frac{m}{(2 \pi)^{3}}} \int \frac{d^{3} \mathbf{p}}{\sqrt{E_{p}}}\left(c_{r}(\mathbf{p}) u_{r}(\mathbf{p}) e^{-i p x}+d_{r}^{\dagger}(\mathbf{p}) v_{r}(\mathbf{p}) e^{i p x}\right)\\
+&\bar{\psi}=\sum_{r} \sqrt{\frac{m}{(2 \pi)^{3}}} \int \frac{d^{3} \mathbf{p}}{\sqrt{E_{p}}}\left(d_{r}(\mathbf{p}) \bar{v}_{r}(\mathbf{p}) e^{-i p x}+c_{r}^{\dagger}(\mathbf{p}) \bar{u}_{r}(\mathbf{p}) e^{i p x}\right)
+\end{aligned}
+\end{equation}
+\begin{qt}
+the Lagrangian ( density) for free spinor fields to be
+\begin{equation}
+\mathcal{L}_{0}^{1/2}=\bar{\psi}\left(i \gamma^{\alpha} \partial_{\alpha}-m\right) \psi
+\end{equation}
+Conjugate momenta for $\psi$ and $\bar{\psi}$ are
+\begin{equation}
+\pi^{1 / 2}=\frac{\partial \mathcal{L}_{0}^{1 / 2}}{\partial \psi_{0}}=i \psi \gamma^{0}=i \psi^{\dagger} \gamma^{\dagger} \gamma^{0}=i \psi^{\dagger}
+\end{equation}
+\begin{equation}
+\bar{\pi}^{1 / 2}=\frac{\partial \mathcal{L}_{0}^{1 / 2}}{\partial \bar{\psi}_{, 0}}=0
+\end{equation}
+The Dirac Hamiltonian density can be found from the Legendre transformation as
+\begin{equation}
+\begin{aligned}
+\mathcal{H}_{0}^{1 / 2} &=\pi^{1 / 2} \dot{\psi}+\bar{\pi}^{1 / 2} \dot{\bar{\psi}}-\mathcal{L}_{0}^{1 / 2}=i \psi^{\dagger} \dot{\psi}-\mathcal{L}_{0}^{1 / 2}=i \underbrace{\psi^{\dagger} \gamma^{0}}_{\bar{\psi}} \gamma^{0} \dot{\psi}-\mathcal{L}_{0}^{1 / 2} \\
+&=i \bar{\psi} \gamma^{0} \dot{\psi}\underbrace{-i \bar{\psi} \gamma^{0} \dot{\psi}-i \bar{\psi} \gamma^{i} \partial_{i} \psi}_{-i\bar{\psi}\gamma^{\alpha}\partial_{\alpha}\psi}+m \bar{\psi} \psi=-i \bar{\psi} \gamma^{i} \partial_{i} \psi+m \bar{\psi} \psi
+\end{aligned}
+\end{equation}
+\end{qt}
+\section{Anti-commutation Relations for Dirac Fields}
+\begin{qt}
+\begin{equation}
+    \left[c_{r}(\mathbf{p}), c_{s}^{\dagger}\left(\mathbf{p}^{\prime}\right)\right]_{+}=\left[d_{r}(\mathbf{p}), d_{s}^{\dagger}\left(\mathbf{p}^{\prime}\right)\right]_{+}=\delta_{r S} \delta_{\mathbf{p p}^{\prime}}(\text { discrete }) ;=\delta_{r s} \delta(\mathbf{p - p ^ { \prime }})(\text { continuous })
+\end{equation}
+All other anti-commutators between coefficients equal zero.
+\end{qt}
+\section{The Dirac Hamiltonian in QFT}
+Similar to what we did for scalar fields, we find the Dirac Hamiltonian by integrating the Dirac Hamiltonian density over all space (a volume V containing the discrete solutions, which we can make as large as we like), i.e.,
+\begin{equation}
+H_{0}^{1 / 2}=\int \mathcal{H}_{0}^{1 / 2} d^{3} x=\int\left(-i \bar{\psi} \gamma^{i} \partial_{i} \psi+m \bar{\psi} \psi\right) d^{3} x
+\label{Dirac-Hamiltonian}
+\end{equation}
+we substitute the Dirac general solution into (\ref{Dirac-Hamiltonian}) to give
+$$
+\begin{aligned}
+&H_{0}^{1 / 2}=\int\left(-i \bar{\psi} \gamma^{i} \partial_{i} \psi+m \bar{\psi} \psi\right) d^{3} x=\\
+&\int\left(\sum_{r, p} \sqrt{\frac{m}{V E_{p}}}\left(d_{r}(p) \bar{v}_{r}(\mathbf{p}) e^{-i p x}+c_{r}^{\dagger}(\mathbf{p}) \bar{u}_{r}(\mathbf{p}) e^{i p x}\right)\right) \times
+\end{aligned}
+$$
+$$
+\left(-i \gamma^{i} \partial_{i}\right)\left(\sum_{s, p^{\prime}} \sqrt{\frac{m}{V E_{p^{\prime}}}}\left(c_{s}\left(\mathbf{p}^{\prime}\right) u_{s}\left(\mathbf{p}^{\prime}\right) e^{-i p^{\prime} x}+d_{s}^{\dagger}\left(\mathbf{p}^{\prime}\right) v_{s}\left(\mathbf{p}^{\prime}\right) e^{i p^{\prime} x}\right)\right) d^{3} x
+$$
+$$
++\int m\left(\sum_{r, p} \sqrt{\frac{m}{V E_{p}}}\left(d_{r}(p) \bar{v}_{r}(p) e^{-i p x}+c_{r}^{\dagger}(p) \bar{u}_{r}(p) e^{i p x}\right)\right) \times
+$$
+$$
+\left(\sum_{s, \mathbf{p}^{\prime}} \sqrt{\frac{m}{V E_{\mathbf{p}^{\prime}}}}\left(c_{s}\left(\mathbf{p}^{\prime}\right) u_{s}\left(\mathbf{p}^{\prime}\right) e^{-i p^{\prime} x}+d_{s}^{\dagger}\left(\mathbf{p}^{\prime}\right) v_{s}\left(\mathbf{p}^{\prime}\right) e^{i \mathbf{p}^{\prime} \cdot x}\right)\right) d^{3} x
+$$
+The first of the two integrals above becomes
+$$
+ \int\left(\sum_{r, \mathbf{p}} \sqrt{\frac{m}{V E_{p}}}d_{r}(\mathbf{p}) \bar{v}_{r}(\mathbf{p}) e^{-i\left(E_{p} t-p^{i} x^{i}\right)}\right)\left(\sum_{s, p^{\prime}} \sqrt{\frac{m}{V E_{p^{\prime}}}} c_{s}\left(\mathbf{p}^{\prime}\right) \gamma^{i} \underbrace{p^{\prime i}}_{\text { from }\partial_i} u_{s}\left(\mathbf{p}^{\prime}\right) e^{-i\left(E_{p^{\prime}}-p^{\prime i} x^{i}\right)}\right)d^3x
+$$
+$$
++\int\left(\sum_{r, \mathrm{p}} \sqrt{\frac{m}{V E_{\mathrm{p}}}} d_{r}(\mathrm{p}) \bar{v}_{r}(\mathbf{p}) e^{-i\left(E_{\mathrm{p}} t-p^{i} x^{i}\right)}\right)\left(\sum_{s, p^{\prime}} \sqrt{\frac{m}{V E_{p^{\prime}}}} d_{s}^{\dagger}\left(p^{\prime}\right) \gamma^{i}\left(-p^{\prime i}\right) v_{s}\left(p^{\prime}\right) e^{i\left(E_{p^{\prime}}t-p^{\prime i} x^{i}\right)}\right) d^{3} x
+$$
+$$
++\int\left(\sum_{r, \mathrm{p}} \sqrt{\frac{m}{V E_{\mathrm{p}}}} c^{\dagger}_{r}(\mathrm{p}) \bar{u}_{r}(\mathbf{p}) e^{-i\left(E_{\mathrm{p}} t-p^{i} x^{i}\right)}\right)\left(\sum_{s, p^{\prime}} \sqrt{\frac{m}{V E_{p^{\prime}}}} c_{s}\left(p^{\prime}\right) \gamma^{i}\left(p^{\prime i}\right) u_{s}\left(p^{\prime}\right) e^{i\left(E_{p^{\prime}}t-p^{\prime i} x^{i}\right)}\right) d^{3} x
+$$
+$$
++\int\left(\sum_{r, \mathrm{p}} \sqrt{\frac{m}{V E_{\mathrm{p}}}} c^{\dagger}_{r}(\mathrm{p}) \bar{u}_{r}(\mathbf{p}) e^{-i\left(E_{\mathrm{p}} t-p^{i} x^{i}\right)}\right)\left(\sum_{s, p^{\prime}} \sqrt{\frac{m}{V E_{p^{\prime}}}} d^{\dagger}_{s}\left(p^{\prime}\right) \gamma^{i}\left(-p^{\prime i}\right) v_{s}\left(p^{\prime}\right) e^{i\left(E_{p^{\prime}}t-p^{\prime i} x^{i}\right)}\right) d^{3} x
+$$
+\redp{because an integral over all space of the oscillating function $e^{if(\mathbf{x})}$, where $f(\mathbf{x}\neq0)$ is zero. }So,in the first and last lines, only terms with $\mathbf{p}=-\mathbf{p}^{\prime}$ will survive. And in the $2^{\text {nd }}$ and $3^{\text {rd }}$ lines, only terms in $\mathbf{p}^{\prime}=\mathbf{p}$ will. We assume, as in $\mathrm{RQM},$ that \textbf{\redp{the order of spinors and coefficients (such as $c_{r} \text { and } d_{r}$) can be interchanged at will, but we must preserve the order of spinor entities as it represent matrix/vector multiplication in spinor space.}}
+$$
++\int\left[\sum_{r, s, \mathbf{p}} \frac{m}{V E_{\mathbf{p}}} d_{r}(-\mathbf{p}) \bar{v}_{r}(-\mathbf{p}) \gamma^{i} p^{i} u_{s}(\mathbf{p}) c_{s}(\mathbf{p}) e^{-i 2 E_{p} t}\right] d^{j}
+$$
+$$
++\int\left(\sum_{r, s, \mathbf{p}} \frac{m}{V E_{\mathrm{p}}} d_{r}(\mathbf{p}) \bar{v}_{r}(\mathbf{p}) \gamma^{i}\left(-p^{i}\right) v_{s}(\mathbf{p}) d_{s}^{\dagger}(\mathbf{p})\right) d^{3} x
+$$
+$$
++\int\left(\sum_{r, s, \mathbf{p}} \frac{m}{V E_{p}} c_{r}^{\dagger}(\mathbf{p}) \bar{u}_{r}(\mathbf{p}) \gamma^{i} p^{i} u_{s}(\mathbf{p}) c_{s}(\mathbf{p})\right) d^{3} x
+$$
+$$
++\int\left(\sum_{r, s, \mathbf{p}} \frac{m}{V E_{p}} c_{r}^{\dagger}(-\mathbf{p}) \bar{u}_{r}(-\mathbf{p}) \gamma^{i}\left(-p^{i}\right) v_{s}(\mathbf{p}) d_{s}^{\dagger}(\mathbf{p}) e^{i 2 E_{p} t}\right) d^{3} x
+$$
+In similar fashion. the last two lines of the expansion of (\ref{Dirac-Hamiltonian}), representing the mass term in $H^{1/2}_0$, become
+$$
+\int\left(\sum_{r, s, \mathbf{p}} \frac{m}{V E_{p}} d_{r}(-\mathbf{p}) \bar{v}_{r}(-\mathbf{p}) m u_{s}(\mathbf{p}) c_{s}(\mathbf{p}) e^{-i 2 E_{p} t}\right) d^{3} x
+$$
+$$
+\begin{aligned}
+&+\int\left(\sum_{r, s, \mathbf{p}} \frac{m}{V E_{\mathbf{p}}} d_{r}(\mathbf{p}) \bar{v}_{r}(\mathbf{p}) m v_{s}(\mathbf{p}) d_{s}^{\dagger}(\mathbf{p})\right) d^{3} x\\
+&+\int\left(\sum_{r, s, \mathbf{p}} \frac{m}{V E_{\mathrm{p}}} c_{r}^{\dagger}(\mathbf{p}) \bar{u}_{r}(\mathbf{p}) m u_{s}(\mathbf{p}) c_{s}(\mathbf{p})\right) d^{3} x
+\end{aligned}
+$$
+$$
++\int\left(\sum_{r, s, \mathbf{p}} \frac{m}{V E_{\mathbf{p}}} c_{r}^{\dagger}(-\mathbf{p}) \bar{u}_{r}(-\mathbf{p}) m v_{s}(\mathbf{p}) d_{s}^{\dagger}(\mathbf{p}) e^{i 2 E_{\mathbf{p}} t}\right) d^{3} x
+$$
+\begin{mybox}
+\textbf{Relationship for $u_{s}(\mathbf{p})$}
+
+Consider the Dirac equation and a single eigensolution to it having 3 -momentum p and spin $s$
+$$
+\left(i \gamma^{\mu} \partial_{\mu}-m\right) \psi=(i \not \partial-m) \psi=0 \quad \text { with } \quad \psi=c_{\underline{s}}(\mathbf{p}) u_{\underline{s}}(\mathbf{p}) e^{-i p x}
+$$
+$$
+\left(\gamma^{\mu} p_{\mu}-m\right) c_{\underline{s}}(\mathbf{p}) u_{\underline{s}}(\mathbf{p}) e^{-i p x}=(\not p-m) c_{\underline{s}}(\mathbf{p}) u_{\underline{s}}(\mathbf{p}) e^{-i p x}=0
+$$
+\textbf{Neither $c_{s}(p)$ nor the exponential equal zero, so the remaining factors must equal zero}, thus
+$$
+\left(\gamma^{\mu} p_{\mu}-m\right) u_{s}(\mathbf{p})=(\not p-m) u_{s}(\mathbf{p})=0
+$$
+Now from the complex conjugate transpose of (\ref{coefficient-orthogonality}), where r and s are dummy variables and thus interchangeable and the relation holds for any $\mathbf{p}$, including $-\mathbf{p}$,
+$$
+\begin{aligned}
+u_{r}^{\dagger}(\mathbf{p}) v_{s}(-\mathbf{p})=0 & \rightarrow v_{s}^{\dagger}(-\mathbf{p}) u_{r}(\mathbf{p})=0 \rightarrow v_{r}^{\dagger}(-\mathbf{p}) u_{s}(\mathbf{p})=0 \\
+v_{r}^{\dagger}(-\mathbf{p}) \gamma^{0} \gamma^{0} u_{s}(\mathbf{p})=0 & \rightarrow \bar{v}_{r}(-\mathbf{p}) \gamma^{0} u_{s}(\mathbf{p})=0 \rightarrow \bar{v}_{r}(-\mathbf{p}) \gamma^{0} p_{0} u_{s}(\mathbf{p})=0
+\end{aligned}
+$$
+And thus,
+$$
+\bar{v}_{r}(-\mathrm{p}) \gamma^{i} p^{i} u_{s}(\mathrm{p})=\bar{v}_{r}(-\mathrm{p}) \gamma^{i}\left(-p_{i}\right) u_{s}(\mathrm{p})-\bar{v}_{r}(-\mathrm{p}) \gamma^{0} p_{0} u_{s}(\mathrm{p})=-\bar{v}_{r}(-\mathrm{p}) \underbrace{\gamma^{\mu} p_{\mu}}_{\not p} u_{s}(\mathrm{p})
+$$
+When we then use the RHS instead of the LHS of the equation above, we get
+$$
+-\int\left(\sum_{r, s, \mathbf{p}} \frac{m}{V E_{\mathbf{p}}} d_{r}(-\mathbf{p})(\bar{v}_{r}(-\mathbf{p})\underbrace{(\not p-m)u_s(\mathbf{p})}_{=0} c_{s}(\mathbf{p}) e^{-i 2 E_{p} t}\right) d^{3} x=0
+$$
+\end{mybox}
+Recall that 
+$$
+v_{r}^{\dagger}(\mathbf{p}) v_{s}(\mathbf{p})=\bar{v}_{r}(\mathbf{p}) \gamma^{0} v_{s}(\mathbf{p})=\frac{E_{p}}{m} \delta_{r s}=\frac{p_{0}}{m} \delta_{r s}
+$$
+we have
+$$
+\bar{v}_{r}(\mathbf{p}) \gamma^{0} p_{0} v_{s}(\mathbf{p})=\frac{\left(p_{0}\right)^{2}}{m} \delta_{r s}=\frac{E_{p}^{2}}{m} \delta_{r s}
+$$
+Adding the integrals above, and using the relationship in the box, we find
+\begin{equation}
+\begin{aligned}
+&\int\left(\sum_{r, s, \mathbf{p}} \frac{m}{V E_{p}} d_{r}(\mathbf{p}) \bar{v}_{r}(\mathbf{p})\left(-\gamma^{i} p^{i}+m\right) v_{s}(\mathbf{p}) d_{s}^{\dagger}(\mathbf{p})\right) d^{3} x\\
+&=\int\left(\sum_{r \leq p} \frac{m}{V E_{p}} d_{r}(p)\left(\bar{v}_{r}(p)\left(\gamma^{i} p_{i}+m+\gamma^{0} p_{0}\right) v_{s}(p)-\frac{E_{p}^{2}}{m} \delta_{r s}\right) d_{s}^{\dagger}(p)\right) d^{3} x\\
+&=\frac{1}{V} \int_{=1}^{1} d^{3} x\left(\sum_{r,s, p} \frac{m}{E_{p}} d_{r}(p)\left(\gamma^{\mu} p_{\mu}+m\right){v_{s}(p)-\frac{E_{p}^{2}}{m} \delta_{r s}}\right) d_{s}^{\dagger}(p)
+\end{aligned}
+\end{equation}
+Note that $(\not p+m) v_{s}(p)=0$, the equation above reduces to
+\begin{equation}
+\sum_{r, \mathrm{p}} \frac{m}{E_{\mathrm{p}}} d_{r}(\mathbf{p})\left(-\frac{E_{\mathrm{p}}^{2}}{m}\right) d_{r}^{\dagger}(\mathbf{p})=-\sum_{r, \mathbf{p}} E_{\mathbf{p}} \underbrace{d_{r}(\mathbf{p}) d_{r}^{\dagger}(\mathbf{p})}_{\text {use anti-commutator }}
+\end{equation}
+Finally,
+\begin{qt}
+\begin{equation}
+H_{0}^{1 / 2}=\sum_{r, p} E_{p}\left(N_{r}(p)-\frac{1}{2}+\bar{N}_{r}(p)-\frac{1}{2}\right)
+\end{equation}
+\begin{equation}
+N_{r}(\mathbf{p})=c_{\underline{r}}^{\dagger}(\mathbf{p}) c_{\underline{r}}(\mathbf{p}) \quad \bar{N}_{r}(\mathbf{p})=d_{\underline{r}}^{\dagger}(\mathbf{p}) d_{\underline{r}}(\mathbf{p}) \quad \text { (underbars mean no summation) }
+\end{equation}
+where
+
+$N_{r}(\mathbf{p})=$ number operator with eigenvalue $n_{r}(\mathbf{p})=$ number of $c$ particles of 3 -mom $\mathbf{p},$ spin $r$ in the ket,
+
+$\bar{N}_{r}(\mathbf{p})=$ number operator with eigenvalue $\bar{n}_{r}(\mathbf{p})=$ number of $d$ particles with $\mathbf{p}$ and spin $r$ in the ket,
+
+and, the vacuum has $-1 / 2$ quantum of energy for each $\mathrm{p}, r$ for $c$ particles, and also for $d$ particles
+\end{qt}
+Note that
+\begin{equation}
+H_{0}^{1 / 2}|0\rangle=\sum_{r, p} E_{p}\left(N_{r}(p)-\frac{1}{2}+\bar{N}_{r}(p)-\frac{1}{2}\right)|0\rangle=\sum_{r, p} E_{p}\left(-\frac{1}{2}-\frac{1}{2}\right)|0\rangle
+\end{equation}
+\textbf{This infinite negative energy indicates that there is still something missing from the extant theory.}
+
+\section{Creation and Destruction Operators}
+It will probably not come as a big surprise that the $c_{r}(\mathbf{p})$ and $d_{r}(\mathbf{p})$ operators destroy Dirac particles, and their complex conjugates create Dirac particles. We prove this below.
+
+From the anti-commutation relations,
+\begin{equation}
+\left[c_{r}^{\dagger}(\mathbf{p}), c_{r}^{\dagger}(\mathbf{p})\right]_{+}=\left[c_{r}(\mathbf{p}), c_{r}(\mathbf{p})\right]_{+}=0
+\end{equation}
+Thus,
+\begin{equation}
+c_{r}^{\dagger}(\mathbf{p}) c_{r}^{\dagger}(\mathbf{p})+c_{r}^{\dagger}(\mathbf{p}) c_{r}^{\dagger}(\mathbf{p})=0 \rightarrow\left(c_{r}^{\dagger}(\mathbf{p})\right)^{2}=0
+\end{equation}
+Similarly
+$$\left(c_{r}(\mathbf{p})\right)^{2}=0 \quad\left(d_{r}^{\dagger}(\mathbf{p})\right)^{2}=0\quad \left(d_{r}(p)\right)^{2}=0
+$$
+\underline{Proof that $c_r(\mathbf{p})$ is a Destruction operator}
+$$
+c_{r}(\mathbf{p})\left|\psi_{r . p}\right\rangle=|?\rangle
+$$
+Use the number operator, we have
+$$
+N_{r}(\mathbf{p})|?\rangle= n_{?}|?\rangle= n_{?} c_{r}(\mathbf{p})\left|\psi_{r, \mathbf{p}}\right\rangle=\left(1-c_{r}(\mathbf{p}) c_{r}^{\dagger}(\mathbf{p})\right) c_{r}(\mathbf{p})\left|\psi_{r, \mathbf{p}}\right\rangle
+$$
+$$
+=c_{I}(\mathbf{p})\left|\psi_{r, \mathbf{p}}\right\rangle- c_{r}(\mathbf{p}) \underbrace{n_{r}(\mathbf{p})}_{=1}\left|\psi_{r, \mathbf{p}}\right\rangle=(1-1) \underbrace{c_{r}(\mathbf{p})\left|\psi_{r, \mathbf{p}}\right\rangle}_{|?\rangle}
+$$
+When $c_r^{\dagger}(\mathbf{p})$ acts on a single particle state, we find
+\begin{qt}
+\begin{equation}
+c_{r}^{\dagger}(\mathbf{p}) \underbrace{\left|\psi_{r, \mathbf{p}}\right\rangle}_{c_{r}^{\dagger}(\mathbf{p})|0\rangle}=\left(c_{r}^{\dagger}(\mathbf{p})\right)^{2}|0\rangle= 0
+\end{equation}
+So, the theory we've developed tells us that we cannot create (we cannot have) multiparticle with more than one Dirac particle in a given single particle state.
+\end{qt}
+\bluep{\textbf{General rule}}
+
+Coefficient commutation relations work for bosons and allow more than one identical single particle state to $\mathrm{co}$ -exist in the same multiparticle state.
+
+Coefficient anti-commutation relations work for fermions and do not allow more than one identical single particle state to co-exist in the same multiparticle state.
+
+\subsection{Total Particle number}
+As with scalars, total particle rtl.llilber is defined as the number of particles (i.e. c types) minus the number of antiparticles (d types). For spinors, the total particle number operator is
+\begin{equation}
+N(\psi)=\sum_{r, p}\left(N_{r}(\mathbf{p})-\bar{N}_{r}(\mathbf{p})\right)
+\end{equation}
+\textbf{Again, note the subtle difference in phraseology. "Number of particles" (which is different from "total particle number") equals the number of particles plus the number of antiparticles.}
+
+\section{QFT Spinor Charge Operator and Four Current}
+From what we know about the number operators, and parallel to what we found for scalar fields, we can simply define our Dirac charge operator as
+\begin{qt}
+\begin{equation}
+Q=-e \sum_{r, p}\left(N_{r}(\mathbf{p})-\bar{N}_{r}(\mathbf{p})\right)
+\label{Dirac-charge-operator}
+\end{equation}
+\end{qt}
+Where - e is the charge on the electron. Note that, with this definition, d type particles will ~ave a
+charge of+ e, which would qualify them as antiparticles of the electron. Note the operation of
+(\ref{Dirac-charge-operator})on a typical state
+$$
+-e \sum_{r, \mathbf{p}}\left(N_{r}(\mathbf{p})-\bar{N}_{r}(\mathbf{p})\right)\left|\psi_{n, \mathbf{p}_{1}}, \psi_{n, \mathbf{p}_{2}}, \bar{\psi}_{n, \mathbf{p}_{1}}\right\rangle=\underbrace{-e(1+1-1)}_{\text { to charge }=-e}\left|\psi_{n, \mathbf{p}_{1},} \psi_{n, \mathbf{p}_{2}}, \bar{\psi}_{n, \mathbf{p}_{1}}\right\rangle
+$$
+A state With two electrons and one positron has a total charge Of -e.
+\subsection{The Dirac charge operator from the four current}
+\begin{qt}
+\begin{equation}
+\text { spinor 4-current operator } j^{\mu}=(\rho, \mathbf{j})=\bar{\psi} \gamma^{\mu} \psi \quad \text { with } \quad \partial_{\mu} j^{\mu}=0
+\end{equation}
+\end{qt}
+\section{Dirac Three Momentum Operator}
+we can simply define our Dirac 3-momentum operator as
+\begin{equation}
+\mathbf{P}=\sum_{r, \mathbf{p}} \mathbf{p}\left(N_{r}(\mathbf{p})+\bar{N}_{r}(\mathbf{p})\right)
+\end{equation}
+\section{Dirac Spin Operator in QFT}
+\begin{qt}
+We can define the \textbf{QFT Dirac spin operator} as
+\begin{equation}
+{}_\mathrm{QFT}{\Sigma_{i}}=\int_{V} \psi^{\dagger} \Sigma_{i} \psi d^{3} x \rightarrow \quad {}_\mathrm{QFT}{\Sigma_{3}}=\int_{V} \psi^{\dagger} \Sigma_{3} \psi d^{3} x
+\end{equation}
+\end{qt} 
+For type c particles, we have
+\begin{equation}
+{}_{ QFT }{}^{c} \Sigma_{3}=\int_{V}\left(\sum_{r, p} \sqrt{\frac{m}{V E_{\mathbf{p}}}} c_{r}^{\dagger}(\mathbf{p}) u_{r}^{\dagger}(\mathbf{p}) e^{i p x}\right) \Sigma_{3}\left(\sum_{s, \mathbf{p}^{\prime}} \sqrt{\frac{m}{V E_{\mathbf{p}^{\prime}}}} c_{s}\left(\mathbf{p}^{\prime}\right) u_{s}\left(\mathbf{p}^{\prime}\right) e^{-i p^{\prime} x}\right) d^{3} x
+\end{equation}
+As we should be getting used to by now, all terms where $\mathbf{p} \neq \mathbf{p}^{\prime}$ will go to zero in the integration. giving us
+\begin{equation}
+{}_{ QFT }{}^{c} \Sigma_{3}=\left(\sum_{r, s, \mathrm{p}} c_{r}^{\dagger}(\mathbf{p}) c_{s}(\mathbf{p}) u_{r}^{\dagger}(\mathbf{p}) \Sigma_{3} u_{s}(\mathbf{p})\right) \frac{1}{V} \int d^{3} x=\left(\sum_{r, s, \mathbf{p}} u_{r}^{\dagger}(\mathbf{p}) \Sigma_{3} u_{s}(\mathbf{p}) c_{r}^{\dagger}(\mathbf{p}) c_{s}(\mathbf{p})\right)
+\end{equation}
+For a single particle state of spin s, the c operators will destroy that state, then create ones of spins r, i.e.,
+\begin{equation}
+\left(\sum_{r, s^{\prime}, p^{\prime}} \frac{m}{E_{p^{\prime}}} u_{r}^{\dagger}\left(\mathbf{p}^{\prime}\right) \Sigma_{3} u_{s^{\prime}}\left(\mathbf{p}^{\prime}\right) c_{r}^{\dagger}\left(\mathbf{p}^{\prime}\right) c_{s^{\prime}}\left(\mathbf{p}^{\prime}\right)\right) \left| \psi_{s, \mathbf{p}}\right\rangle=\sum_{r} \frac{m}{E_{\mathbf{p}}} \underbrace{\left(u_{r}^{\dagger}(\mathbf{p}) \Sigma_{3} u_{s}(\mathbf{p})\right)}_{\text {a number }}\left|\psi_{r, \mathbf{p}}\right\rangle
+\end{equation}
+So, the expectation value of what we would measure for spin in the z direction for the given state with s spin would be
+$$
+\left\langle\psi_{s, \mathrm{p}}\left|{}_{QFT}{}^{c} \Sigma_{3}\right| \psi_{s, \mathbf{p}}\right\rangle=\sum_{r} \frac{m}{E_{p}}\left\langle\psi_{s, p}\right|(\text { a number })\left|\psi_{r, \mathbf{p}}\right\rangle
+$$
+$$
+=0 \text { for } r \neq s ; \quad=\frac{m}{E_{\mathrm{p}}} u_{r}^{\dagger}(\mathbf{p}) \Sigma_{3} u_{r}(\mathbf{p}) \text { for } r=s
+$$
+All of the above steps can be repeated analogously for $\Sigma_1$ and $\Sigma_2$ to yield the general result
+\begin{qt}
+\begin{equation}
+{}_{QFT}{}^{c} \Sigma_{i}=\sum_{r, \mathrm{p}} \frac{m}{E_{\mathrm{p}}} u_{r}^{\dagger}(\mathbf{p}) \Sigma_{i} u_{r}(\mathbf{p}) N_{r}(\mathbf{p})
+\end{equation}
+For both type c and d particles
+\begin{equation}
+{}_{QFT}{}^{d} \Sigma_{i}=\left(\sum_{r, \mathrm{p}} \frac{m}{E_{\mathrm{p}}} v_{r}^{\dagger}(\mathbf{p}) \Sigma_{i} v_{r}(\mathbf{p}) \bar{N}_{r}(\mathbf{p})\right)
+\end{equation}
+Thus, \textbf{QFT spin operator in terms of number operators is}
+\begin{equation}
+{}_{QFT} \Sigma_{i}\sum_{r, \mathbf{p}} \frac{m}{E_{\mathbf{p}}}\left(u_{r}^{\dagger}(\mathbf{p}) \Sigma_{i} u_{r}(\mathbf{p}) N_{r}(\mathbf{p})+v_{r}^{\dagger}(\mathbf{p}) \Sigma_{i} v_{r}(\mathbf{p}) \bar{N}_{r}(\mathbf{p})\right)
+\end{equation}
+\end{qt}
+\section{QFT Helicity Operator}
+\begin{equation}
+{}_{QFT} \Sigma_{\mathbf{p}}=\sum_{r, \mathbf{p}} \frac{m}{E_{\mathbf{p}}}\left(u_{r}^{\dagger}(\mathbf{p}) \Sigma_{i} \frac{p^{i}}{p} u_{r}(\mathbf{p}) N_{r}(\mathbf{p})+v_{r}^{\dagger}(\mathbf{p}) \Sigma_{i} \frac{p^{\prime}}{p} v_{r}(\mathbf{p}) \bar{N}_{r}(\mathbf{p})\right)
+\end{equation}
+\section{Odds and Ends}
+For products of two fields, when the adjoint field is on the left and spinor indices are suppressed, an inner product is implied. Thus, where, as always, repeated indices mean summation,
+\begin{equation}
+\bar{\psi} \psi=\bar{\psi}_{\beta} \psi_{\beta}=\psi_{\alpha}^{\dagger} \gamma_{\alpha \beta}^{0} \psi_{\beta}=\text { a scalar quantity }
+\end{equation}
+When the adjoint field is on the right, an outer product (a tensor/matrix) is implied. For example,
+\begin{equation}
+\psi \bar{\psi}=\psi_{\alpha} \bar{\psi}_{\beta}=\psi_{\alpha} \psi_{\delta}^{\dagger} \gamma_{\delta \beta}^{0}=X_{\alpha \beta}=\text { a matrix quantity in spinor space }
+\end{equation}
+\textbf{For spinor field anti-commutators, which for us, are almost always outer products, we mean}
+\begin{equation}
+[\psi, \bar{\psi}]_{+}=[\psi, \bar{\psi}]_{+\alpha \beta}=\psi_{\alpha} \bar{\psi}_{\beta}+\bar{\psi}_{\beta} \psi_{\alpha}=[\bar{\psi}, \psi]_{+}=[\bar{\psi}, \psi]_{+\alpha \beta}
+\end{equation}
