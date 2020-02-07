@@ -936,7 +936,7 @@ Thus, \textbf{QFT spin operator in terms of number operators is}
 \begin{equation}
 {}_{QFT} \Sigma_{\mathbf{p}}=\sum_{r, \mathbf{p}} \frac{m}{E_{\mathbf{p}}}\left(u_{r}^{\dagger}(\mathbf{p}) \Sigma_{i} \frac{p^{i}}{p} u_{r}(\mathbf{p}) N_{r}(\mathbf{p})+v_{r}^{\dagger}(\mathbf{p}) \Sigma_{i} \frac{p^{\prime}}{p} v_{r}(\mathbf{p}) \bar{N}_{r}(\mathbf{p})\right)
 \end{equation}
-\section{Odds and Ends}
+\section{Anti-commutators are Outer Products}
 For products of two fields, when the adjoint field is on the left and spinor indices are suppressed, an inner product is implied. Thus, where, as always, repeated indices mean summation,
 \begin{equation}
 \bar{\psi} \psi=\bar{\psi}_{\beta} \psi_{\beta}=\psi_{\alpha}^{\dagger} \gamma_{\alpha \beta}^{0} \psi_{\beta}=\text { a scalar quantity }
@@ -949,3 +949,254 @@ When the adjoint field is on the right, an outer product (a tensor/matrix) is im
 \begin{equation}
 [\psi, \bar{\psi}]_{+}=[\psi, \bar{\psi}]_{+\alpha \beta}=\psi_{\alpha} \bar{\psi}_{\beta}+\bar{\psi}_{\beta} \psi_{\alpha}=[\bar{\psi}, \psi]_{+}=[\bar{\psi}, \psi]_{+\alpha \beta}
 \end{equation}
+\section{Subtleties Regarding Spin}
+\subsection{First issue: general(Non-pure )states}
+In QFT, one almost invariably deals with kets such as for which, $\left|\psi_{r, \mathrm{p}}\right\rangle$ or $\left|\psi_{r, \mathbf{p}}, \psi_{r^{\prime}, \mathbf{p}^{\prime}} \psi_{r^{*}, \mathbf{p}^{\prime \prime}}\right\rangle$ \textbf{it is seemingly implied, the spin values $r,r', $and $r^{\prime\prime}$ equal 1 or 2. }These are spin basis states, so it seems these kets cannot represent more general (non-basis) states. The theory still seems a little lacking, if, as it might seem, it only handles pure spin basis states.
+\subsection{Resolution of the first issue}
+Consider the non spin basis state
+\begin{equation}
+\left|\psi_{\mathrm{n.s.b}, \mathrm{p}}\right\rangle=\left|C_{1} \sqrt{\frac{m}{V E_{\mathrm{p}}}} u_{1}(\mathrm{p}) e^{-i p x}+C_{2} \sqrt{\frac{m}{V E_{\mathrm{p}}}} u_{2}(\mathrm{p}) e^{-i p x}\right\rangle
+\end{equation}
+where $\left|\mathrm{C}_{1}\right|^{2}$ is the probability of measuring the $u_{1}$ state, and $\left|\mathrm{C}_{2}\right|^{2}$ is that of the $u_{2}$ state. The expectation value of any operator for this state is
+$$
+\overline{\mathcal{O}}=\left\langle\psi_{\mathrm{n} . \mathrm{s.} \mathrm{b}, \mathrm{p}}|\mathcal{O}| \psi_{\mathrm{n}. \mathrm{s} . \mathrm{b} , \mathrm{p}}\right\rangle=
+$$
+$$
+\left\langle C_{1} \sqrt{\frac{m}{V E_{p}}} u_{1}(\mathbf{p}) e^{-i p x}+C_{2} \sqrt{\frac{m}{V E_{p}}} u_{2}(\mathbf{p}) e^{-i p x}\right|\mathcal{O} \left| C_{1} \sqrt{\frac{m}{V E_{p}}} u_{1}(p) e^{-i p x}+C_{2} \sqrt{\frac{m}{V E_{p}}} u_{2}(p) e^{-i p x}\right\rangle
+$$
+Or, for each spin basis state being an eigenstate of $\mathcal{O},$ with $o_{r=1, p}$ and $o_{r=2, p}$ representing operator eigenvalues for each spin basis state,
+$$
+\overline{\mathcal{O}}=\left\langle C_{1} \sqrt{\frac{m}{V E_{p}}} u_{1}(\mathbf{p}) e^{-i p x}|\underbrace{o_{r=1, \mathbf{p}}}_{\mathcal{O} eigenval}| C_{1} \sqrt{\frac{m}{V E_{p}}} u_{1}(\mathbf{p}) e^{-i p x}\right\rangle
+$$
+$$
++
+\left\langle C_{1} \sqrt{\frac{m}{V E_{p}}} u_{1}(\mathbf{p}) e^{-i p x}\left|o_{r=2, \mathrm{p}}\right| C_{2} \sqrt{\frac{m}{V E_{p}}} u_{2}(\mathbf{p}) e^{-i \varphi x}\right\rangle
+$$
+$$
++\left\langle C_{2} \sqrt{\frac{m}{V E_{p}}} u_{2}(\mathbf{p}) e^{-i p x}\left|o_{r=1, p}\right| C_{1} \sqrt{\frac{m}{V E_{p}}} u_{1}(p) e^{-i p x}\right\rangle
+$$
+$$+\left(C_{2} \sqrt{\frac{m}{V E_{p}}} u_{2}(\mathbf{p}) e^{-i p x}\left|o_{r=2, \mathrm{p}}\right| C_{2} \sqrt{\frac{m}{V E_{p}}} u_{2}(\mathbf{p}) e^{-i p x}\right\rangle
+$$
+The first term in the expression above is
+$$
+o_{r=1, \mathrm{p}} \int_{V} C_{1}^{\dagger} \sqrt{\frac{m}{V E_{\mathrm{p}}}} u_{1}^{\dagger}(\mathrm{p}) e^{i p x} C_{1} \sqrt{\frac{m}{V E_{\mathrm{p}}}} u_{1}(\mathrm{p}) e^{-i p x} d^{3} x
+$$
+$$
+=\mathcal{O}_{r=1, \mathrm{p}} C_{1}^{\dagger} C_{1} \underbrace{u_{1}^{\dagger}(\mathrm{p}) u_{1}(\mathrm{p})}_{E_{\mathrm{p}} / m} \frac{m}{V E_{\mathrm{p}}} \int_{V} d^{3} x=\mathcal{O}_{r=1, \mathrm{p}}\left|C_{1}\right|^{2}
+$$
+The second term is zero as $u_{1}^{\dagger}(\mathrm{p}) u_{2}(\mathrm{p})=0$. Similarly, we have the third term =0, and the fourth term$=\left|C_{2}\right|^{2}$. Then,
+$$
+\overline{\mathcal{O}}=o_{r=1, \mathrm{p}}\left|C_{1}\right|^{2}+o_{r=2, \mathrm{p}}\left|C_{2}\right|^{2}
+$$
+where $\left|\mathrm{C}_{1}\right|^{2}+\left|\mathrm{C}_{2}\right|^{2}=1$.
+If $\mathcal{O}=H,$ the Hamiltonian, then our energy expectation value would be
+$$
+\bar{E}=E_{\mathrm{p}}\left|C_{1}\right|^{2}+E_{\mathrm{p}}\left|C_{2}\right|^{2}=E_{\mathrm{p}}\left(\left|C_{1}\right|^{2}+\left|C_{2}\right|^{2}\right)=E_{\mathrm{p}}
+$$
+as it must be since the two different spin basis states have the same energy. Similar effects would be seen for other operators like $\mathbf{p}$ or $\Sigma_i$.
+
+\subsection{Second issue: multiparticle states}
+1. \redp{The usual standard representation forms of spinors $u_1$ and $u_2$ only represent actual spin if the
+particle at-rest coordinate system has spin parallel to the z axis direction}. That is, $p^i$ used in the usual forms of $u_1$ and $u_2$ must be measured m the at-rest system.
+
+2. If we have two ( or more) Particles. in a multiparticle state, each typically has a different at-rest
+coordinate system. So, we can :either i) represent each particle with usual forms for $u_1$ and $u_2$ using
+$p^i$ values for each measured in its own at-rest system, and thereby make
+computation very difficult, or ii) \textbf{represent all particles by the usual forms of $u_1$ and $u_2$ using $p^i$
+values for all measured in the same coordinate system}, but then, at best, only one particle would
+have its actual spin represented correctly.
+
+\subsection{Solution of the second issue}
+Suppose you had a particle in the particle at-rest coordinate system. Now you wished to express the state in a rotated, primed coordinate system where the $x^{\prime 3}$ axis is aligned with spin direction. But how would we express it in the primed system?
+
+In the primed system, the spin is up, and so we figure our state must be an eigenstate of $\Sigma_3$ in that system. We might then consider that we need to find $C_1$ and $C_2$ in the state ket such that this is true for 3-momentum aligned as $p^{\prime 3}$ and $p^{\prime 1}\neq 0$,$p^{\prime 2}=0$. Thus,
+$$
+\left|\psi^{\prime}_{\uparrow_{\text {spin,p' }}}\right\rangle=\left|C_{1} u_{1}\left(\mathbf{p}^{\prime}\right) e^{-i p x^{\prime}}+C_{2} u_{2}\left(\mathbf{p}^{\prime}\right) e^{-i p^{\prime} x^{\prime}}\right\rangle=
+$$
+$$
+\left|C_{1}\left(\begin{array}{c}
+{1} \\
+{0} \\
+{\frac{p^{\prime 3}}{E+m}} \\
+{\frac{p^{\prime 1}}{E+m}}
+\end{array}\right) e^{-i p^{\prime} x^{\prime}}+C_{2}\left(\begin{array}{c}
+{0} \\
+{1} \\
+{\frac{p^{\prime 1}}{E+m}} \\
+{\frac{-p^{\prime 3}}{E+m}}
+\end{array}\right) e^{-i p^{\prime} x^{\prime}}\right\rangle
+$$
+Then operate on the state above with $\Sigma_3$,
+$$
+\Sigma_{3}\left|\psi_{\uparrow}^{\prime} {}_{spin,\mathbf{p}^{\prime}}\right\rangle=\frac{1}{2}\left|\left(\begin{array}{c}
+{C_{1}} \\
+{-C_{2}} \\
+{\frac{C_{1} p^{\prime 3}+C_{2} p^{\prime 1}}{E+m}} \\
+{\frac{-C_{1} p^{\prime 1}+C_{2} p^{\prime 3}}{E+m}}
+\end{array}\right) e^{-i p^{\prime} \chi}\right\rangle\overset{?}{=}\frac{1}{2}\left|\psi_{\uparrow}^{\prime} {}_{spin,\mathbf{p}^{\prime}}\right\rangle
+$$
+If the equal sign with the question mark over is truly an equal sign, then the state is an eigenstate of spin up. But for that to be true, $C_2=0$, and $p^{\prime 1}=0$. But we already demand that $p^{\prime 1}\neq0$.
+
+\textbf{Conclusion:} \bluep{The traditional forms for $\left.u_{1}, u_{2}, \text { and } \Sigma_{3} \text { (more generally, } \Sigma_{i}\right)$ can only be used in a coordinate system for which the particle at-rest coordinate system spin is aligned with the z direction (positive or negative direction.)}
+
+\textbf{Correcting a mistake in the derivation above:} In the above example, we should have transformed $u_{1}, u_{2}, \Sigma_{3}$ into their equivalent forms in the primed system, i.e., where T is the transformation in spinor space for a coordinate rotation transformation for Cartesian coordinates in physical space such as that 
+$$
+u_{1}^{\prime}=T u_{1} \quad u_{2}^{\prime}=T u_{2} \quad \Sigma_{i}^{\prime}=T \Sigma_{i} T^{-1} \quad\quad\left|\psi^{\prime}_{\uparrow\mathrm{spin}, \mathrm{p}^{\prime}}\right\rangle= T\left|\psi_{\nearrow\mathrm{spin}, \mathrm{p}}\right\rangle
+$$
+where $T$ is a $4 \mathrm{X} 4$ matrix in spinor space. Now we find
+$$
+\Sigma_{3}^{\prime}\left|\psi_{\uparrow_{\mathrm{spin}, \mathrm{p}^{\prime}}}^{\prime}\right\rangle=\frac{1}{2}\left|\psi_{\uparrow_{\mathrm{spin}}, \mathrm{p}^{\prime}}^{\prime}\right\rangle=
+$$
+$$
+\left.\left.\underbrace{\Sigma_{3}^{\prime}}_{T \Sigma_{3} T^{-1}}\right|{C_{1}} \underbrace{u_{1}^{\prime}\left(\mathbf{p}^{\prime}\right)}_{T u_{1}} e^{-i p^{\prime} x^{\prime}}+C_{2} \underbrace{u_{2}^{\prime}\left(\mathbf{p}^{\prime}\right)}_{T u_{2}} e^{-i p^{\prime} x^{\prime}}\right\rangle=\frac{1}{2}\left|C_{1} u_{1}^{\prime}\left(\mathbf{p}^{\prime}\right) e^{-i p^{\prime} x^{\prime}}+C_{2} u_{2}^{\prime}\left(\mathbf{p}^{\prime}\right) e^{-i p^{\prime} x^{\prime}}\right\rangle
+$$
+We did all of the above to emphatically demonstrate conclusion stressed above.
+
+The issue then, in QFT, is that in every case with two or more particles in different spin state in the same multiparticle ket, we have to use a different coordinate system for each particle, if we want to employ the usual forms for $u_1,u_2$ and $\Sigma_i$. For example, consider two electrons in the same multiparticle state as them having different velocity and different at-rest system spin direction. We would represent the state as:
+\begin{equation}
+\left|\psi_{A}, \psi_{B}\right\rangle=|\left(C_{A 1} u_{1}\left(\mathbf{p}_{A}\right) e^{-i p_{A} x_{A}}+C_{A 2} u_{2}\left(\mathbf{p}_{A}\right) e^{-i p_{A} x_{A}}\right),\left.\left(C_{B 1} u_{1}\left(\mathbf{p}_{B}\right) e^{-i p_{B} x_{B}}+C_{B 2} u_{2}\left(\mathbf{p}_{B}\right) e^{-i p_{B} x_{B}}\right)\right\rangle
+\end{equation}
+where for given $\mathbf{p}_{A}$ we would determine $C_{A 1}$ and $C_{A 2}$ to yield the correct spin for electron A when it is moving as we would see in the lab, and carry out similar steps for the constants for electron B. $u_{1}$ and $u_{2}$ here have the standard form we are familiar with. Component $p_{A}^{i}$ values would be for those of electron $A$ in the at-rest system direction coordinate axes for electron A $p_{\mathrm{B}}^{i}$ would be for components of 3 -momentum of electron $\mathrm{B}$ in the coordinate at-rest system of electron B.
+
+\textbf{Now, we transform $\psi_B$ and represent it in the A at-rest coordinate system}:
+\begin{equation}
+\left|\psi_{A},\left(C_{B 1} \underbrace{T_{A B} u_{1}\left(\mathbf{p}_{B / A}\right)}_{u_{1 B / A}\left(\mathbf{p}_{B / A}\right)} e^{-i p_{B / A} x_{B / A}}+C_{B 2} \underbrace{T_{A B} u_{2}\left(\mathbf{p}_{B / A}\right)}_{u_{2 B / A}\left(\mathbf{p}_{B / A}\right)} e^{-i p_{B / A} x_{B / A}}\right)\right\rangle
+\label{two-Dirac-particle-state}
+\end{equation}
+where $u_{r B / A}$ is the $r$ th spinor column matrix for the B electron expressed in the A electron at-rest system.
+
+As we should have learned well by now, the critical element in quantum theories is what we can measure when we do experiments, and that is reflected in the expectation value of the operator corresponding to the particular dynamical variable measured. We want to demonstrate that t\textbf{he expectation value of any dynamical variable, corresponding to operator $\mathcal{O}$, is the same no matter what system we express our particle state in.}
+
+To keep things simple, consider measuring the
+expectation value of $\mathcal{O}$ for only the single B particle of (\ref{two-Dirac-particle-state}) in the at-rest coordinate system A, $\mathcal{O}_{B/A}$:
+\begin{equation}
+\overline{\mathcal{O}}_{B / A}=\left\langle\psi_{B / A}\left|\mathcal{O}_{B / A}\right| \psi_{B / A}\right\rangle=\left\langle\psi_{B / A}\left|T_{A B} \mathcal{O}_{B / B} T_{A B}^{-1}\right| \psi_{B / A}\right\rangle
+\label{O-B-A}
+\end{equation}
+In integral form, the (\ref{O-B-A}) above is:
+$$
+\int_V\left(\begin{array}{c}
+{C_{B 1}^{\dagger} u_{1}^{\dagger}\left(\mathbf{p}_{B / A}\right) T_{A B}^{\dagger} e^{i p_{B/A} x_{B/ A}}} \\
+{+C_{B 1}^{\dagger} u_{2}^{\dagger}\left(\mathbf{p}_{B / A}\right)T^{\dagger}_{AB} e^{i p_{B/A} x_{B /A}}}
+\end{array}\right)T_{A B} \mathcal{O}_{B / B} T_{A B}^{-1}\left(\begin{array}{l}
+{C_{B 1} T_{A B} u_{1}\left(\mathbf{p}_{B / A}\right) e^{-i p_{B /A} x_{B / A}}} \\
+{+C_{B 2} T_{A B} u_{2}\left(\mathbf{p}_{B / A}\right) e^{-i p_{B A} x_{B/A}}}
+\end{array}\right)d^3x
+$$
+
+Where $T_{AB}^{\dagger}=T_{A B}^{-1}$. Every $T_{AB}$ in (\ref{O-B-A}) is pre-multiplied by its inverse and drops out. We thus get
+\begin{equation}
+\overline{\mathcal{O}}_{B / A}=\underbrace{\left\langle\begin{aligned}
+C_{B 1} u_{1}\left(\mathbf{p}_{B / A}\right) e^{-i p_{B / A} x_{B i A}} \\
++C_{B 2} u_{2}\left(\mathbf{p}_{B / A}\right) e^{-i p_{B / A} x_{B / A}}
+\end{aligned}\right|}_{\text{usual form of spinors with }\mathbf{p}_B \text{components in A coord sys}}\mathcal{O}_{B/B}\left|\begin{aligned}
+C_{B 1} u_{1}\left(\mathbf{p}_{B / A}\right) e^{-i p_{B / A} x_{B i A}} \\
++C_{B 2} u_{2}\left(\mathbf{p}_{B / A}\right) e^{-i p_{B / A} x_{B / A}}
+\end{aligned}\right\rangle
+\label{O-B-A-final}
+\end{equation}
+So, the expectation value of any operator expressed in the A coordinate system, even if acting on a particle with an at-rest coordinate system different from $A,$ can be found using (\ref{O-B-A-final}). That is, \textbf{it can be found using kets expressed in terms of the standard relations for $u_{1,2}$ and components of 3 momentum expressed in the A system.}
+
+\section{The Spinor Feynman Propagator}
+Note, that as we showed with scalars while this "creation/destruction at a point" perspective helps in understanding the derivation of the propagator, \redp{the propagator really corresponds to a kind of probability density function in y and x.} It represents the probability density (actually, the square its magnitude represents probability density, though it is a bit more complicated as other factors are eventually involved) of a Dirac particle appearing at y and disappearing at x. \textbf{It is a double density tn that it is a function of both y and x, two independent variables, rather than one.}
+
+By following the steps similar to the ones in the previous chapter, we have 
+\begin{qt}
+Spinor Feynman propagator $S_F$
+\begin{equation}
+    i S_{F}(x-y)=\langle 0|T\{\psi(x) \bar{\psi}(y)\}| 0\rangle
+\end{equation}
+Note that the RHS is an outer product in spinor space and thus the LHS is a matrix:
+\begin{equation}
+i S_{F \alpha \beta}(x-y)=\left\langle 0\left|T\left\{\psi_{\alpha}(x) \bar{\psi}_{\beta}(y)\right\}\right| 0\right\rangle
+\end{equation}
+\end{qt}
+When we express anti-commutato forms of $iS_F$ as integrals, we have
+\begin{equation}
+i S_{\alpha \beta}^{+}(x-y)=\left[\psi_{\alpha}^{+}(x), \bar{\psi}_{\beta}^{-}(y)\right]_{+}=\left[\psi^{+}(x), \bar{\psi}(y)\right]_{+\alpha \beta}
+\end{equation}
+Using the continuous solution to the Dirac equation, we find
+$$i S_{\alpha \beta}^{+}(x-y)=$$
+$$
+\frac{m}{(2 \pi)^{3}} \sum_{r} \sum_{r} \iint\left(c_{r}(\mathbf{p}) c_{s}^{\dagger}\left(\mathbf{p}^{\prime}\right) u_{r \alpha}(\mathbf{p}) \bar{u}_{s \beta}\left(\mathbf{p}^{\prime}\right)+c_{s}^{\dagger}\left(\mathbf{p}^{\prime}\right) c_{r}(\mathbf{p}) \underbrace{\bar{u}_{s\beta} \left(\mathbf{p}^{\prime}\right) u_{r \alpha}(\mathbf{p})}_{=u_{r \alpha}(\mathbf{p}) \bar{u}_{s \beta}\left(\mathbf{p}^{\prime}\right)}\right)\frac{e^{-i p x} e^{i p^{\prime} y}}{\sqrt{E_{\mathbf{p}} E_{\mathbf{p}^{\prime}}}} d^{3} \mathbf{p} d^{3} \mathbf{p}^{\prime}
+$$
+$$
+=\frac{1}{2(2 \pi)^{3}} \int \underbrace{(p+m)}_{\alpha, \beta \text { indices } \text { suppressed }} \frac{e^{-i p(x-y)}}{E_{p}} d^{3} \mathbf{p}
+$$
+where $\sum_{r} u_{r}(\mathbf{p}) \bar{u}_{r}(\mathbf{p})=\frac{\not p+m}{2m}$. In the second line, since the index labeling means we take $\alpha$ first (row index) and $\beta$ second (column index), we take $\bar{u}_{s \beta} u_{r \alpha}=u_{r \alpha} \bar{u}_{s \beta}=\left(u_{r} \bar{u}_{s}\right)_{\alpha \beta} \cdot$ .
+\begin{qt}
+By using contour integral, we have
+\begin{equation}
+S_{F}(x-y)=\frac{1}{(2 \pi)^{4}} \int_{-\infty}^{+\infty} \frac{e^{-i p(x-y)}(\not p+m)}{p^{2}-m^{2}+i \varepsilon} d^{4} p
+\end{equation}
+The 4-momentum space form of the propagator as:
+\begin{equation}
+S_{F}(p)=\frac{\not p+m}{p^{2}-m^{2}+i \varepsilon}=(\not p+m) \Delta_{F}(p)
+\end{equation}
+\end{qt}
+\section{Dirac Matrices and Spinor Relations}
+Hermiticity conditions:
+\begin{equation}
+\gamma^{\mu \dagger}=\gamma^{0} \gamma^{\mu} \gamma^{0}
+\end{equation}
+Spinor relations from Dirac equation
+\begin{equation}
+\begin{aligned}
+&(\not p-m) u_{r}(p)=0 \quad(\not p+m) v_{r}(p)=0\\
+&\bar{u}_{r}(\mathrm{p})(\not p-m)=0 \quad \bar{v}_{r}(\mathrm{p})(\not p+m)=0
+\end{aligned}
+\end{equation}
+Most General Form of Orthonormality Conditions
+\begin{equation}
+\bar{u}_{r}(\mathrm{p}) \gamma^{\mu} u_{s}(\mathrm{p})=\bar{v}_{r}(\mathrm{p}) \gamma^{\mu} v_{s}(\mathrm{p})=\frac{p^{\mu}}{m} \delta_{r s}
+\end{equation}
+Spinor outer product relations
+\begin{equation}
+u_{r}(\mathbf{p}) \bar{u}_{r}(\mathbf{p})=\frac{\not p+m}{2 m}=\frac{\gamma^{\mu} p_{\mu}+m}{2 m}=\frac{\gamma_{\alpha \beta}^{\mu} p_{\mu}+m I_{\alpha \beta}}{2 m}=u_{r \alpha}(\mathbf{p}) \bar{u}_{r \beta}(\mathbf{p})
+\end{equation}
+\begin{equation}
+v_{r}(\mathbf{p}) \bar{v}_{r}(\mathbf{p})=\frac{\not p-m}{2 m}=\frac{\gamma^{\mu} p_{\mu}-m}{2 m}=\frac{\gamma_{\alpha \beta}^{\mu} p_{\mu}-m I_{\alpha \beta}}{2 m}=v_{r \alpha}(\mathbf{p}) \bar{v}_{r \beta}(\mathbf{p})
+\end{equation}
+Dirac matrices sort of like 4-vector components
+\begin{equation}
+\left[\gamma^{\mu}, \gamma^{\nu}\right]_{+}=2 g^{\mu \nu}
+\end{equation}
+\begin{equation}
+\gamma_{\mu}=g_{\mu \nu} \gamma^{\nu}
+\end{equation}
+Contraction identities
+\begin{equation}
+\begin{array}{ll}
+{\gamma_{\lambda} \gamma^{\lambda}=4,} & {\gamma_{\lambda} \gamma^{\alpha} \gamma^{\lambda}=-2 \gamma^{\alpha}} \\
+{\gamma_{\lambda} \gamma^{\alpha} \gamma^{\beta} \gamma^{\lambda}=4 g^{\alpha \beta}} & {\gamma_{\lambda} \gamma^{\alpha} \gamma^{\beta} \gamma^{\gamma} \gamma^{\lambda}=-2 \gamma^{\gamma} \gamma^{\beta} \gamma^{\alpha}} \\
+{\gamma_{\lambda} \gamma^{\alpha} \gamma^{\beta} \gamma^{\gamma} \gamma^{\delta} \gamma^{\lambda}=2\left(\gamma^{\delta} \gamma^{\alpha} \gamma^{\beta} \gamma^{\gamma}+\gamma^{\gamma} \gamma^{\beta} \gamma^{\alpha} \gamma^{\delta}\right)}
+\end{array}
+\end{equation}
+\begin{equation}
+\not p \not p=p^{2}
+\end{equation}
+For a four vector $A_{\mu},$ where "A slash" is defined by $\not A=\gamma^{\alpha} A_{\alpha},$ the following contraction relations hold.
+\begin{equation}
+\begin{array}{l}
+{\qquad \gamma_{\lambda} \not A \gamma^{\lambda}=-2 \not A} \\
+{\gamma_{\lambda} \not A \not B \gamma^{\lambda}=-2 \not C \not B\not A \quad \gamma_{\lambda} \not A\not B\not C\not D\gamma^{\lambda}=2(\not D \not A\not B\not C+\not C \not B \not A \not D)}
+\end{array}
+\end{equation}
+Completeness relations
+\begin{equation}
+\left(u_{r \alpha}(\mathbf{p}) \bar{u}_{r \beta}(\mathbf{p})-v_{r \alpha}(\mathbf{p}) \bar{v}_{r \beta}(\mathbf{p})\right)=\delta_{\alpha \beta}
+\end{equation}
+Trace for a product of an odd number of $\gamma$-matrices
+\begin{equation}
+\operatorname{Tr}\left(y^{\alpha} \gamma^{\beta} \dots, \gamma^{\mu} \gamma^{\nu}\right)=0
+\end{equation}
+For products of an even number of $\gamma$ -matrices,
+$$
+\operatorname{Tr}\left(\gamma^{\alpha} \gamma^{\beta}\right)=4 g^{\alpha \beta}
+$$
+$$
+\operatorname{Tr}\left[\gamma^{\alpha}, \gamma^{\beta}\right]=\operatorname{Tr}\left[\gamma^{\alpha} \gamma^{\beta}-\gamma^{\beta} \gamma^{\alpha}\right]=0
+$$
+$$
+\operatorname{Tr}\left(\gamma^{\alpha} \gamma^{\beta} \gamma^{\gamma} \gamma^{\delta}\right)=4\left(g^{\alpha \beta} g^{\gamma \delta}-g^{\alpha \gamma} g^{\beta \delta}+g^{\alpha \delta} g^{\beta \gamma}\right)
+$$
