@@ -1,1 +1,374 @@
 \chapter{Vectors: Spin 1 Fields}
+\section{Review of Classical Electromagnetism}
+\subsection{Maxwell's Equations in 3D plus time formulation}
+In the formulation conceived by Oliver Heaviside, we have the sourceless Maxwell's equations as:
+\begin{equation}
+\begin{aligned}
+&\nabla \cdot \mathbf{E}=0\\
+&\nabla \times \mathbf{B}=\frac{\partial \mathbf{E}}{\partial t}\\
+&\nabla \cdot \mathbf{B}=0\\
+&\vec{\nabla} \times \mathbf{E}=-\frac{\partial \mathbf{B}}{\partial t}
+\end{aligned}
+\end{equation}
+Now, if we define a scalar potential $\Phi(\mathbf{x},t)$ and a vector potential $\mathbf{A}(\mathbf{x},t)$ so they solve
+\begin{equation}
+\mathbf{B}=\nabla \times \mathbf{A}, \quad \mathbf{E}=-\nabla \Phi-\frac{\partial \mathbf{A}}{\partial t}
+\end{equation}
+Substitution gives
+\begin{equation}
+-\nabla^{2} \Phi-\frac{\partial}{\partial t}(\nabla \cdot \mathbf{A})=0
+\label{sourceless-maxwell1}
+\end{equation}
+\begin{equation}
+\underbrace{\nabla \times \nabla \times \mathbf{A}}_{\nabla(\nabla \cdot \mathbf{A})-\nabla^{2} \mathbf{A}}=-\nabla \frac{\partial \Phi}{\partial t}-\frac{\partial^{2} \mathbf{A}}{\partial t^{2}}\Rightarrow \frac{\partial^{2} \mathbf{A}}{\partial t^{2}}-\nabla^{2} \mathbf{A}=-\nabla \frac{\partial \Phi}{\partial t}-\nabla(\nabla \cdot \mathbf{A})
+\label{sourceless-maxwell2}
+\end{equation}
+which $\Phi$ and $\mathbf{A}$ must solve. If we can solve for $\Phi$ and $\mathbf{A}$, then we can find the fields $\mathbf{E}$ and $\mathbf{B}$.
+
+\bluep{ $\Phi$ and $\mathbf{A}$ are not unique. Note we can define other quantities by}
+\begin{equation}
+\Phi^{\prime}=\Phi+\frac{\partial f}{\partial t}, \quad \mathbf{A}^{\prime}=\mathbf{A}-\nabla f
+\end{equation}
+and the new quantities still solve the Maxwell's equation, regardless of the form of $f$.
+
+\bluep{The formal name for any theory formulated in terms of one or more potentials (two potentials, $\Phi$ and $A$ here), where different potentials result in the same observable quantities (E and B here), is \textbf{gauge theory}. A gauge-invariant transformation changes the potential(s), also called gauge(s), from one form to another, but leaves the observables unchanged (invariant).}
+
+\subsubsection{Picking a Useful Gauge}
+Let's pick $f$ such that the following \redp{Coulomb gauge} is true:
+\begin{qt}
+    \begin{equation}
+\nabla \cdot \mathbf{A}=0
+\label{coulomb-gauge}
+\end{equation}
+\end{qt}
+When we do this,(\ref{sourceless-maxwell1}) and (\ref{sourceless-maxwell2}) become
+\begin{equation}
+\begin{aligned}
+&\nabla^{2} \Phi=0\\
+&\frac{\partial^{2} \mathbf{A}}{\partial t^{2}}-\nabla^{2} \mathbf{A}=-\nabla \frac{\partial \Phi}{\partial t}
+\end{aligned}
+\end{equation}
+One solution to the equations above is $\Phi=0$. Using that, we have
+\begin{equation}
+\partial_{\mu} \partial^{\mu} \mathbf{A}=\square^{2} \mathbf{A}=0
+\end{equation}
+i.e., the wave equation. This has the simple plane wave solution
+\begin{equation}
+\mathbf{A}(\mathbf{x}, t)=\mathbf{A}_{0} e^{\pm i(\omega t-\mathbf{k} \cdot \mathbf{x})}
+\end{equation}
+Leading to
+\begin{equation}
+\mathbf{E}=-{\nabla \Phi}-\frac{\partial \mathbf{A}}{\partial t}=\mp i \omega \mathbf{A}_{0} e^{\pm i(\omega t-\mathbf{k} \cdot \mathbf{x})}=\mp\omega\mathbf{A}
+\end{equation}
+\textbf{\redp{From the eqn. above, we can see field $\mathbf{E}$ is parallel to $\mathbf{A}$.}}
+\begin{equation}
+\mathbf{B}=\nabla \times \mathbf{A}=\mp i\left(\mathbf{k} \times \mathbf{A}_{0}\right) e^{\pm i(\omega t-\mathbf{k} \cdot \mathbf{x})}
+\end{equation}
+\textbf{\redp{From the eqn. above, we can see field $\mathbf{B}$ is perpendicular to $\mathbf{A}$.}}
+
+Since we can always readily find $\mathbf{E}$ and $\mathbf{B}$ from $\mathbf{A}$ whenever we want, it is simplest to work with a single equation and the single field $\mathbf{A}$, rather than multiple equations in $\mathbf{E}$ and $\mathbf{B}$. Thus, it is common practice to represent, and refer to, electromagnetic fields as $\mathbf{A}$.
+\begin{qt}
+    If we pick our potential $\mathbf{A}$ such that it satisfies the Coulomb gauge (\ref{coulomb-gauge}), then solving Maxwell's equations becomes greatly simplified. That gauge lets us take $\Phi=0$ and results in the single, well know, and  easily solvable eave equation in $\mathbf{A}$:
+    \begin{equation}
+\partial_{\mu} \partial^{\mu} \mathbf{A}=0
+\end{equation}
+\end{qt}
+\subsection{Maxwell's equation in 4D(covariant) formualtion}
+The formulation in the previous section \textbf{is not relativisitcally covariant}. For that, let's define a 4D potential using $\Phi$ and $\mathbf{A}$ as:
+\begin{equation}
+A^{\mu}(x)=\left(\begin{array}{c}
+{\Phi(x)} \\
+{A^{1}(x)} \\
+{A^{2}(x)} \\
+{A^{3}(x)}
+\end{array}\right)
+\label{4D-vector-potentail}
+\end{equation}
+Then, let's define a field $F^{\mu \nu}(x)$ (which is a tensor field since it has two 4D indices $\mu$ and $\nu$) that we can construct from (\ref{4D-vector-potentail}) as
+\begin{equation}
+F^{\mu v}(x)=\partial^{\nu} A^{\mu}(x)-\partial^{\mu} A^{\nu}(x)
+\label{Fmunu}
+\end{equation}
+Consider (\ref{Fmunu}), where $\mu=1$ and $v=2$ and we refer to (\ref{sourceless-maxwell1},\ref{sourceless-maxwell2}), we have
+$$
+F^{12}(x)=\underbrace{\partial^{2}}_{\partial_{2}} A^{1}(x)-\underbrace{\partial^{1}}_{\partial_{1}} A^{2}(x)=\partial_{1} A^{2}(x)-\partial_{2} A^{1}(x)
+$$
+$$
+=\frac{\partial}{\partial x^{1}} A^{2}(x)-\frac{\partial}{\partial x^{2}} A^{1}(x)=\underbrace{(\nabla \times \mathbf{A}(x))^{3}}_{x^{3} \text { direction component }}=B^3(x)
+$$
+For $\mu=0$ and $v=1$, we have instead
+$$
+F^{01}=\partial^{1} A^{0}-\partial^{0} A^{1}=\frac{\partial \Phi}{\partial x_{1}}-\frac{\partial A^{1}}{\partial t}=\underbrace{\left(-(\nabla \Phi)-\frac{\partial \mathbf{A}}{\partial t}\right)^{1}}_{x^1{\text { direction component }}}=E^{1}
+$$
+If can be shown that
+\begin{equation}
+F^{\mu \nu}(x)=\left[\begin{array}{cccc}
+{0} & {E^{1}} & {E^{2}} & {E^{3}} \\
+{-E^{1}} & {0} & {B^{3}} & {-B^{2}} \\
+{-E^{2}} & {-B^{3}} & {0} & {B^{1}} \\
+{-E^{3}} & {B^{2}} & {-B^{1}} & {0}
+\end{array}\right]
+\end{equation}
+where $E^{1}$ and $B^{1}$ represent what we designated by $E_{x}$ and $B_{x}$ in Cartesian coordinates before we worked with contravariant and covariant components, just as $x^{1}$ represents $X_{1}$ in Cartesian coordinates. Ditto for the other $E^{i}$ and $B^{i}$.
+
+With the aid of (\ref{sourceless-maxwell1},\ref{sourceless-maxwell2}), we can show that \textbf{Maxwell's equations for $A^{\mu}(x)$ are}
+\begin{equation}
+\partial^{\alpha} \partial_{\alpha} A^{\mu}(x)-\partial^{\mu}\left(\partial_{\nu} A^{\nu}(x)\right)=0
+\label{maxwell-covariant-eqn}
+\end{equation}
+Again, if we have a solution to Maxwell's equations $A^{\mu}(x),$ then we can transform that solution to another solution $A^{\prime \prime}(x),$ using the same function $f(x),$ i.e.,
+$$
+A^{\mu} \rightarrow A^{\prime \mu}=A^{\mu}+\partial^{\mu} f
+$$
+\subsubsection{Picking a useful 4D gauge}
+\begin{qt}
+    If we have a gauge like the following, called the \textbf{Lorenz gauge}, then (\ref{maxwell-covariant-eqn}) would be greatly simplified
+    \begin{equation}
+\partial_{v} A^{v}(x)=0
+\label{Lorenz-gauge}
+\end{equation}
+\end{qt}
+Let's assume we have a valid solution $A^{\prime\prime\mu}(x)$ for Maxwell's equation. Then
+\begin{equation}
+A^{\mu}(x)=A^{\prime \mu}(x)+\partial^{\mu} f(x)
+\label{lorenz-gauge-2}
+\end{equation}
+is also a solution to Maxwell's equations. But to make those solutions easier to solve we also want $A^{\mu}$ also solve (\ref{Lorenz-gauge}). \textit{Can we choose $A^{\mu}(x)$ so this is so?}
+
+Plugging $A^{\mu}(x)$ of (\ref{lorenz-gauge-2}) into (\ref{Lorenz-gauge}) yields
+\begin{equation}
+\partial_{\mu} A^{\mu}(x)+\partial_{\mu} \partial^{\mu} f(x)=0 \quad \rightarrow \partial_{\mu} A^{\mu}(x)=-\partial_{\mu} \partial^{\mu} f(x)
+\label{lorenz-gauge-3}
+\end{equation}
+So, knowing $A^{\prime \prime \mu}(x)$ we can, in principle, solve (\ref{lorenz-gauge-3}) for $f(x),$ and for that particular $f(x), A^{\mu}(x)$ will, in addition to solving Maxwell's equations, also solve (\ref{Lorenz-gauge}). By doing the latter it will make our Maxwell equations in terms of the four-potential easier to solve.
+
+\bluep{We never need to actually solve for $f(x) .$ We just need to know that we could solve for it, and so doing would give us a four potential $A^{\mu}(x)$ that solves the Lorenz gauge. We also never need to know what $A^{\prime \prime\mu} (x)$ is. We just know that such a solution must exist. Knowing that $f(x)$ and $A^{\prime \prime}(x)$ exist if we wanted to find them 1s all that is necessary.}
+
+So, with (\ref{Lorenz-gauge}), Maxwell's equation become
+\begin{equation}
+\partial^{\alpha} \partial_{\alpha} A^{\mu}(x)=\left(\frac{\partial^{2}}{\partial t^{2}}+\frac{\partial^{2}}{\partial x^{i} \partial x_{i}}\right) A^{\mu}(x)=\left(\frac{\partial^{2}}{\partial t^{2}}-\frac{\partial^{2}}{\partial x^{i} \partial x^{i}}\right) A^{\mu}(x)=0
+\end{equation}
+\begin{qt}
+The bottom line is that the Maxwell's equations in Lorenz gauge is
+    \begin{equation}
+\partial_{\alpha} \partial^{\alpha} A^{\mu}(x)=0
+\label{4D-wave-func-A-mu}
+\end{equation}
+\end{qt}
+\subsubsection{Solutions to the 4D wave equation}
+The wave equation (\ref{4D-wave-func-A-mu}) is virtually identical to the Klein-Gordon equation except for three thins:\bluep{i) photons are massless $(\mu=0$ in Klein-Gordon equation),ii) an electromagnetic wave is a classical world, measurable entity and thus is real, not complex, and in the solution $A^{\mu}(x)$ is a four-vector, not a scalar like $\phi$ Hence, we can show that if the photon field is real,$A^{\mu}(x)=A^{\dagger \mu}(x)$, then its \textbf{plane wave discrete solution has form}}
+\begin{qt}
+\begin{equation}
+\begin{aligned}
+A^{\mu}(x) &=\underbrace{\sum_{r, \mathbf{k}} \frac{1}{\sqrt{2 V{\omega_k}}} \varepsilon_{r}^{\mu} A_{r}(\mathbf{k}) e^{-i k x}}_{A^{\mu+}}+\underbrace{\sum_{r, \mathbf{k}} \frac{1}{\sqrt{2 V{\omega_k}}} \varepsilon_{r}^{\mu} A_{r}^{\dagger}(\mathbf{k}) e^{i k x}}_{A^{\mu-}}  \\
+&=A^{\mu+} \quad+\quad A^{\mu-}
+\end{aligned}
+\label{4D-maxwell-solution}
+\end{equation}
+\textbf{where $A_{r}(\mathbf{k})$ is a number}, generally complex, and \textbf{for each $r, \epsilon_{r}^{\mu}$ is a four dimensional vector}, which We can take, without loss of generality, to be unit length.\redp{For each $r,\mu$, $\epsilon_r^{\mu}$ is a real number}.
+\end{qt}
+\subsubsection{The four polarization vectors}
+The $\varepsilon_{r}^{\mu},$ called polarization vectors, \textbf{must have four components. Second, to span a 4D space, we need four independent vectors.} The $\mu$ superscript stands for the four components $(\mu=0,1,2,3) .$ The subscript $r$ stands for the four independent vectors $(r=0,1,2,3),$ which we will take to be orthogonal. In general, each independent vector $\epsilon_r^{\mu}$ has components along each of the four axes in 4D.
+\begin{qt}
+In general, the orthogonality conditions for $\epsilon_r^{\mu}$ are
+\begin{equation}
+\varepsilon_{\mu r} \varepsilon_{s}^{\mu}=g_{r s}=-\zeta_{\underline{r}} \delta_{\underline{r}s} \quad \text { where } \quad \zeta_{0}=-1 \quad \zeta_{1}=\zeta_{2}=\zeta_{3}=1
+\end{equation}
+\end{qt}
+Note we can choose to align our $\varepsilon_{3}^{\mu}$ vector with the $\mathbf{k},$ the direction of travel of the photon. We call this the \textbf{photon polarization vector alignment}, and for it, $\epsilon_3^{\mu}$ is called the \textbf{longitudinal polarization}(vector), i.e.,
+$$
+\varepsilon_{3}=\mathbf{k} /|\mathbf{k}|
+$$
+$\varepsilon_{1}^{\mu}$ and $\varepsilon_{2}^{\mu}$ are orthogonal to $\varepsilon_{3}^{\mu}$, and for this alignment, are called the \textbf{transverse polarizations}
+$$
+\mathbf{k} \cdot \varepsilon_{1}=\mathbf{k} \cdot \mathbf{\varepsilon}_{2}=0
+$$
+Thus, we will expect $\varepsilon_{1}^{\mu}$ and $\varepsilon_{2}^{\mu}$ here to be in the same plane as the $\mathbf{E}$ and $\mathbf{B}$ vectors, since they are transverse to the direction of travel of an electromagnetic wave.
+
+$\varepsilon_{0}^{\mu},$ points in the time ($4^{\text {th }}$ dimension) direction and in such systems is called \textbf{the time-like or scalar polarization}.
+
+\subsection{The classical electromagnetic Lagrangian}
+The simplest form of the Lagrangian is
+\begin{equation}
+\mathcal{L}_{0}^{e / m}=-\frac{1}{2}\left(\partial_{v} A_{\mu}(x)\right)\left(\partial^{v} A^{\mu}(x)\right)
+\label{classical-electromagnetic-Lagrangia}
+\end{equation}
+which can be verified by inserting it into Euler-Lagrange field equation
+\begin{equation}
+\frac{\partial}{\partial x^{v}}\left(\frac{\partial \mathcal{L}}{\partial \phi^{n}, v}\right)-\frac{\partial \mathcal{L}}{\partial \phi^{n}}=0, \quad \text { with } \quad \phi^{n}=A_{\mu} ; \mathcal{L}=\mathcal{L}_{0}^{e / m}
+\end{equation}
+\section{RQM for Photons}
+\subsection{First quantization}
+The first step in $1^{\text {st }}$ quantization comprises taking the same e/m wave equation we had classically, and thus, the same solution form for the state $\left|A^{\mu}(x)\right\rangle$ as for the classical $A^{\mu}(x)$  which we repeat below.
+\begin{equation}
+\begin{array}{c}
+{\partial_{\alpha} \partial^{\alpha} A_{\text {state}}^{\mu}(x)=\partial_{\alpha} \partial^{\alpha}\left|A^{\mu}\right\rangle= 0} \\
+{\left|A^{\mu}\right\rangle=\sum_{r, \mathbf{k}} \frac{1}{\sqrt{2 V \omega_{k}}} \varepsilon_{r}^{\mu}(\mathbf{k}) A_{r}(\mathbf{k}) e^{-i k x}+\sum_{r, \mathbf{k}} \frac{1}{\sqrt{2 V \omega_{k}}} \varepsilon_{r}^{\mu}(\mathbf{k}) A_{r}^{\dagger}(\mathbf{k}) e^{i k x}}
+\end{array}
+\end{equation}
+\begin{mybox}
+\begin{center}
+    \textbf{Polarization, B, E Unrelated to Spin}
+\end{center}
+When people learn of circular polarization states, where the transverse $\mathbf{E}$ and $\mathbf{B}$ states rotate around the $\mathbf{k}$ vector direction as the e/m wave propagates, they often confuse that rotation with photon spin. The two are unrelated. Classical angular momentum increases with rotation rate, and the rate of the rotation of $A$ (and thus of $E$ and $B$ ) increases with $\omega_k$, i.e., with the energy of the photon. But every photon, regardless of energy, has the same spin 1 value.
+\end{mybox}
+\bluep{In electromagnetism and the quantum theories derived from it, we formulate the theory with polarization states rather than spin states. Photon spin is always in the $+$ or $-\mathbf{k}$ direction and comprises only two possible states for given $\mathbf{k} .$ Polarization vectors have four possible states, mutually orthogonal in 4D space, and thus can serve as basis states, wheres, whereas spin (for photons) cannot.}
+
+\subsubsection{RQM comutation relations for photons}
+The second step in 1st quantization is taking Poisson brackets over into commutators (with the
+factor of $i$):
+$$
+\left[x^{1}, p^{1}\right]=i \quad \rightarrow \quad\left[x^{1}, p^{1}\right]\left|A^{\mu}\right\rangle= i\left|A^{\mu}\right\rangle= i \frac{1}{\sqrt{2 V \omega_{k}}} \varepsilon_{r}^{\mu} A_{r}(\mathrm{k}) e^{-i k x}
+$$
+$$
+\underbrace{p^{1}}_{\text {operator }}=-i \frac{\partial}{\partial x^{1}}
+$$
+\redp{The commutation relations-mean the dynamical variables in classical theory become operators in
+quantum theory, as we have seen before.} Note now, why the term "vector" is used for spin 1 bosons. Because $A^{\mu}(x),$ which represents that boson, is a four vector.
+\section{The Maxwell Equation in QFT}
+The classical Lagrangian density (\ref{classical-electromagnetic-Lagrangia}) equals the QFT Lagrangian density. We repeat it here, but change the superscript from "e/m" to "1", indicating a spin 1 boson.
+\begin{equation}
+\mathcal{L}_{0}^{1}=-\frac{1}{2}\left(\partial_{v} A_{\mu}(x)\right)\left(\partial^{v} A^{\mu}(x)\right)
+\end{equation}
+And from Euler-Lagrange equation, the QFT field equation is
+\begin{equation}
+\partial_{\alpha} \partial^{\alpha} A^{\mu}(x)=0
+\end{equation}
+\textbf{where $A^{\mu}(x)$ is a quantum field, not a quantum state.}
+\begin{qt}
+\textbf{The discrete plane wave solution is}
+\begin{equation}
+A^{\mu}(x)=\underbrace{\sum_{r, \mathbf{k}} \frac{1}{\sqrt{2 V \omega_{\mathbf{k}}}} \varepsilon_{r}^{\mu}(\mathbf{k}) a_{r}(\mathbf{k}) e_{t}^{-i k x}}_{A^{\mu+}}+\underbrace{\sum_{r, \mathbf{k}} \frac{1}{\sqrt{2 V \omega_{\mathbf{k}}}} \varepsilon_{r}^{\mu}(\mathbf{k}) a_{r}^{\dagger}(\mathbf{k}) e^{i k x}}_{A^{\mu-}}
+\label{discrete-solution-boson}
+\end{equation}
+\textbf{The continuous plane wave solutions.}
+\begin{equation}
+A^{\mu}(x)=\underbrace{\sum_{r} \int \frac{d^{3} k}{\sqrt{2(2 \pi)^{3} \omega_{k}}} \varepsilon_{r}^{\mu}(\mathbf{k}) a_{r}(\mathbf{k}) e^{-i k x}}_{A^{\mu}+}+\underbrace{\sum_{r} \int \frac{d^{3} k}{\sqrt{2(2 \pi)^{3} \omega_{k}}} \varepsilon_{r}^{\mu}(\mathbf{k}) a_{r}^{\dagger}(\mathbf{k}) e^{i k x}}_{A^{\mu}-}
+\end{equation}
+\end{qt}
+\subsection{Conjugate momentum and Hamiltonian density}
+\begin{equation}
+\begin{array}{l}
+{\pi_{\mu}^{1}=\frac{\partial \mathcal{L}_{0}^{1}}{\partial \dot{A}^{\mu}}=\frac{\partial}{\partial \dot{A}^{\mu}}\left(-\frac{1}{2} \underbrace{\left(\partial_{0} A_{v}\right)}_{\dot{A}_{v}} \underbrace{\left(\partial^{0} A^{v}\right)}_{\dot{A}^{v}} \underbrace{\frac{1}{2}\left(\partial_{i} A_{v}\right)\left(\partial^{i} A^{v}\right)}_{\text { no } \dot{A}^{v}, \dot{A}_{v}, \text { so drops out }}\right)}\\
+{=-\frac{1}{2}(\underbrace{\frac{\partial}{\partial \dot{A}^{\mu}} \dot{A}_{v}}_{g_{\mu v}}) \dot{A}^{v}+\dot{A}_{v}(\underbrace{\frac{\partial}{\partial \dot{A}^{\mu}} \dot{A}^{v}}_{\delta_{\mu v}})=-\dot{A}_{\mu}}
+\end{array}
+\end{equation}
+\begin{equation}
+\begin{aligned}
+\mathcal{H}_{0}^{1} &=\pi_{\mu}^{1} \dot{A}^{\mu}-\mathcal{L}_{0}^{1}=-\dot{A}_{\mu} \dot{A}^{\mu}+\frac{1}{2} \dot{A}_{\mu} \dot{A}^{\mu}+\frac{1}{2}\left(\partial_{i} A_{\mu}\right)\left(\partial^{i} A^{\mu}\right) \\
+&=-\frac{1}{2} \dot{A}_{\mu} \dot{A}^{\mu}+\frac{1}{2}\left(\partial_{i} A_{\mu}\right)\left(\partial^{i} A^{\mu}\right)\\
+&=-\frac{1}{2} \dot{A}_{\mu} \dot{A}^{\mu}-\frac{1}{2}\left(\partial^{i} A_{\mu}\right)\left(\partial^{i} A^{\mu}\right)=-\frac{1}{2}\left(\partial^{\nu} A_{\mu}\right)\left(\partial^{\nu} A^{\mu}\right)
+\end{aligned}
+\end{equation}
+\section{Commutation Relations for Photon Fields}
+\begin{equation}
+\left[A^{\mu}(\mathbf{x}, t), \pi_{v}^{1}(\mathbf{y}, t)\right]=i \delta_{v}^{\mu} \delta(\mathbf{x}-\mathbf{y}) \rightarrow\left[A^{\mu}(x), \pi^{v 1}(y)\right]=i g^{\mu v} \delta(\mathbf{x}-\mathbf{y})
+\end{equation}
+\begin{equation}
+\begin{aligned}
+\left[a_{r}(\mathbf{k}), a_{s}^{\dagger}\left(\mathbf{k}^{\prime}\right)\right] &=\zeta_{\underline{r}} \delta_{\underline{r} s} \delta_{\mathbf{k k}^{\prime}} & & \zeta_{0}=-1, \zeta_{1,2,3}=1 \\
+&=\zeta_{\underline{r}} \delta_{\underline{r}s} \delta\left(\mathbf{k}-\mathbf{k}^{\prime}\right) & & \text { (continuous) }
+\end{aligned}
+\end{equation}
+\textbf{All other commutators, such as $\left[a_{r}(\mathbf{k}), a_{s}(\mathbf{k})\right]$, equal zero for any $r$ and $s,$ as with scalar.}
+\section{The QFT Hamiltonian for Photons}
+\begin{equation}
+H_{0}^{1}=\sum_{\mathbf{k}, r} \omega_{\mathbf{k}}\left(N_{r}(\mathbf{k})+\frac{1}{2}\right)
+\end{equation}
+\begin{equation}
+N_{r}(\mathbf{k})=\zeta_{\underline{r}} a_{\underline{r}}^{\dagger}(\mathbf{k}) a_{\underline{r}}(\mathbf{k}) \text { the number operator for photons }
+\end{equation}
+\section{Other Photon Operators in QFT}
+\textbf{Photon creation and destruction operators}
+\begin{equation}
+\begin{aligned}
+&a_{r}^{\dagger}(\mathbf{k})\left|n_{\mathbf{k}, r}\right\rangle=\sqrt{n_{\mathbf{k}, r}+1}\left|n_{\mathbf{k}, r}+1\right\rangle\\
+&a_{r}(\mathbf{k})\left|n_{\mathbf{k}, r}\right\rangle=\sqrt{n_{\mathbf{k}, r}}\left|n_{\mathbf{k}, r}-1\right\rangle
+\end{aligned}
+\end{equation}
+\textbf{Total photon particle number}
+\begin{equation}
+N\left(A^{\mu}\right)=\sum_{\mathbf{k}, r} N_{r}(\mathbf{k})
+\end{equation}
+\textbf{Total particle number lowering and raising}
+
+$\left.A^{\mu+} \quad \text { particle lowering loperator field (contains } a_{r}(\mathbf{k})\right)$
+
+$\left.A^{\mu-} \quad \text { particle raising operator field (contains } a_{r}^{\dagger}(\mathbf{k})\right)$
+
+\textbf{Four-current operator}
+\begin{equation}
+j^{\mu}=-i\left(A_{\alpha}^{, \mu \dagger} A^{\alpha}-A_{\alpha}^{, \mu} A^{\alpha \dagger}\right)=0
+\end{equation}
+If we were to take $j^{0}$ of the eqn. above as our probability operator, as early researchers expected it to be, then we would have zero probability of ever finding a photon. 
+
+\textbf{Three-momentum operator}
+\begin{equation}
+\mathbf{P}=\sum_{\mathbf{k}, r} \mathbf{k} N_{r}(\mathbf{k})
+\end{equation}
+\section{Photon Propagator}
+\begin{equation}
+D_{F}^{\mu \nu}(x-y)=\frac{-g^{\mu \nu}}{(2 \pi)^{4}} \int \frac{e^{-i k(x-y)}}{k^{2}+i \varepsilon} d^{4} k \quad \text { in physical space }
+\end{equation}
+\begin{equation}
+D_{F}^{\mu \nu}(k)=\frac{-g^{\mu v}}{k^{2}+i \varepsilon} \quad \text { in four-momentum space }
+\end{equation}
+\section{Weak Lorenz Condition}
+$\partial_{\mu} A^{\mu}$ of the Lorenz gauge would be considered an operator in QFT that is identically equal to zero. Unfortunately, that is not strictly true, because, the Lorenz condition, employed in the direct way, is incompatible with the commutation relations.
+
+Consider the commutator
+$$
+[\underbrace{\partial_{\mu} A^{\mu}(x)}_{=0 \text { in Lorenz gauge }}, A^{v}(y)]=\sum_{r, \mathbf{k}} \frac{-i k_{\mu}}{2 V \omega_{\mathbf{k}}} \zeta_{r} \varepsilon_{r}^{\mu}(\mathbf{k}) \varepsilon_{r}^{\nu}(\mathbf{k})\left(e^{-i k(x-y)}+e^{i k(x-y)}\right)
+$$
+$$
+=\sum_{r, \mathbf{k}} \frac{-i k_{\mu}}{V \omega_{\mathbf{k}}} \zeta_{r} \varepsilon_{r}^{\mu}(\mathbf{k}) \varepsilon_{r}^{\nu}(\mathbf{k}) \cos (k(x-y)) \neq 0
+$$
+Now, \textbf{we replace the Lorenz condition with the weaker condition}:
+\begin{equation}
+\partial_{\mu} A^{\mu+}(x)|\Psi\rangle= 0
+\label{weak-lorenz-gauge}
+\end{equation}
+and its adjoint is
+\begin{equation}
+\langle\Psi| \partial_{\mu} A^{\mu-}(x)=0
+\end{equation}
+So, the expectation value of the Lorenz condition equals zero,
+$$
+\overline{\partial_{\mu} A^{\mu}(x)}=\left\langle\Psi\left|\partial_{\mu} A^{\mu}(x)\right| \Psi\right\rangle=\underbrace{\langle\Psi|\left(\partial_{\mu} A^{\mu-}(x)\right.}_{=0}+\underbrace{\left.\partial_{\mu} A^{\mu+}(x)\right)|\Psi\rangle}_{=0}=0
+$$
+\subsection{Meaning of the weak Lorenz condition}
+To understand (\ref{weak-lorenz-gauge}), we substitute $A^{\mu+}$ and consider the photon aligned coordinate system, where
+$$
+\varepsilon_{0}^{\mu}=(1,0,0,0)^{\mathrm{T}} \quad \varepsilon_{1}^{\mu}=(0,1,0,0)^{\mathrm{T}} \quad \varepsilon_{2}^{\mu}=(0,0,1,0)^{\mathrm{T}} \quad \varepsilon_{3}^{\mu}=(0,0,0,1)^{\mathrm{T}}
+$$
+Thus,
+$$
+\partial_{\mu} A^{\mu+}(x)=\sum_{\mu} \partial_{\mu}\left(\sum_{r, \mathbf{k}} \frac{1}{\sqrt{2 V \omega_{\mathrm{k}}}} \varepsilon_{r}^{\mu} a_{r}(\mathbf{k}) e^{-i k x}\right)=\sum_{r, \mathbf{k}, \mu} \frac{1}{\sqrt{2 V \omega_{\mathrm{k}}}} \varepsilon_{r}^{\mu} a_{r}(\mathbf{k}) \partial_{\mu} e^{-i k x}
+$$
+$$
+=\sum_{\mathbf{k}} \frac{-i}{\sqrt{2 V \omega_{\mathbf{k}}}}\left[\underbrace{\varepsilon_{0}^{0}}_{=1} a_{0}(\mathbf{k}) \omega_{\mathbf{k}}+\underbrace{\varepsilon_{0}^{1}}_{=0}a_{0}(\mathbf{k}) \underbrace{k_{1}}_{=0}+\underbrace{\varepsilon_{0}^{2}}_{=0}a_{0}(\mathbf{k})\underbrace{k_{2}}_{=0}+\underbrace{\varepsilon_{0}^{3}}_{=0}a_{0}(\mathbf{k}) k_{3}+\dots\right.
+$$
+$$
+\left.+\underbrace{\varepsilon_{3}^{0}}_{=0} a_{3}(\mathbf{k}) \omega_{\mathbf{k}}+\underbrace{\varepsilon_{3}^{1}}_{=0}a_{3}(\mathbf{k})\underbrace{k_1}_{=0}+\underbrace{\varepsilon_{3}^{2}}_{=0}a_{3}(\mathbf{k}) \underbrace{k_{2}}_{=0}+\underbrace{\varepsilon_{3}^{3}}_{=1}a_{3}(\mathbf{k})k_3\right]e^{-ikx}
+$$
+In the very last term we invoke the relativistic relation $m^{2}=E^{2}-\mathbf{p}^{2}=(a k)^{2}-p^{2}=(a k)^{2}-\left(k^{3}\right)^{2},$ where $m=0 .$ So $k^{3}=\omega_{k}=-k_{3} .$ Then, for every $\mathbf{k}$, $\partial_{\mu} A^{\mu+}(x)$ acting on $|\psi\rangle$ becomes
+\begin{equation}
+\partial_{\mu} A^{\mu+}(x)|\Psi\rangle= 0 \rightarrow\left(a_{3}(\mathbf{k})-a_{0}(\mathbf{k})\right)|\Psi\rangle= 0, \quad \text { all } \mathbf{k}
+\end{equation}
+Its adjoint is
+\begin{equation}
+a_{3}(\mathbf{k})|\Psi\rangle= a_{0}(\mathbf{k})|\Psi\rangle \quad \rightarrow \quad\left\langle\Psi\left|a_{3}^{\dagger}(\mathbf{k})=\langle\Psi| a_{0}^{\dagger}(\mathbf{k})\right.\right.
+\end{equation}
+Thus
+\begin{equation}
+\bar{H_{0}^{1}}=\left\langle\Psi\left|H_{0}^{1}\right| \Psi\right\rangle=\sum_{\mathbf{k}} \omega_{\mathbf{k}} \sum_{r=1}^{2}\left\langle\Psi\left|a_{r}^{\dagger}(\mathbf{k}) a_{r}(\mathbf{k})\right| \Psi\right\rangle
+\end{equation}
+which means \bluep{the only contribution to the energy expectation value is from transverse photons. The scalar energy expectation value is negative, but it is always cancelled by a positive longitudinal energy expectation value of the same magnitude.}
+
+This jibes with classical e/m theory, since we know that $\mathbf{E}$ and $\mathbf{b}$ in a classical electromagnetic wave are always perpendicular to $\mathbf{k}$. And from the definition of our potential $A^{\mu}$, we know that $\mathbf{E}$ points in the same direction as $\mathbf{A}$. Thus, classically, $\mathbf{A}$ is always othogonal to the wave propagation direction $\mathbf{k} /|\mathbf{k}|$.
+\section{Appendix: Completeness Relations}
+\begin{equation}
+\sum_{r=0}^{3} \zeta_{r} \varepsilon_{r}^{\mu} \varepsilon_{r}^{\nu}=-g^{\mu \nu} \quad \text { where } \quad \zeta_{0}=-1 \quad \zeta_{1}=\zeta_{2}=\zeta_{3}=1
+\end{equation}
+Since the equation above is a tensor equation,transformation to another Lorentz coordinate system (such as by
+rotating the spatial axes) will leave the relation unchanged. (i.e., it is valid no matter how we choose to align the axes.)
