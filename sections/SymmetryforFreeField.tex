@@ -192,3 +192,117 @@ $$
 Hence $p^i$ is constant and thus, conserved. This makes sense since the only source for spatial dependence in $L$ is the potential energy $V$. If we have no $V$ dependence on $x^i$, then there is no force in the $x^i$ direction, and momentum $p_i$ is constant.\textbf{Note this means the Lagrangian is symmtric.}
 
 \redp{If the Lagrangian is symmetric in a coordinate, then the conjugate momentum for that coordiante is conserved.}
+
+\section{Transformations in QFT}
+\subsection{Spinor transformation}
+For spinor, we seek a matrix which is four by four in spinor space and which represents what ha~pens to a spmor under a Lorentz transformation and/or a rotation of coordinates. That is, we seek D in
+\begin{equation}
+\psi^{\prime}\left(x^{\prime \mu}\right)=D \psi\left(x^{\mu}\right) \quad \frac{\text { with spinor indices }}{\text { written out }} \quad \psi_{\alpha}^{\prime}\left(x^{\prime \mu}\right)=D_{\alpha \beta} \psi_{\beta}\left(x^{\mu}\right)
+\end{equation}
+The spinor transformation under Lorentz and rotation transformation is
+\begin{equation}
+D=e^{-i(\mathbf{L} \mathbf{\Theta}+\mathbf{M} \mathbf{Q})} \quad L^{k}=-\frac{i}{2} \varepsilon_{i j}^{k} \gamma^{i} \gamma^{j}, \quad \Theta^{k}=\left(\theta^{1}, \theta^{2}, \theta^{3}\right), M^{k}=\frac{i}{2} \gamma^{0} \gamma^{k}, Q^{k}=\left(v^{1}, v^{2}, v^{3}\right)
+\end{equation}
+where $\Theta^{k}$ represents rotation angles of the primed system with respect to the unprimed system; $Q^k$ is a three vector of the boost velocities; and $\epsilon_{ij}{}^{k}$ is zero unless $i,j,k$ are all different, 1 if $ijk=123,231,312$, and -1 for the others.
+
+Note that in formal mathematical language, the set of all possible Lorentz transformations (all possible v) is known as the Lorentz group. When the Lorentz group acts on the coordinate system, it changes what our spinors look like in the new system and this change is represented by $D$. So, \textbf{$D$ is called a representation of the Lorentz group.} It "represents" that group in spinor space.
+\begin{qt}
+    $\bar{\psi} \psi=$ world scalar $\quad \bar{\psi} \gamma^{\mu} \psi=$ transforms like four vector.
+\end{qt}
+\section{Lorentz Symmetry of the Lagrangian Density}
+Lagrangian Density is symmetric under Lorentz transformation. We conclude this because of Einstein's postulate that the laws of nature (the field equation here) is invariant in form under Lorentz transformation. The Euler-Lagrange equation for fields, which is another form of the field equation, is a law of nature and must, therefore be invariant in form as well.
+
+\section{Noether's Theorem}
+There are other ways the Lagrangian density can be symmetric, for example
+\begin{equation}
+\phi \rightarrow \phi^{\prime}=\phi e^{-i \alpha}
+\label{phase-trans}
+\end{equation}
+and for free scalar field, we have
+$$
+\mathcal{L}_{0}^{0}=\partial_{v} \underbrace{\phi^{r+} e^{-i \alpha}}_{\phi^{\dagger}} \partial^{v} \underbrace{\phi^{\prime} e^{i a}}_{\phi}-\mu^{2} \underbrace{\phi^{\prime} e^{-i \alpha}}_{\phi^{\dagger}} \underbrace{\phi^{\prime} e^{i \alpha}}_{\phi}=\mathcal{L}_{0}^{0}\left(\phi^{\prime\dagger}, \phi^{\prime}\right)
+$$
+\subsection{Internal and external symmetries}
+Poincaré transformations (Lorentz plus $4 \mathrm{D}$ translation) and $3 \mathrm{D}$ rotations involve changes $\mathrm{t}$ to physical coordinates $x^{\mu}$ of our external world and are called \textbf{external transformations}.
+
+Transformation like (\ref{phase-trans}) have nothing to do with $x^{\mu}$, but instead function in hidden spaces, behind the scene, like Hilbert or Fock space. They are called \textbf{internal transformation}.
+\begin{qt}
+   Noether's theorem in words: \textbf{ A symmetry in the Lagrangian density implies an associated quantity is conserved.}
+   
+   Mathematically:If the Lagrangian density $\mathcal{L}\left(\phi^{r}, \phi^{r}, \mu\right)$ is symmetric in form with respect to a transformation in $\phi^{r}$ which is a function of parameter $\alpha$,i.e., $\phi^{r}\left(x^{\mu}\right) \rightarrow \phi^{r}\left(x^{\mu}, \alpha\right)$ then the four current (using $\left.\phi^{r}\left(x^{\mu}, \alpha\right)\right)$
+   \begin{equation}
+j^{\mu}\left(\phi^{r}, \phi_{, \nu}^{r}\right)=\frac{\partial \mathcal{L}}{\partial \phi_{, \mu}^{r}} \frac{\partial \phi^{r}}{\partial \alpha} \quad(\text { sum on } r)
+\end{equation}
+bas zero four-divergence,$\partial_{\mu} j^{\mu}=0$. Thus, its zeroth component $j^0$ integrated over all the space is conserved, as is $q j^{0}$ integrated over all space, where $q$ is a constant.
+\end{qt}
+\subsection{Apply Noether's theorem to free scalar field}
+$$
+\frac{\partial \mathcal{L}_{0}^{0}}{\partial \phi_{\mu}}=\frac{\partial}{\partial \phi_{, \mu}}\left(\phi_{, \nu}^{\dagger} \phi^{\nu}-\mu^{2} \phi^{\dagger} \phi\right)=\frac{\partial}{\partial \phi_{\mu}}\left(\phi_{, \mu}^{\dagger} \phi^{\nu}\right)
+=\frac{\partial \phi_{, \nu}^{\dagger}}{\partial \phi_{\mu}} \phi^{,\nu}+\phi_{, \nu}^{\dagger} \frac{\partial \phi^{,\nu}}{\partial \phi_{,\mu}}=\phi_{, \nu}^{\dagger} g^{\nu \mu}=\phi^{\dagger, \mu}
+$$
+$$
+\frac{\partial \mathcal{L}_{0}^{0}}{\partial \phi^{\dagger}, \mu}=\frac{\partial}{\partial \phi^{\dagger}, \mu}\left(\phi_{, \nu}^{\dagger} \phi^{\nu}-\mu^{2} \phi^{\dagger} \phi\right)=\frac{\partial}{\partial \phi^{\dagger}}\left(\phi^{\dagger}, \phi^{,\nu}\right)=\frac{\partial \phi^{\dagger}_{, \nu}}{\partial \phi^{\dagger}_{, \mu}} \phi^{,\nu}=\delta_{v}^{\mu} \phi^{, v}=\phi^{,\mu}
+$$
+and
+$$
+\begin{array}{l}
+{\frac{\partial \phi\left(x^{\eta}, \alpha\right)}{\partial \alpha}=\frac{\partial}{\partial \alpha} \phi\left(x^{\eta}\right) e^{-i \alpha}=-i \phi\left(x^{\eta}\right) e^{-i \alpha}} \\
+{\frac{\partial \phi^{\dagger}\left(x^{\eta}, \alpha\right)}{\partial \alpha}=\frac{\partial}{\partial \alpha} \phi^{\dagger}\left(x^{\eta}\right) e^{i \alpha}=i \phi^{\dagger}\left(x^{\eta}\right) e^{i \alpha}}
+\end{array}
+$$
+Using the relation above, we have
+$$
+j^{\mu}\left(\phi^{r}, \phi^{r}_{,v}\right)=i\left(\phi^{,\mu}\left(x^{\eta}\right) \phi^{\dagger}\left(x^{\eta}\right)-\phi^{\dagger, \mu}\left(x^{\eta}\right) \phi\left(x^{\eta}\right)\right)
+$$
+This is identical to the scalar four-current.\redp{The expectation value ( expected measurement) of a conserved operator is conserved. If the state measured is in an eigenstate, any measurement at any time will yield the same eigenvalue}.
+\section{Symmetry, Gauges, and Gauge theory}
+\begin{itemize}
+    \item \textbf{Gauge invariance }(or gauge symmetry) is the property of a field theory in which different configurations of the underlying fundamental, but unobservable, field(s) result in identical observable properties.
+    \item the unobservable field, often a potential field, is called the\textbf{ gauge field}.
+    \item A gauge transformation changes the gauge field from one configuration to another. \redp{Each different configuration of the gauge field is a different gauge.}
+    \item A theory have gauge invariance (symmetry) is called a gauge theory.
+\end{itemize}
+\redp{\textbf{We can also say that a gauge theory is a type of field theory in which the Lagrangian ( density) is invariant under a continuous (not discrete) transformation.}}
+\section{A Solved Exercises}
+\textbf{Problem 14.} Show that the total (not density) 3-momentum $k^{i}$ for free scalars is conserved. Use our knowledge that the conjugate momentum for $x^{i}$ is $k_{i}$, the total (not density) 3 -momentum (expressed in covariant components), and it is conserved if $L$ is symmetric (invariant) under the coordinate translation transformation $x^{t} \rightarrow x^{1}=x^{t},$ where $\alpha^{t}$ is a constant $3 \square$ vector. Then, show the same result via commutation of the three-momentum operator.
+
+\textbf{Solution}
+The Lagrangian density is $\mathcal{L}_{0}^{0}=\phi_{, \mu}^{\dagger} \phi^{\mu}-\mu^{2} \phi^{\dagger} \phi .$ We must integrate this over all volume to get the total Lagrangian $L$. If $k_{i}$ is conserved, then of course, so is $k^{i}$. So, we need to show $L$ is invariant under $x^{i} \rightarrow x^{i}=x^{i}+\alpha^{i}$
+$$
+\phi=\sum_{\mathbf{k}} \frac{1}{\sqrt{2 V a_{\mathbf{k}}}}\left(a(\mathbf{k}) e^{-i k_{\mu} x^{\mu}}+b^{\dagger}(\mathbf{k}) e^{i k_{\mu} x^{\mu}}\right) \quad \phi^{\dagger}=\sum_{\mathbf{k}} \frac{1}{\sqrt{2 V a_{k}}}\left(b(\mathbf{k}) e^{-i k_{\mu} x^{\mu}}+a^{\dagger}(\mathbf{k}) e^{i k_{\mu} x^{\mu}}\right)
+$$
+$$
+\begin{array}{l}
+{\phi_{s}, \mu=\sum_{\mathbf{k}} \frac{i k_{\mu}}{\sqrt{2 V \omega_{\mathbf{k}}}}\left(-a(\mathbf{k}) e^{-i k_{\mu} x^{\mu}}+b^{\dagger}(\mathbf{k}) e^{i k_{\mu} x^{\mu}}\right)} \\
+{\phi^{, \mu}=\sum_{\mathbf{k}} \frac{i k^{\mu}}{\sqrt{2 V a_{k}}}\left(-a(\mathbf{k}) e^{-i k_{\mu} x^{\mu}}+b^{\dagger}(\mathbf{k}) e^{i k_{\mu} x^{\mu}}\right)}
+\end{array}
+$$
+$$
+\begin{aligned}
+\phi^{\dagger}_{z \mu} \phi^{z}=\sum_{\mathbf{k}} \sum_{\mathbf{k}^{*}} \frac{-1}{2 V} \frac{k_{\mu} k^{* \mu}}{\sqrt{\omega_{\mathbf{k}} \omega_{\mathbf{k}^{*}}}}\left(b(\mathbf{k}) a\left(\mathbf{k}^{*}\right) e^{-i k_{A} x^{\mu}} e^{-i k_{A}^{*} x^{\mu}}-b(\mathbf{k}) b^{\dagger}\left(\mathbf{k}^{*}\right) e^{-i k_{\mu} x^{\mu}} e^{i k_{\mu} x^{\mu}}\right.\\
+-a^{\dagger}(\mathbf{k}) a\left(\mathbf{k}^{*}\right) e^{i k_{\mu} x^{\mu}} e^{-i k_{\mu} x^{\mu}}+a^{\dagger}(\mathbf{k}) b^{\dagger}\left(\mathbf{k}^{*}\right) e^{i k_{\mu} x^{\mu}} e^{i k_{\mu} x^{\mu}}
+\end{aligned}
+$$
+For $k_{i}=-k^*_i$, we have $$
+\left.k_{\mu} k^{* \mu}=\omega_{\mathbf{k}}^{2}+k_{i} k^{*i}=\omega_{\mathbf{k}}^{2}+k_{i}\left(-k^{i}\right)=\omega_{\mathbf{k}}^{2}+k_{i} k_{i}=k_{\mu} k_{\mu}\right.
+$$
+$$
+\int \phi^{\dagger}_{,\mu} \phi^{, \mu} d V=\sum_{k} \frac{-1}{2 \omega_{k}}\left(\begin{array}{c}
+{k_{\mu} k_{\mu} e^{-i 2 \omega_{k} t} b(\mathbf{k}) a(-\mathbf{k})-k_{\mu} k^{\mu} b(\mathbf{k}) b^{\dagger}(\mathbf{k})} \\
+{-k_{\mu} k^{\mu} a^{\dagger}(\mathbf{k}) a(\mathbf{k})+k_{\mu} k_{\mu} e^{i 2 \omega_{k} t} a^{\dagger}(\mathbf{k}) b^{\dagger}(-\mathbf{k})}
+\end{array}\right)
+$$
+Similarly,
+$$
+\int \mu^{2} \phi^{\dagger} \phi d V=-\sum_{\mathbf{k}} \frac{\mu^{2}}{2 \omega_{\mathbf{k}}}\left(e^{-i 2 \omega_{\mathbf{k}} t} b(\mathbf{k}) a(-\mathbf{k})+b(\mathbf{k}) b^{\dagger}(\mathbf{k})+a^{\dagger}(\mathbf{k}) a(\mathbf{k})+e^{i 2 \omega_{\mathbf{k}} t} a^{\dagger}(\mathbf{k}) b^{\dagger}(-\mathbf{k})\right)
+$$
+It is easy to show that, after the transformation the forms of $\int \mu^{2} \phi^{\dagger} \phi d V$ and $\int \phi^{\dagger}_{,\mu} \phi^{, \mu} d V$ will not change, so L is symmetric in some coordinate, then the conjugate momentum of that coordinate is conserved. $k_{i}$, the particle(s) 3 -momentum is the conjugate momentum of $x^{i} .$ Thus, $k_{i}$, is conserved.
+
+Also
+$$
+H=\sum_{\mathbf{k}} \omega_{\mathbf{k}}\left(N_{a}(\mathbf{k})+N_{b}(\mathbf{k})\right) \quad \mathbf{P}=\sum_{\mathbf{k}} \mathbf{k}\left(N_{a}(\mathbf{k})+N_{b}(\mathbf{k})\right) \rightarrow[H, \mathbf{P}]=0 \quad\left(\begin{array}{ll}
+{\text { because all number }} \\
+{\text { operators commute }}
+\end{array}\right)
+$$
+Thus $\mathbf{P}$ is conserved for the free Hamiltonian.
