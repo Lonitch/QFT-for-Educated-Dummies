@@ -1,0 +1,34 @@
+\chapter{Interactions: The Underlying Theory}
+\section{Interactions in RQM}
+\subsection{Maxwell's equation with sources}
+If we include the charge density and current density into Maxwell's equation, we have
+\begin{equation}
+\begin{aligned}
+&\nabla \cdot \mathbf{E}=\rho_{charge}\\
+&\nabla \times \mathbf{B}-\frac{\partial \mathbf{E}}{\partial t}=\mathbf{j}_{charge}\\
+&\nabla \cdot \mathbf{B}=0\\
+&\vec{\nabla} \times \mathbf{E}=-\frac{\partial \mathbf{B}}{\partial t}
+\end{aligned}
+\end{equation}
+By introducing the potentials $\Phi$ and $\mathbf{A}$, where 
+$$
+\mathbf{B}=\nabla \times \mathbf{A}, \quad \mathbf{E}=-\nabla \Phi-\frac{\partial \mathbf{A}}{\partial t}
+$$
+one gets
+\begin{equation}
+\begin{aligned}
+&-\nabla \frac{\partial \Phi}{\partial t}-\nabla(\nabla \cdot \mathbf{A})=\rho_{charge}\\
+&\frac{\partial^{2} \mathbf{A}}{\partial t^{2}}-\nabla^{2} \mathbf{A}+\nabla \frac{\partial \Phi}{\partial t}+\nabla(\nabla\cdot\mathbf{A})=\mathbf{j}_{charge}
+\end{aligned}
+\end{equation}
+Rewrite the equations above in terms of 4-potential and 4-current $-ej^{\mu}$=($\rho_{charge},\mathbf{j}_{charge}$):
+\begin{equation}
+    \partial^{\alpha}\partial_{\alpha}A^{\mu}(x)-\partial^{\mu}\left(\partial_{\nu}A^{\nu}(x)\right)=-ej^{\mu}(x)
+\end{equation}
+Using Lorenz gauge condition, we have
+\begin{qt}
+\begin{equation}
+    \partial^{\alpha}\partial_{\alpha}A^{\mu}(x)=-ej^{\mu}
+\end{equation}
+\end{qt}
+\subsection{The classical Lagrangian density for interaction}
