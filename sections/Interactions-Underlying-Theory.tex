@@ -29,6 +29,164 @@ Using Lorenz gauge condition, we have
 \begin{qt}
 \begin{equation}
     \partial^{\alpha}\partial_{\alpha}A^{\mu}(x)=-ej^{\mu}
+    \label{maxwell-4D-interaction-eqn}
 \end{equation}
 \end{qt}
 \subsection{The classical Lagrangian density for interaction}
+The full electromagnetic Lagrangian(density), including interactions, must give rise to (\ref{maxwell-4D-interaction-eqn}) when substituted into the Euler-Lagrange field equation:
+$$
+\frac{\partial}{\partial x^{v}}\left(\frac{\partial \mathcal{L}}{\partial \phi_{v}^{n}}\right)-\frac{\partial \mathcal{L}}{\partial \phi^{n}}=0, \quad \text { with } \quad \phi^{n}=A_{\mu} ; \mathcal{L}=\mathcal{L}^{e / m}
+$$
+One can prove that the full electromagnetic field classical Lagrangian is
+\begin{qt}
+\begin{equation}
+\mathcal{L}^{e / m}=\underbrace{-\frac{1}{2}\left(\partial_{v} A_{\mu}(x)\right)\left(\partial^{v} A^{\mu}(x)\right)}_{\mathcal{L}_{0}^{e / m}}+ \underbrace{e j^{\mu}(x) A_{\mu}(x)}_{\mathcal{L}_{1}^{e / m}}
+\label{full-electromagnetic-field-classical-lagrangian}
+\end{equation}
+where "0" and "1" subscripts denote the free and interaction parts, respectively, of the Lagrangian.
+\end{qt}
+\subsection{Electromagnetic Interactions in RQM}
+Relations (\ref{maxwell-4D-interaction-eqn}) and (\ref{full-electromagnetic-field-classical-lagrangian}) hold for classical electromagnetism where $-ej^{\mu}$ is the classical electric charge 4-current. \textbf{In quantization, we assume the quantum form of the Lagrangian (density or total) is the same as the classical, and thus, so would be the resulting wave equation.} In RQM, we would then consider $A^{\mu}$ to represent the quantum photon state (ket, wave function). Thus, (\ref{full-electromagnetic-field-classical-lagrangian}) represents the RQM electromagnetic Lagrangian. But then, \bluep{how should one interpret $-ej^{\mu}$?} In Chap.3, we saw that the probability 4-current for an electron in RQM, where $\psi_{state}$ represents the electron wave function state, is
+$$
+j^{\mu}=(\rho, \mathbf{j})=\bar{\psi}_{\text {state}} \gamma^{\mu} \psi_{\text {state}} \quad \text { where } \partial_{\mu} j^{\mu}=0
+$$
+\redp{It seems natural to assume charge density varies directly with probability density.} Thus, we can assume
+\begin{equation}
+-e j^{\mu}=-e \bar{\psi}_{\text {state}} \gamma^{\mu} \psi_{\text {state}}
+\label{electron-4-current-state}
+\end{equation}
+where the total charge of the electron would be
+$$
+-e \int j^{0} d^{3} x=-e
+$$
+Using (\ref{maxwell-4D-interaction-eqn}),(\ref{full-electromagnetic-field-classical-lagrangian}), and(\ref{electron-4-current-state}), we can then represent the \textbf{\redp{RQM interaction wave equation for a photon}} as
+\begin{equation}
+\partial^{\alpha} \partial_{\alpha} A_{\text {stale}}^{\mu}=-e \bar{\psi}_{\text {state}} \gamma^{\mu} \psi_{\text {state}}
+\label{RQM-photon-interaction-wave-eqn}
+\end{equation}
+with the corresponding \textbf{\redp{RQM e/m interaction Lagrangian for a photon}} as
+\begin{equation}
+\mathcal{L}^{e / m}=\underbrace{-\frac{1}{2}\left(\partial_{v} A_{\mu,state}\right)\left(\partial^{v} A_{\text {state }}^{\mu}\right)}_{\mathcal{L}_0^{e/m}}+\underbrace{e \bar{\psi}_{\text {state}} \gamma^{\mu} \psi_{\text {state}} A_{\mu,state}}_{\mathcal{L}_I^{e/m}}
+\label{RQM-em-interaction Lagrangian-for-photon}
+\end{equation}
+\redp{\textbf{(\ref{RQM-photon-interaction-wave-eqn}) governs the behavior of a photon ($A^{\mu}_{state}$) in the presence of an electron ($\psi_{state}$)}}.
+\subsection{The electromagnetic interaction Dirac equation}
+We now develop the full Dirac equation describing the electron interacting with a photon. To this end, consider that $\mathcal{L}_{0}^{e / m}$ of (\ref{RQM-em-interaction Lagrangian-for-photon}) represents the free photon part of the full e/m Lagrangian. If we assume $\mathcal{L}_{1}^{e / m}$ represents the e/m interaction part for both the photon and the electron, then \textbf{\redp{we need only add the free electron contribution to (\ref{RQM-em-interaction Lagrangian-for-photon}) to get a Lagrangian containing all terms relevant to photons, electrons, and interactions between them.}} Since from Chap 3
+$$
+\mathcal{L}_{0}^{1 / 2}=\bar{\psi}_{\text {state}}\left(i \gamma^{\mu} \partial_{\mu}-m\right) \psi_{\text {state}}
+$$
+Thus, the \textbf{full e/m Lagrangian} is
+\begin{equation}
+\mathcal{L}^{1 / 2,1}=\underbrace{-\frac{1}{2}\left(\partial_{v} A_{\mu,state}\right)\left(\partial^{v} A_{\text {state}}^{\mu}\right)}_{\mathcal{L}_{0}^{1}=\mathcal{L}_{0}^{e / m}}+\underbrace{\bar{\psi}_{\text {state}}\left(i \gamma^{\mu} \partial_{\mu}-m\right) \psi_{\text {state}}}_{\mathcal{L}_{0}^{1 / 2}}+\underbrace{e \bar{\psi}_{\text {state}} \gamma^{\mu} \psi_{\text {state}} A_{\mu,state}}_{\mathcal{L}_{1}^{1 / 2,1}=\mathcal{L}_{1}^{e/m}}
+\label{full-e/m-lagrangian}
+\end{equation}
+To find the interaction form of the Dirac equation, we use (\ref{full-e/m-lagrangian}) in Euler-Lagrange equation with $\phi^{n=1}=\bar{\psi}$. The result is
+\begin{qt}
+\begin{equation}
+\left(i \gamma^{\mu} \partial_{\mu}-m\right) \psi_{\text {state }}=-e \gamma^{\mu} \psi_{\text {state }} A_{\mu,state}
+\label{full-Dirac-eqn}
+\end{equation}
+As an aside, using (\ref{full-e/m-lagrangian}) with $\phi^{n=2}=\psi$ results in the adjoint full Dirac equation.
+\end{qt}
+
+\begin{mybox}
+A this point, some might be concerned that we have used the Lagrangian density methodology, which is normally reserved for quantum and classical fields, to develop the full Dirac equation for quantum states (corresponding to particles, not fields).One would expect to use the
+total Lagrangian L (integration of $\mathcal{L}$ over all space) instead of $\mathcal{L}$, since (\ref{full-Dirac-eqn}) is a wave equation for interacting states, not fields.
+
+However, even in the context of $1^{\text {st }}$ (particle) and $2^{\text {nd }}$ (field) quantization as we have come to understand them, the issue is not such a big one. This is because we did not employ commutation relations for fields $A^{\mu}$ and $\psi,$ analogous to Poisson bracket relations, in the above development, It is the adth $^{\mu} A^{\mu}$ and $\psi,$ analogous to Poisson bracket relations, in the above development, \textbf{it is the adoption of commutation relations for those fields that turns them into creation and destruction operators quantum mechanically.} We did not do that, so $A^{\mu}$ and $\psi$ remain as states, not quantum fields, in the above treatment. Of course, for RQM, we would still have commutation relations for dynamical variable gnerators, such as $p_{x}$ and $X_{1}$, though we would not have them for $A^{\mu}$ and $\psi$
+\end{mybox}
+\section{Interactions in QFT}
+Our interacting spinor field and photon wave equations in the Heisenberg picture should simply be the following for fields,
+\begin{equation}
+\partial^{\alpha} \partial_{\alpha} A^{\mu}=-e \bar{\psi} \gamma^{\mu} \psi
+\label{fields-interaction-wave-eqn-1}
+\end{equation}
+\begin{equation}
+\left(i \gamma^{\mu} \partial_{\mu}-m\right) \psi=-e \gamma^{\mu} A_{\mu} \psi
+\label{fields-interaction-wave-eqn-2}
+\end{equation}
+where the order of $\psi$ and $A_{\mu}$ in the equations above is unimportant, even though they are operators, since \redp{different type fields commute}. The associated Lagrangian for the $\psi$ and $A^{\mu}$ operator fields is
+\begin{equation}
+\mathcal{L}^{1 / 2,1}=\underbrace{-\frac{1}{2}\left(\partial_{v} A_{\mu}\right)\left(\partial^{v} A^{\mu}\right)}_{\mathcal{L}_{0}^{1}}+\underbrace{\bar{\psi}\left(i \gamma^{a} \partial_{\alpha}-m\right) \psi}_{\mathcal{L}_0^{1/2}}+\underbrace{e \bar{\psi} \gamma^{\mu} A_{\mu} \psi}_{\mathcal{L}_{I}^{1 / 2,1}}
+\end{equation}
+
+Modern day computers can help in providing numerical solutions to these equations, but early researchers in QFT did not have such things. Also, the route those researchers did take provides considerable insight into the inner workings of the theory. That route, for the QFT e/m interaction theory known as \textbf{quantum electrodynamics (QED)}, was forged in large part by Richard Feynman, Freeman Dyson, Julian Schwinger, and Sin-Itiro Tomonaga. It involves two things,
+\begin{itemize}
+    \item perturbation theory, and
+    \item a trick known as the Interaction picture
+\end{itemize}
+\begin{qt}
+The expectation value for any quantum field, including spinor and vector fields, is zero.
+\end{qt}
+
+\section{Interaction Picture}
+It turns out that a third picture, the Interaction Picture (I.P.) is easier to use for interactions in
+QFT. For one reason, it facilitates use of perturbation theory in place of trying to solve the coupled, non-linear, partial differential equations (\ref{fields-interaction-wave-eqn-1}) and (\ref{fields-interaction-wave-eqn-2}).
+
+Additionally, the LP. allows us to analyze interacting fields using all the results of our free QFT development.
+
+\underline{Breaking the Hamiltonian into Free and Interaction Parts}
+The Hamiltonian (total, not density) for e/m interactions in the (Schrödinger Picture) S.P. can be expressed, from the Lagrangian density (\ref{full-e/m-lagrangian}) and the Legendre transformation, as (with $\phi^{r}$ generically representing any quantum field)
+\begin{equation}
+\underbrace{H^{S}}_{H}=\underbrace{H^{1 / 2,1}}_{\text {just e/m }}=\underbrace{\int\left(\pi_{r} \dot{\phi}^{r}-\mathcal{L}_{0}^{1}-\mathcal{L}_{0}^{1 / 2}\right) d^{3} x}_{H_{0}^{S}=H_{0}(\text { free part })}-\underbrace{\int \mathcal{L}_{I}^{1 / 2,1} d^{3} x}_{H_{I}^{S}(\text { interaction part })}
+\end{equation}
+Thus,$H=H_{0}+H_{I}^{S}$. Note, for future reference, that for all cases  $\mathcal{H}_{I}=-\mathcal{L}_{I}$ and $ H_{I}=-L_{I}$.
+
+\underline{Using only the free part of the Hamiltonian to transform to the interaction picture}
+
+The transformation from the S.P. to the I.P. is
+\begin{equation}
+    U_{0}=e^{-i H_{0} t}
+\end{equation}
+where $U_0$ is a unitary operator, where
+\begin{equation}
+U_{0}^{\dagger}|\Psi\rangle_{S}=|\Psi\rangle_{I}
+\end{equation}
+and where subscripts "S" and "I" on generic states $|\Psi\rangle$ indicate the S.P. and I.P, respectively. For operators, where superscripts "S" and "I" represent the S.P. and I.P., respectively,
+\begin{equation}
+U_{0}^{\dagger} \mathcal{O}^{S} U_{0}=\mathcal{O}^{I}
+\end{equation}
+
+\underline{Parts of the Hamiltonian expressed in the I.P.}
+
+For the free part of the Hamiltonian operator $H_{0}=H_{0}^{S},$ we see that
+\begin{equation}
+H_{0}^{I}=U_{0}^{\dagger} H_{0}^{S} U_{0}=U_{0}^{\dagger} H_{0} U_{0}=e^{i H_{0} t} H_{0} e^{-i H_{0} t}=H_{0} e^{i H_{0} t} e^{-i H_{0} t}=H_{0}
+\end{equation}
+because $H_{0}$ commutes with itself. Thus,
+\begin{equation}
+H_{0}=H_{0}^{S}=H_{0}^{I}
+\end{equation}
+\bluep{this equality generally does not hold for the interaction part:}
+$$
+H_{I}^{I}=U_{0}^{\dagger} H_{I}^{S} U_{0} \neq H_{I}^{S}
+$$
+and thus, we will represent the interaction picture Hamiltonian as
+\begin{equation}
+H^{I}=H_{0}+H_{I}^{I}
+\end{equation}
+\subsection{Equations of Motion in the I.P.}
+$$
+\frac{d \mathcal{O}^{l}}{d t}=\frac{d}{d t}\left(U_{0}^{+} \mathcal{O}^{s} U_{0}\right)=\frac{d U_{0}^{\dagger}}{d t} \mathcal{O}^{s} U_{0}+\underbrace{U_{0}^{\dagger} \frac{\partial \mathcal{O}^{S}}{\partial t} U_{0}}_{\text {defined }=\frac{\partial \mathcal{O}^{I}}{\partial t}}+U_{0}^{\dagger} \mathcal{O}^{s} \frac{d U_{0}}{d t}=
+$$
+$$
+\frac{d e^{i H_{0} t}}{d t} \mathcal{O}^{S} e^{-i H_{0} t}+e^{i H_{0} t} \mathcal{O}^{S} \frac{d e^{-i H_{0} t}}{d t}+\frac{\partial \mathcal{O}^{I}}{\partial t}=i H_{0} \underbrace{e^{i H_{0} t} \mathcal{O}^{S} e^{-i H_{0} t}}_{\mathcal{O}^{I}}-\underbrace{e^{i H_{0} t} \mathcal{O}^{S} e^{-i H_{0} t}}_{\mathcal{O}^{I}} i H_{0}+\frac{\partial \mathcal{O}^{I}}{\partial t}
+$$
+or
+\begin{qt}
+\begin{equation}
+\frac{d \mathcal{O}^{I}}{d t}=-i\left[\mathcal{O}^{I}, H_{0}\right]+\frac{\partial \mathcal{O}^{I}}{\partial t}
+\end{equation}
+\end{qt}
+where the last term is zero in this note, because we only deal with operators for which $\partial \mathcal{O}^{S} / \partial t=0$. \redp{Thus, the equation of motion for operators in the I.P. depends only on the free part of the Hamiltonian.}
+
+The \underline{I.P. equation of motion for states is}
+\begin{equation}
+i \frac{d}{d t}|\Psi\rangle_{I}=H_{I}^{I}|\Psi\rangle_{I}
+\end{equation}
+\redp{and hence, the equation of motion for states in the I.P. depends only on the interaction part of the Hamiltonian.}
+
+\underline{The I.P. equation of motion for expectation values is}
+\begin{equation}
+\frac{d \overline{\mathcal{O}}}{d t}={}_{I}\left\langle\Psi\left|\left(-i\left[\mathcal{O}^{I}, H^{I}\right]+\frac{\partial \mathcal{O}^{I}}{\partial t}\right)\right| \Psi\right\rangle_{I}
+\end{equation}
