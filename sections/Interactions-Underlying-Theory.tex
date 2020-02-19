@@ -176,6 +176,7 @@ or
 \begin{qt}
 \begin{equation}
 \frac{d \mathcal{O}^{I}}{d t}=-i\left[\mathcal{O}^{I}, H_{0}\right]+\frac{\partial \mathcal{O}^{I}}{\partial t}
+\label{IP-operator-time-derivative}
 \end{equation}
 \end{qt}
 where the last term is zero in this note, because we only deal with operators for which $\partial \mathcal{O}^{S} / \partial t=0$. \redp{Thus, the equation of motion for operators in the I.P. depends only on the free part of the Hamiltonian.}
@@ -183,6 +184,7 @@ where the last term is zero in this note, because we only deal with operators fo
 The \underline{I.P. equation of motion for states is}
 \begin{equation}
 i \frac{d}{d t}|\Psi\rangle_{I}=H_{I}^{I}|\Psi\rangle_{I}
+\label{IP-eq-of-motion-state}
 \end{equation}
 \redp{and hence, the equation of motion for states in the I.P. depends only on the interaction part of the Hamiltonian.}
 
@@ -190,3 +192,107 @@ i \frac{d}{d t}|\Psi\rangle_{I}=H_{I}^{I}|\Psi\rangle_{I}
 \begin{equation}
 \frac{d \overline{\mathcal{O}}}{d t}={}_{I}\left\langle\Psi\left|\left(-i\left[\mathcal{O}^{I}, H^{I}\right]+\frac{\partial \mathcal{O}^{I}}{\partial t}\right)\right| \Psi\right\rangle_{I}
 \end{equation}
+\begin{mybox}
+Note that (\ref{IP-operator-time-derivative}) has the same form as the operator equation of motion in the H.P., except that we have $H_0$ in the I.P. and H in the H.P.\textbf{ Hence, we can teke all results we obtained for operator behavior in the H.P. free field and use them in the I.P. for interacting fields.}
+
+For field operators such as $\mathcal{O}^{l}=\phi,\psi, \text { or } A^{\mu})$, (\ref{IP-operator-time-derivative}) has identical form to the H.P. equation of motion for fields where $H=H_0$. Thus (\ref{IP-operator-time-derivative}) reduces to the Klein-Gordon equation for scalars, the free Dirac equation for spinor fields, and the free Maxwell equation for photons. \textbf{Quantum fields in the I.P. behave just like the free quantum fields}
+\end{mybox}
+\subsection{Visualizing states in the I.P.}
+Consider a single  particle scalar plane wave state expressed in the coordinate basis. In the S.P., it looks like, where K is a normalization factor and sub/superscript meaning should be obvious,
+$$
+|\phi\rangle_{S}=\phi_{\text {state }}^{S}=K e^{-i E t+i \mathbf{k} \cdot \mathbf{x}}=K e^{-i E_{0} t-i E_{I} t+i \mathbf{k} \cdot \mathbf{x}}
+$$
+Note that $E_{t}$ is a number, and thus is the same in any picture. Transform the state to the I.P.,
+$$
+U_{0}^{\dagger}|\phi\rangle_{S}=e^{i H_{0} t} \phi_{S, \text { state }}=K e^{i H_{0} t} e^{-i E_{0} t-i E_{I} t+i k \cdot x}=K e^{i E_{0} t} e^{-i E_{0} t-i E_{I} t+i \mathbf{k} \cdot \mathbf{x}}=K e^{-i E_{I} t+i \mathbf{k} \cdot \mathbf{x}}
+$$
+So we see that \redp{the state in the I.P. varies in time only with the interaction energy}. The operator $U_{0}^{\dagger}$ takes out the $H_{0}$ dependence of the ket.
+
+In the I.P.
+\begin{itemize}
+    \item the state equation of motion depends on only the interaction Hamiltonian $H_I^I$, \item operator equations of motion depend on only the free Hamiltonian $H_{0},$ thus, importantly, 
+    \item the operator equations of motion in the I.P. are the same as the operator equations of motion in the H.P. for free fields (i.e., for $\left.H^{H}=H_{0} \text { with } H_{I}^{H}=0\right),$ so all operator relations derived for free field are valid in I.P.
+    \item meaning the free field case Klein-Gordon, Dirac, and Maxwell equations (of motion) from the H.P. are the same as those in the interacting case in the I.P., and so
+    \item quantum fields $\phi, \psi,$ and $A^{\mu}$ in the L.P. (the solutions to the field equations of motion) are the same as the free quantum fields solutions in the H.P.
+\end{itemize}
+So in the I.P. \redp{We only need to solve the state equation of motion(\ref{IP-eq-of-motion-state}).}
+\section{S matrix}
+\redp{Each $S_{f i}$ of $S$ Matrix is the transition amplitude between an initial eigenstate and a final eigenstate, $S_{f i}^{2}$ is probability of transition from initial eigenstate $|i\rangle$ to final eigenstate $|f\rangle$}. For example
+\begin{center}
+    $S_{21}^{\dagger} S_{21}=\left|S_{21}\right|^{2}=$ probability of 1 st eigenstate transitioning to $2 \mathrm{nd}$
+\end{center}
+$S_{fi}$ is a transition amplitude for a particular reaction. That is, for the operator $S_{oper,fi}$
+$$
+S_{fi}=\left\langle f\left|S_{\text {oper}, fi}\right| i\right\rangle
+$$
+\begin{equation}
+\left.S_{\text {oper}, f i}|i\rangle= S_{f i}|f\rangle \quad \text { (no sum on } i \text { or } f\right)
+\end{equation}
+and
+\begin{equation}
+\sum_{f}\left|S_{fi}\right|^{2}=1
+\end{equation}
+in general
+\begin{qt}
+\begin{equation}
+S_{f i}=\left\langle f\left|S_{o p e r}\right| i\right\rangle
+\end{equation}
+\end{qt}
+\section{Finding the S operator}
+We can find the $S_{\text {oper }}$ from the state equation of motion, the only thing we haven't already solved for in the I.P. formulation. In the I.P., our state equation of motion, where $\mathbf{\Psi}$ ) represents a generic state (multiparticle typically), is
+$$
+i \frac{d}{d t}|\Psi(t)\rangle_{I}=H_{I}^{I}|\Psi(t)\rangle_{I}
+$$
+Let
+\begin{equation}
+|F\rangle=\sum_{f} S_{f i}|f\rangle=\left|\Psi\left(t_{f}\right)\right\rangle_{I}=S_{o p e r}\left(t_{f}, t_{i}\right)\left|\Psi\left(t_{i}\right)\right\rangle_{I}=S_{o p e r}\left(t_{f}, t_{i}\right)|i\rangle
+\end{equation}
+Taking our final time $t_f$ as time $t$ in the eqn. of motion, we have
+\begin{equation}
+|\Psi(t)\rangle_{I}=S_{\text {oper}}\left(t, t_{i}\right)\left|\Psi\left(t_{i}\right)\right\rangle_{I}
+\end{equation}
+Using the equation  above in the equation of motion for state yields
+\begin{equation}
+i \frac{d}{d t}\left(S_{o p e r}\left|\Psi\left(t_{i}\right)\right\rangle_{I}\right)=H_{l}^{I}\left(S_{o p e r}\left|\Psi\left(t_{i}\right)\right\rangle_{I}\right)
+\end{equation}
+This becomes
+\begin{equation}
+i \frac{d S_{\text {oper }}}{d t}\left|\Psi\left(t_{i}\right)\right\rangle_{I}+i S_{\text {oper }}\underbrace{ \frac{d}{d t}\left|\Psi\left(t_{i}\right)\right\rangle_{I}}_{=0\text{ as indep. of }t_f}=H_{I}^{I} S_{\text {oper }}\left|\Psi\left(t_{i}\right)\right\rangle_{I}
+\end{equation}
+\begin{qt}
+and thus the differential equation for $S_{oper}$
+\begin{equation}
+i \frac{d S_{\text {oper}}}{d t}=H_{I}^{I} S_{\text {oper}}
+\end{equation}
+This has the solution
+\begin{equation}
+S_{\text {oper}}=e^{-i \int_{t_{i}}^{t_{f}} H_{I}^{I} d t}=e^{-i \int_{t_{i}}^{I f} \int_{V} \mathcal{H}_{I}^{I} d^{4} x}
+\end{equation}
+In infinite volume and time frame,
+\begin{equation}
+S=S_{\text {oper }}\left(V\rightarrow\infty t_{f} \rightarrow \infty, t_{i} \rightarrow-\infty\right)=e^{-i \int_{-\infty}^{\infty} \mathcal{H}_{I}^{I} d^{4} x}
+\label{S-oper}
+\end{equation}
+\end{qt}
+\begin{mybox}
+In Fock space where every eigenstate can be visualized as a separate axis in an infinite dimensional space, the $S_{oper}$ can be visualized as a sort of abstract "rotation" in that space. \textbf{The initial state vector $|i\rangle$ is "rotated" by the $S_{oper}$ into a new vector with components along the eigenstate basis axes.}
+\end{mybox}
+\section{Expanding S operator}
+$S_{oper}$ can be expanded (in a Taylor series like $e^{x}=1+x+x^{2} / 2 !+x^{3} / 3 !+\ldots$ ) as
+$$
+S_{o p e r}\left(t_{f}, t_{i}\right)=e^{-i \int_{t_{i}}^{t_{f}} H_{I}^{I}(t) d t}=\sum_{n=0}^{\infty} \frac{(-i)^{n}}{n !} \int_{t_{i}}^{t_{f}} \dots \int_{t_{i}}^{t_{f}} T\left\{H_{I}^{I}\left(t_{1}\right) H_{I}^{I}\left(t_{2}\right) \dots H_{I}^{I}\left(t_{n}\right)\right\} d t_{1} d t_{2} \dots d t_{n}
+$$
+If the $H^{I}$ above were numeric functions of time, it wouldn't really matter what order, with respect to the $t_{n}$, we carry out the integrations above. However, since they are comprised of operators that act on a ket state to their right, we have to be sure that at each point in the integration, the time-wise earliest operators are acting first.
+
+This means that at each point in the $n$ dimensional space each axis is a different $t_{n}$, the $H_{I}^{I}$ dependent on the earliest time of the $t_{n}$ should act first, the $H_{I}^{I}$ dependent on the next earliest of the $t_{n}$ should act next. \textbf{The e order of the integrand operators is rearranged as we integrate over all $t_n$ dimensions, such taht the operator are time ordered at every point ($t_1,t_2,t_3,...$)}
+
+Taking our integration limits to infinity in both space and time into the time ordered infinite spacetime $S_{\text {oper }},$ i.e., the \textbf{Dyson expansion of the S operator},
+\begin{qt}
+\begin{equation}
+S=\sum_{n=0}^{\infty} \frac{(-i)^{n}}{n !} \int_{-\infty}^{\infty} \ldots . \int_{-\infty}^{\infty} T\left\{\mathcal{H}_{I}^{I}\left(t_{1}\right) \mathcal{H}_{I}^{I}\left(t_{2}\right) \ldots \mathcal{H}_{I}^{I}\left(t_{n}\right)\right\} d^{4} x_{1} d^{4} x_{2} \ldots d^{4} x_{n}
+\end{equation}
+Also note the symbols we can use for the terms above as
+$$
+S=\underbrace{I}_{S^{(0)}}\underbrace{-i \int_{-\infty}^{\infty} \mathcal{H}_{I}^{I}\left(x_{1}\right) d^{4} x_{1}}_{S^{(1)}}\underbrace{-\frac{1}{2!} \int_{-\infty}^{\infty} \int_{-\infty}^{\infty} T\left\{\mathcal{H}_{I}^{I}\left(x_{1}\right) \mathcal{H}_{I}^{I}\left(x_{2}\right)\right\} d^{4} x_{1} d^{4} x_{2}}_{S^{(2)}}+...=\sum_{n=0}^{\infty} S^{(n)}
+$$
+\end{qt}
