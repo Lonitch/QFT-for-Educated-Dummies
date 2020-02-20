@@ -296,3 +296,93 @@ $$
 S=\underbrace{I}_{S^{(0)}}\underbrace{-i \int_{-\infty}^{\infty} \mathcal{H}_{I}^{I}\left(x_{1}\right) d^{4} x_{1}}_{S^{(1)}}\underbrace{-\frac{1}{2!} \int_{-\infty}^{\infty} \int_{-\infty}^{\infty} T\left\{\mathcal{H}_{I}^{I}\left(x_{1}\right) \mathcal{H}_{I}^{I}\left(x_{2}\right)\right\} d^{4} x_{1} d^{4} x_{2}}_{S^{(2)}}+...=\sum_{n=0}^{\infty} S^{(n)}
 $$
 \end{qt}
+
+\section{Wick's Theorem Applied to Dyson Expansion}
+Time ordering is cumbersome to handle, because \textbf{we can't keep the same order of operators throughout the integration over time}. Fortunately, we can convert $S$ into non-time ordered form, where the order of operators does not change during integration, via a handy theorem developed by Gian-Carlo Wick.
+
+\redp{Wick's theorem converts time ordered products of operators into normal ordered t products of operators and some things called "contractions".}
+\begin{qt}
+For generic fields $A$ and $B$ (either of which could be $\phi, \psi, A^{\mu}, \phi,$ etc) where
+$$
+A=\underbrace{A^{+}}_{\text {destruc }}+\underbrace{A^{-}}_{\text {creation }}=A^{d}+A^{c}
+$$
+$$
+B=\underbrace{B^{+}}_{\text {destruc }}+\underbrace{B^{-}}_{\text {creation }}=B^{d}+B^{c}
+$$
+A contraction is defined as (note the under bracket symbol)
+\begin{equation}
+\underbracket{A\left(x_{1}\right) B}\left(x_{2}\right)=\left[A_{1}^{+}\left(x_{1}\right), B^{-}\left(x_{2}\right)\right]_{\mp}=\left[A^{d}\left(x_{1}\right), B^{c}\left(x_{2}\right)\right]_{\mp} \quad \text { if } t_{2}<t_{1}
+\end{equation}
+\begin{equation}
+=\pm\left[B^{+}\left(x_{2}\right), A^{-} \left(x_{1}\right)\right]_{\mp}=\pm\left[B^{d}\left(x_{2}\right), A^{c}\left(x_{1}\right)\right]_{\mp} \quad \text { if } t_{1}<t_{2}
+\label{contraction}
+\end{equation}
+In these two cases, we have two sets of time+location coordinates $(t_1,x_1)$ and $(t_2,x_2)$. The plus sign subscript implies anti-commutation, which is used \textbf{is both A and B are fermions.}$\pm$ in front of the relations on the 2 nd row takes a "+" sign for commutation, "-" for anti-commutation. \redp{All commutators/anti-commutators are zero unless $A=\phi$ and $B=\phi^{\dagger}$, or $A=\psi$ and $B=\bar{\psi}$.}
+\end{qt}
+Note that (\ref{contraction}) has the same form as the Feynmann propagator. Thus, whenever a contraction of scalar field is non-zero, it is a scalar Feynmann propagator. Similar results hold for Spinor and photon fields. Thus, \bluep{special cases of contractions (the only non-zero cases) are}
+$$
+\underbracket{\phi\left(x_{1}\right) \phi^{\dagger}}\left(x_{2}\right)=\underbracket{\phi^{\dagger}\left(x_{2}\right) \phi}\left(x_{1}\right)=i \Delta_{F}\left(x_{1}-x_{2}\right)
+$$
+Remember, the propagator is a number because of the commutation relations like $[a(k),a^{\dagger}(k)]=[b(k),b^{\dagger}(k)]=1$.
+$$
+\underbracket{\psi_{\alpha}\left(x_{1}\right) \bar{\psi}}_{\beta}\left(x_{2}\right)=-\underbracket{\bar{\psi}_{\beta}\left(x_{2}\right) \psi}_{\alpha}\left(x_{1}\right)=i S_{F \alpha \beta}\left(x_{1}-x_{2}\right)
+$$
+$$
+\underbracket{A^{\mu}\left(x_{1}\right) A}^{\nu}\left(x_{2}\right)=i D_{F}^{\mu \nu}\left(x_{1}-x_{2}\right)
+$$
+\subsection{Review of normal ordering}
+Normal ordering consists of placing construction operators to the right-hand side inside a given term.
+\begin{center}
+    $N(A B C D \ldots)=$ all destruction operators placed to right of all creation operators.
+\end{center}
+As part of our definition of normal ordering, note that the \textbf{switching places of two adjacent fermionic fields gives rise to a sign change}. This can be justified, in part, because fermionic fields obey anti-commutation relations. For example $^{1},$ given $[C, D]_{+}=0, C D=-D C$
+\begin{qt}
+Normal ordering of terms including contractions:
+
+For B a destruction operator
+\begin{equation}
+N\left\{\underbracket{A\left(x_{1}\right) B^{d}\left(x_{2}\right) C}\left(x_{3}\right)\right\}=\pm \underbracket{A\left(x_{1}\right) C}\left(x_{3}\right) B^{d}\left(x_{2}\right)
+\end{equation}
+where minus sign for C and $B^{d}$ both fermionic. And for B a creation operator
+\begin{equation}
+N\left\{\underbracket{A\left(x_{1}\right) B^{c}\left(x_{2}\right) C}\left(x_{3}\right)\right\}=\pm B^{c}\left(x_{2}\right) \underbracket{A\left(x_{1}\right) C}\left(x_{3}\right)
+\end{equation}
+\end{qt}
+\begin{mybox}
+We will henceforth use subscripts in place of parenthesis arguments for fields, i.e.,
+$$
+A\left(x_{1}\right) \rightarrow A_{x_{1}} \quad A\left(x_{1}\right) B\left(x_{1}\right) C\left(x_{1}\right) \rightarrow(A B C)_{x_{1}}
+$$
+$$
+\psi\left(x_{1}\right) \gamma^{\mu} A_{\mu}\left(x_{1}\right) \bar{\psi}\left(x_{1}\right) \rightarrow\left(\psi \gamma^{\mu} A_{\mu} \bar{\psi}\right)_{x_{1}}
+$$
+\end{mybox}
+\subsection{Wick's theorem}
+We only state Wick's theorem here and leave the justification to other textbook. The theorem turns a time ordered product into a series of normal ordered terms and contractions, which, as we noted, helps us in calculating interaction probabilities, because we can keep the operators in the same order as we integrate over time.
+\begin{qt}
+$$
+T\left\{(A B \ldots)_{x_{1}} \ldots \ldots(A B \ldots)_{x_{n}}\right\}=N\left\{(A B \ldots)_{x_{1}} \ldots \ldots .(A B \ldots)_{x_{n}}\right\}
+$$
+$$
++N\left\{(\underbracket{A B . .) x_{1}(A} B .) x_{2} \cdots\right\}+N\left\{(\underbracket{A B . .) x_{1}(A B} .) x_{2} \cdots\right\}+\dots
+$$
+\begin{equation}
+    +N\left\{(\overunderbraces{&\br{2}{A-A-contraction}}{&A&B C...) x_{1}(&AB}{&&\br{2}{B-B-contraction}}C...) x_{2} \cdots\right\}+N\left\{(\overunderbraces{&\br{2}{A-A-contraction}}{&A&BC.. .) x_{1}(&ABC}{&&\br{2}{B-C-contraction}}...) x_{2} \cdots\right\}+etc
+\label{wick-theorem}
+\end{equation}
+Note that there are no contractions between operators operating-at the same time. We say there
+are no "equal times contractions" in Wick's theorem. \redp{Equal-time contractions don't play a role in Wick's theorem for QED}.
+\end{qt}
+
+\section{Wick's Theorem in Words}
+To get Wick's theorem, we start with a series of operator fields, operating in arbitrary order and
+set it equal to itself, i.e., $A_{1} B_{2} C_{3} D_{4} \ldots=A_{1} B_{2} C_{3} D_{4} \ldots$
+
+On the LHS, we then re-arrange operator fields using commutation/ant-commutation relations such that earlier times are to the right of later times. We herein use the symbol $T_{c}$ to represent this re-ordering procedure.  The final result of the LHS equals the original LHS expression, since at each, we simply substituted equivalent relations for the original pair of adjacent operators.
+
+On the RHS, we re-arrange operator fields using commutation/anti-commutation relations such that destruction are all to the right of creation operators. We herein use the symbol $N_{c}$ to represent this re-ordering procedure. The final result of the RHS equals the original RHS expression.
+
+The final result of these operations is the same as employing Wick's theorem.
+
+\section{Comment on Normal Ordering of the Hamiltonian Density}
+Non-zero commulators (anti-commulators) values are very small, $\approx0$ at macroscopic scales. So from human perspective, all fields effectively commute(anti-commute). So $\mathcal{H}$ could be normal ordered at microscale, but our classical theory formulation would be blind to it \& have evolved in non-normal ordered from.
