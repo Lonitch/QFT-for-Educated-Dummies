@@ -1,0 +1,115 @@
+\chapter{QED: Quantum Field Interaction Theory Applied to EM}
+\section{Dyson-Wick's Expansion/or QED Hamiltonian Density}
+The Dyson expansion of the S operator is
+\begin{equation}
+S=I-i \int_{-\infty}^{\infty} \mathcal{H}_{I}^{I}\left(x_{1}\right) d^{4} x_{1}-\frac{1}{2 !} \int_{-\infty}^{\infty} T\left\{\mathcal{H}_{I}^{I}\left(x_{1}\right) \mathcal{H}_{l}^{I}\left(x_{2}\right)\right\} d^{4} x_{1} d^{4} x_{2}+\ldots .
+\label{dyson-wick-expansion}
+\end{equation}
+For the interaction Hamiltonian density in (\ref{dyson-wick-expansion}) we use the relation discovered to work for RQM, because we have learned that Hamiltonians for RQM expressed in the Schrödinger Picture, as a rule, take the same form for QFT expressed in the Heisenberg Picture. We are working in the Interaction Picture, for which operators (such as the Hamiltonian density) take the same form in the I.P. as in the H.P. So, for electromagnetic interactions between electrons, positrons, and photons, the quantum Hamiltonian density takes the form, where, $A_{\mu}\gamma^{\mu}=\cancel{A}$
+\begin{equation}
+\mathcal{H}_{I}^{I}=-\mathcal{L}_{I}^{I}=-e \bar{\psi} A_{\mu} \gamma^{\mu} \psi=-e \bar{\psi} \cancel{A} \psi=-e\left(\bar{\psi}^{+}+\bar{\psi}^{-}\right)\left(A^{+}+\bar{A}^{-}\right)\left(\psi^{+}+\psi^{-}\right)
+\end{equation}
+and
+\begin{equation}
+S=\underbrace{I}_{S^{(0)}} + \underbrace{i e \int_{-\infty}^{\infty}(\bar{\psi} \cancel{A} \psi)_{x_{1}} d^{4} x_{1}}_{S^{(1)}}-\underbrace{\frac{1}{2 !} e^{2} \int_{-\infty}^{\infty} \int_{-\infty}^{\infty} T\left\{(\bar{\psi} \cancel{A} \psi)_{x_{1}}(\bar{\psi} \cancel{A} \psi)_{x_{2}}\right\} d^{4} x_{1} d^{4} x_{2}}_{S^{(2)}}+\dots
+\label{explicit-S}
+\end{equation}
+\bluep{We can approximate (\ref{explicit-S}) by taking only the first few terms.} In this chapter, we only deal with $S^{(0)},S^{(1)},S^{(2)}$.
+
+The second term in (\ref{explicit-S}) has factors operating all at the same time $t_1$, and so can be considered time ordered. Wick's theorem for this case reduces to
+$$T\left\{(A B \ldots)_{x_{1}}\right\}=N\left\{(A B \ldots)_{x_{1}}\right\}$$
+$$
+S^{(1)}=i e \int_{-\infty}^{\infty} N\{\bar{\psi} \cancel{A} \psi\}_{x_{1}} d^{4} x_{1}
+$$
+\section{Physical Meaning of S(1)}
+Consider $S^{(1)}$ term on an initial state
+\begin{equation}
+S^{(1)}|i\rangle=(-i) \int d^{4} x_{1} N\{-e \bar{\psi} \cancel{A} \psi\}_{x_{1}}|i\rangle= i \int d^{4} x_{1} N\left\{e\left(\bar{\psi}^{+}+\bar{\psi}\right)\left(\cancel{A}^{+}+\cancel{A}^{-}\right)\left(\psi^{+}+\psi^{-}\right)\right\}_{x_{1}}|i\rangle
+\label{S(1)}
+\end{equation}
+If we multiply out the factors in (\ref{S(1)}) we will have eight different sub-terms contributing to the
+$S^{(1)}$ term in $S .$ We will label these sub-terms as $S_{j}^{(1)}$ where $j=1,2, \ldots, 8$. For example
+$$
+\left.S_{1}^{(1)} | e_{p_{1}, q}^{-}, e_{p_{2}, r_{2}}^{+}\right\}=i e \int d^{4} x_{1} N\left\{\bar{\psi}^{+} A^-_{\mu} \gamma^{\mu} \psi^{+}\right\}_{x_{1}}\left|e_{p_{1}, r_{1}}^{-}, e_{p_{2}, r_{2}}^{+}\right\rangle\left.=i e \int d^{4} x_{1}\left\{A_{\mu}^{-} \bar{\psi}^{+} \gamma^{\mu} \psi^{+}\right\}_{x_{1}} | e_{\mathrm{p}_{1}, r_{1}}^{-}, e_{p_{2}, r_{2}}^{+}\right\rangle
+$$
+Substituting the expressions for the photon and spinor fields, we have
+$$
+S_{1}^{(1)}\left|e_{p_{1}, n}^{-}, e_{p_{2}, r_{2}}^{+}\right\rangle= i e \int d^{4} x_{1}\left(\sum_{s, k} \sqrt{\frac{1}{2 V{\omega_{k}}}} \varepsilon_{\mu, s}(\mathbf{k}) a_{s}^{\dagger}(\mathbf{k}) e^{i kx_1}\right)\left(\sum_{r^{\prime}, p^{\prime}} \sqrt{\frac{m}{V E_{p^{\prime}}}} d r^{\prime}\left(p^{\prime}\right) \bar{v}_{r^{\prime}}\left(p^{\prime}\right) e^{-i p^{\prime} x_{1}}\right) \gamma^{\mu}\times
+$$
+$$
+\left(\sum_{r^{''}, p^{''}} \sqrt{\frac{m}{V E_{p^{''}}}} c_{r^{''}}\left(p^{\prime \prime}\right) u_{r^{''}}\left(p^{''e}\right) e^{-p^{''} \gamma_{1}^{''}}\right)\left.| e_{p_{1}, r_{2}}^{-}, e^{+}_{ p_{2}, r_{2}}\right\rangle
+$$
+Destruction operators $d_{r^{\prime}}$ and $c_{r^{\prime \prime}}$ will destroy the ket (i.e., make it equal to zero) for all terms in the sum except when i) $p^{\prime}=p_{2}$ and $r^{\prime}=r_{2},$ and when in $r^{\prime \prime}=r_{1}$. Those will reduce the ket to the vacuum state by destroying the electron and positron we started out with. Thus, we have 
+$$
+\left.S_{1}^{(1)} | e_{p_{1}, r_{1}}^{-}, e_{p_{2}, r_{2}}^{+}\right\rangle=
+$$
+$$
+ie  \int d^{4} x_{1}\left\{\left(\sum_{s, k} \sqrt{\frac{1}{2 V{\omega_{k}}}} \varepsilon_{\mu, s}(\mathbf{k}) a_{s}^{\dagger}(\mathbf{k}) e^{i kx_1}\right)\right.\left.\frac{m}{V} \sqrt{\frac{1}{E_{p_{1}} E_{p 2}}} \bar{v}_{r_{2}}\left(p_{2}\right) e^{-i p_{2} x_{1}} \gamma^{\mu} u_{r_1}\left(p_{1}\right) e^{-i p_{1} x_{1}}\right\}|0\rangle
+$$
+Each term of the remaining sum above creates a photon with different momentum and polarization states. So
+$$
+\left.S_{1}^{(1)} | e_{\mathrm{p}_{1}, r_{1}}^{-}, e_{\mathrm{p}_{2}, r_{2}}^{+}\right)=
+$$
+$$
+\text {ie } \int d^{4} x_{1}\left\{\sum_{s, k} \sqrt{\frac{1}{2 V\omega_k}} \varepsilon_{\mu, s}(\mathbf{k}) e^{i kx_1} \frac{m}{V} \sqrt{\frac{1}{E_{p_1} E_{p_{2}}}} \bar{v}_{r_{2}}\left(\mathbf{p}_{2}\right) e^{-i p_{2} x_{1}} \gamma^{\mu} u_{r_1}\left(\mathbf{p}_{1}\right) e^{-i p_{1} x_{1}}\right\}\left|\gamma_{\mathbf{k}, s}\right\rangle
+$$
+Suppose $\left|\gamma_{\mathbf{k}_1, s_1}\right\rangle$ is our final state of a single photon. For this final state, note that
+$$
+\left\langle\gamma_{\mathbf{k}_{1},s_{1}}\left|S_{1}^{(1)}\right| e_{\mathbf{p}_{1}, r_{1}}^{-}, e_{\mathrm{p}_{2}, r_{2}}^{+}\right)=S_{1, f i}^{(1)}
+$$
+which is the transition amplitude for the following Feynman diagram
+\begin{figure}[H]
+    \centering
+    
+\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+%uncomment if require: \path (0,300); %set diagram left start at 0, and has height of 300
+
+%Straight Lines [id:da307650809518932] 
+\draw    (58,58.37) -- (158,158.37) ;
+%Straight Lines [id:da4053696323117585] 
+\draw    (158,158.37) -- (59.87,247.8) ;
+%Shape: Wave [id:dp5998613246245391] 
+\draw   (157,157.8) .. controls (161.14,161.39) and (165.11,164.8) .. (169.63,164.8) .. controls (174.16,164.8) and (177.99,161.39) .. (182,157.8) .. controls (186.01,154.21) and (189.84,150.8) .. (194.37,150.8) .. controls (198.89,150.8) and (202.85,154.21) .. (207,157.8) .. controls (211.14,161.39) and (215.11,164.8) .. (219.63,164.8) .. controls (224.16,164.8) and (227.99,161.39) .. (232,157.8) .. controls (236.01,154.21) and (239.84,150.8) .. (244.37,150.8) .. controls (248.89,150.8) and (252.85,154.21) .. (257,157.8) .. controls (261.14,161.39) and (265.11,164.8) .. (269.63,164.8) .. controls (274.16,164.8) and (277.99,161.39) .. (282,157.8) .. controls (286.01,154.21) and (289.84,150.8) .. (294.37,150.8) .. controls (298.89,150.8) and (302.85,154.21) .. (307,157.8) .. controls (311.14,161.39) and (315.11,164.8) .. (319.63,164.8) .. controls (324.16,164.8) and (327.99,161.39) .. (332,157.8) .. controls (332,157.8) and (332,157.8) .. (332,157.8) ;
+%Shape: Triangle [id:dp4766081790625024] 
+\draw  [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ,fill opacity=1 ] (115.33,115.49) -- (97.69,104.32) -- (103.66,98.17) -- cycle ;
+%Shape: Triangle [id:dp2439506934283957] 
+\draw  [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ,fill opacity=1 ] (101.73,210.33) -- (113.1,192.82) -- (119.17,198.86) -- cycle ;
+
+% Text Node
+\draw (86,61.37) node    {$e^{-}$};
+% Text Node
+\draw (88,244.37) node    {$e^{+}$};
+% Text Node
+\draw (162,183.37) node    {$x_{1}$};
+% Text Node
+\draw (326,138.37) node    {$\gamma $};
+
+
+\end{tikzpicture}
+
+    \caption{Single vertex interaction}
+    \label{fig:single-vertex}
+\end{figure}
+From equations above, where all terms having different bra and ket states drop out,
+$$
+S_{1, f i}^{(1)}=i e \int d^{4} x_{1}\left\{\sqrt{\frac{1}{2 V \omega_{k_{1}}}} \varepsilon_{\mu, s_{1}}\left(\mathbf{k}_{1}\right) e^{i k_{1} x_{1}} \frac{m}{V}\right.\left.\sqrt{\frac{1}{E_{p_{1}} E_{p_{2}}}} \bar{v}_{r_{2}}\left(\mathbf{p}_{2}\right) e^{-i p_{2} x_{1}} \gamma^{\mu} u_{r_{1}}\left(\mathbf{p}_{1}\right) e^{-i p_{1} x_{1}}\right\}\left\langle\gamma \| \gamma\right\rangle
+$$
+$$
+=ie \frac{m}{\sqrt{2 V^{3}}} \sqrt{\frac{1}{\omega_{\mathrm{k}_{1}} E_{\mathrm{p}_{1}} E_{\mathrm{p}_{2}}}} \varepsilon_{\mu, s_{1}}\left(\mathrm{k}_{1}\right) \bar{v}_{\mathrm{r}_{2}}\left(\mathrm{p}_{2}\right) \gamma^{\mu} u_{r_1}\left(\mathrm{p}_{1}\right)\underbrace{\int e^{i\left(k_{1}-p_{2}-p_{1}\right) x_{1}} d^{4} x_{1}}_{(2 \pi)^{4} \delta^{(4)}\left(k_{1}-p_{2}-p_{1}\right)}
+$$
+$$
+=i e(2 \pi)^{4} \delta^{(4)}\left(k_{1}-p_{2}-p_{1}\right) \sqrt{\frac{1}{2 V \omega_{1}}} \sqrt{\frac{m}{V_{\mathrm{p}}}} \sqrt{\frac{m}{V E_{p_{2}}}} \varepsilon_{\mu, s_{1}}\left(\mathbf{k}_{1}\right) \bar{v}_{r_{2}}\left(\mathbf{p}_{2}\right) \gamma^{\mu} u_{\mathrm{r_1}}\left(\mathbf{p}_{1}\right)
+$$
+The Dirac delta function arising
+in our calculation ensures that \redp{the outgoing 4-momentum of the final state photon equals the incoming total 4-momentum of the two initial state particles.} This, we will see, is a general principle that holds for all transition amplitudes, throughout QFT. Outgoing 4-momentum for any interaction vertex (three particles interacting at a
+point in a Feynman diagram) equals incoming 4-momentum.
+
+\textbf{\redp{The interaction represented mathematically above and pictorially by Fig. (\ref{fig:single-vertex}) is not physically viable and does not occur.}}
+\begin{qt}
+    $$
+S_{f i}=\left\langle\gamma\left|S_{1}^{(1)} +\underbrace{S_{2}^{(1)}+\ldots+S_{8}^{(1)}}_{\text {all yield zero }}\right| e_{\mathbf{p}_{1}, n}^{-}, e_{\mathbf{p}_{2}, r_{2}}^{+}\right\rangle=\underbrace{\langle\gamma|}_{\text {on-shell }} \underbrace{\left.S_{1}^{(1)} | e_{p_{1}, n}^{-}, e^{+}_{\mathrm{p}_{2}, r_{2}}\right)}_{\text {off-shell photon }}=0
+$$
+because the only ket left is an off-shell photon with $k^{\mu}=p_{1}^{\mu}+p_{2}^{\mu},$ and that is a different state from, and thus orthogonal to, any real final state photon, which cannot have this value for $k^{\mu} .$ Thus, the transition amplitude for Fig. (\ref{fig:single-vertex}) is zero. Similar logic for all single vertex interactions means we can simply ignore $S^{(1)}$ from here on.
+\end{qt}
