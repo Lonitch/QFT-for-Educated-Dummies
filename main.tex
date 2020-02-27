@@ -79,12 +79,52 @@
     \usebox{\linkboxall}%
 }%
 
+\newcommand{\linktwotermsl}[3]{%
+% #1=left term, #2=middle term, #3=right term
+% #4=stuff to be put underneath
+    \sbox{\linkboxleft}{$#1$}%
+    \sbox{\linkboxright}{$#3$}%
+    \sbox{\linkboxall}{$#1#2#3$}%
+    %\sbox{\linkboxunder}{$#4$}%
+    \raisebox{-\height}
+    {\begin{picture}(0,\ht\linkboxunder+3ex)(0,-\ht\linkboxunder-3ex)
+      \linethickness{.2ex}
+      \put (.5\wd\linkboxleft,-.9ex){\line(0,-1){1ex}}
+      \put (\wd\linkboxall-.5\wd\linkboxright,-.9ex){\line(0,-1){1ex}}
+      \put (.5\wd\linkboxleft-.1ex,-1.9ex){\line(1,0)
+               {\wd\linkboxall-.5\wd\linkboxleft-.5\wd\linkboxright+.1ex}}
+      %\put (.5\wd\linkboxall,-1.5ex){\line(0,-1){1ex}}
+      \put (.5\wd\linkboxall,-3ex){\makebox(,)[t]{\usebox{\linkboxunder}}}
+    \end{picture}}
+    \usebox{\linkboxall}%
+}%
+
+\newcommand{\linktwotermsll}[3]{%
+% #1=left term, #2=middle term, #3=right term
+% #4=stuff to be put underneath
+    \sbox{\linkboxleft}{$#1$}%
+    \sbox{\linkboxright}{$#3$}%
+    \sbox{\linkboxall}{$#1#2#3$}%
+    %\sbox{\linkboxunder}{$#4$}%
+    \raisebox{-\height}
+    {\begin{picture}(0,\ht\linkboxunder+3ex)(0,-\ht\linkboxunder-3ex)
+      \linethickness{.2ex}
+      \put (.5\wd\linkboxleft,-1.5ex){\line(0,-1){1ex}}
+      \put (\wd\linkboxall-.5\wd\linkboxright,-1.5ex){\line(0,-1){1ex}}
+      \put (.5\wd\linkboxleft-.1ex,-2.5ex){\line(1,0)
+               {\wd\linkboxall-.5\wd\linkboxleft-.5\wd\linkboxright+.1ex}}
+      %\put (.5\wd\linkboxall,-1.5ex){\line(0,-1){1ex}}
+      \put (.5\wd\linkboxall,-3ex){\makebox(,)[t]{\usebox{\linkboxunder}}}
+    \end{picture}}
+    \usebox{\linkboxall}%
+}%
 
 \title{Quantum Field Theory for Educated Dummies}
 \author{Sizhe Liu\\University of Illinois at Urbana-Champaign }
 \date{Version 1.0}
 
 \pgfplotsset{compat=1.15}
+\usepackage[at]{easylist}
 
 \begin{document}
 

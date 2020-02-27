@@ -320,16 +320,22 @@ A contraction is defined as (note the under bracket symbol)
 In these two cases, we have two sets of time+location coordinates $(t_1,x_1)$ and $(t_2,x_2)$. The plus sign subscript implies anti-commutation, which is used \textbf{is both A and B are fermions.}$\pm$ in front of the relations on the 2 nd row takes a "+" sign for commutation, "-" for anti-commutation. \redp{All commutators/anti-commutators are zero unless $A=\phi$ and $B=\phi^{\dagger}$, or $A=\psi$ and $B=\bar{\psi}$.}
 \end{qt}
 Note that (\ref{contraction}) has the same form as the Feynmann propagator. Thus, whenever a contraction of scalar field is non-zero, it is a scalar Feynmann propagator. Similar results hold for Spinor and photon fields. Thus, \bluep{special cases of contractions (the only non-zero cases) are}
-$$
-\underbracket{\phi\left(x_{1}\right) \phi^{\dagger}}\left(x_{2}\right)=\underbracket{\phi^{\dagger}\left(x_{2}\right) \phi}\left(x_{1}\right)=i \Delta_{F}\left(x_{1}-x_{2}\right)
-$$
+\begin{equation}
+    \underbracket{\phi\left(x_{1}\right) \phi^{\dagger}}\left(x_{2}\right)=\underbracket{\phi^{\dagger}\left(x_{2}\right) \phi}\left(x_{1}\right)=i \Delta_{F}\left(x_{1}-x_{2}\right)
+    \label{contraction-scalar-field}
+\end{equation}
+
 Remember, the propagator is a number because of the commutation relations like $[a(k),a^{\dagger}(k)]=[b(k),b^{\dagger}(k)]=1$.
-$$
-\underbracket{\psi_{\alpha}\left(x_{1}\right) \bar{\psi}}_{\beta}\left(x_{2}\right)=-\underbracket{\bar{\psi}_{\beta}\left(x_{2}\right) \psi}_{\alpha}\left(x_{1}\right)=i S_{F \alpha \beta}\left(x_{1}-x_{2}\right)
-$$
-$$
-\underbracket{A^{\mu}\left(x_{1}\right) A}^{\nu}\left(x_{2}\right)=i D_{F}^{\mu \nu}\left(x_{1}-x_{2}\right)
-$$
+\begin{equation}
+    \underbracket{\psi_{\alpha}\left(x_{1}\right) \bar{\psi}}_{\beta}\left(x_{2}\right)=-\underbracket{\bar{\psi}_{\beta}\left(x_{2}\right) \psi}_{ }\left(x_{1}\right)=i S_{F \alpha \beta}\left(x_{1}-x_{2}\right)
+    \label{contraction-spinor-field}
+\end{equation}
+
+\begin{equation}
+    \underbracket{A^{\mu}\left(x_{1}\right) A}^{\nu}\left(x_{2}\right)=i D_{F}^{\mu \nu}\left(x_{1}-x_{2}\right)
+    \label{contraction-em-field}
+\end{equation}
+
 \subsection{Review of normal ordering}
 Normal ordering consists of placing construction operators to the right-hand side inside a given term.
 \begin{center}
