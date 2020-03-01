@@ -132,7 +132,9 @@
 \newUOLdecorator\UOLunderbr{\underbracket[.1em][0.5em]{#1}}
 \newUOLdecorator\UOLunderbrl{\underbracket[.1em][1em]{#1}}
 \newUOLdecorator\UOLunderbrll{\underbracket[.1em][1.5em]{#1}}
-
+\newcommand{\Arrow}[1]{%
+\parbox{#1}{\tikz{\draw[->,line width=0.5mm](0.1,0)--(#1,0);}}
+}
 \begin{document}
 
 \maketitle
