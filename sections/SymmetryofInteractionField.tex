@@ -1,1 +1,122 @@
 \chapter{Symmetry and Conservation for Interaction Fields}
+\section{Modify Lagrangian using \texorpdfstring{$F_{\mu\nu}$}{TEXT}}
+Recall the QED full Lagrangian we have been using has form
+\begin{equation}
+\mathcal{L}^{1 / 2,1}=-\frac{1}{2}\left(\partial_{v} A_{\mu}\right)\left(\partial^{v} A^{\mu}\right)+\bar{\psi}\left(i \gamma^{\mu} \partial_{\mu}-m\right) \psi+e \bar{\psi} \gamma^{\mu} \psi A_{\mu}
+\end{equation}
+and
+$$
+F^{\mu v}(x)=\partial^{v} A^{\mu}(x)-\partial^{\mu} A^{v}(x)=\left[\begin{array}{cccc}
+0 & E^{1} & E^{2} & E^{3} \\
+-E^{1} & 0 & B^{3} & -B^{2} \\
+-E^{2} & -B^{3} & 0 & B^{1} \\
+-E^{3} & B^{2} & -B^{1} & 0
+\end{array}\right]
+$$
+Now, if we redefine our QED Lagrangian by changing only the first term, we get
+\begin{equation}
+\mathcal{L}^{1 / 2,1}=-\frac{1}{4} F^{\mu v} F_{\mu v}+\bar{\psi}\left(i \gamma^{\mu} \partial_{\mu}-m\right) \psi+e \bar{\psi} \gamma^{\mu} \psi A_{\mu}
+\label{redefine-qed-lagrangian}
+\end{equation}
+or finally
+$$
+\mathcal{L}^{1 / 2,1}=-\frac{1}{2}\left(\partial^{v} A^{\mu} \partial_{v} A_{\mu}-\partial^{v} A^{\mu} \partial_{\mu} A_{v}\right)+\bar{\psi}\left(i \gamma^{\mu} \partial_{\mu}-m\right) \psi+e \bar{\psi} \gamma^{\mu} \psi A_{\mu}
+$$
+Note that
+\begin{equation}
+-\frac{1}{4} F^{\mu \nu} F_{\mu \nu}=-\frac{1}{2}\left(-\mathbf{E}^{2}+\mathbf{B}^{2}\right)
+\end{equation}
+
+\section{External Symmetry for Interacting Fields}
+Note that both of the full QED Lagrangian forms above are invariant under a Lorentz transformation. Recall that $\bar{\psi}\gamma^{\mu}\psi$ behaves under Lorentz transformation like a 4-vector. Hence \redp{\textbf{every term in the both forms is a Lorentz scalar, or world scalar, since a contraction of two 4-vectors is a Lorentz scalar.}} Such Scalar are invariant in form under Lorentz transformations. and so 
+\begin{equation}
+\mathcal{L}\left(\bar{\psi}(x), \psi(x), A_{\mu}(x)\right)=\mathcal{L}\left(\bar{\psi}^{\prime}\left(x^{\prime}\right), \psi^{\prime}\left(x^{\prime}\right) A_{\mu}^{\prime}\left(x^{\prime}\right)\right)
+\end{equation}
+$\mathcal{L}$ is symmetric under Lorentz transformation. It has external symmetry.
+\subsection{External symmetry of the interaction probability}
+\bluep{In a good theory, the probability of an interaction occurring should not vary with the observer measuring it. That is, the transition amplitude (whose absolute value squared is the probability) should remain invariant under Lorentz transformation.}
+
+Note that $\mathcal{L}_I$ is invariant under Lorentz transformation. It takes the same form with fields and coordinates primed, as with them unprimed. Thus, $\mathcal{H}_I=-\mathcal{L}_I$ is also invariant. The $S$ operator is a function of $\mathcal{H}_I$, $S=e^{-i \int_{-\infty}^{\infty} \mathcal{H}_{I}^{I} d^{4} x}$ so \textbf{S is also invariant}. If $\Lambda$ indicates a generic Lorentz transformation representation, we have
+\begin{equation}
+S_{f i}=\langle f|\underbrace{\Lambda^{-1} \Lambda}_{I} S \underbrace{\Lambda^{-1} \Lambda}_{I}| i\rangle=\left\langle f\left|\Lambda^{-1} \underbrace{\Lambda S \Lambda^{-1}}_{S^{\prime}=S} \Lambda\right| i\right\rangle=\left\langle f^{\prime}\left|S_{f^{\prime} t^{\prime}}\right| f^{\prime}\right\rangle=S_{f^{\prime} t^{\prime}}
+\end{equation}
+So, the transition amplitude $S_{f i}$ for a particular initial multi-particle state scattering particular final multi-particle state is the same as seen from two different Lorentz frames. Thus, $\left|S_{n}\right|^{2}$ is the same as well. In summary
+$$
+\mathcal{L}_{I} \text { sym } \rightarrow \mathcal{H}_{l} \text { sym } \rightarrow S \text { sym } \rightarrow S_{fi} \text { sym } \rightarrow\left|S_{fi}\right|^{2} \text { sym. }
+$$
+
+\section{Internal Symmetry and Conservation of Interactions}
+Now, we apply Noether's theorem to (\ref{redefine-qed-lagrangian}), with $\phi^{r=1}=\psi, \phi^{r=2}=\bar{\psi},$ and $\phi^{r=3}=A^{v}$, we have our conserved four-current as
+\begin{equation}
+j^{\mu}=\frac{\partial \mathcal{L}}{\partial \psi_{, \mu}} \frac{\partial \psi}{\partial \alpha}+\frac{\partial \mathcal{L}}{\partial \bar{\psi}_{,\mu}} \frac{\partial \bar{\psi}}{\partial \alpha}+\frac{\partial \mathcal{L}}{\partial A_{,\mu}^{\nu}} \frac{\partial A^{\nu}}{\partial \alpha}
+\end{equation}
+where
+\begin{equation}
+\frac{\partial \mathcal{L}}{\partial \psi_{,\mu}}=\bar{\psi} i \gamma^{\mu} \quad \frac{\partial \psi}{\partial \alpha}=-i \psi \quad \frac{\partial \mathcal{L}}{\partial \bar{\psi}_{,\mu}}=0 \quad \frac{\partial A^{\nu}}{\partial \alpha}=0
+\end{equation}
+\begin{qt}
+    $$
+\begin{aligned}
+&j^{\mu}=\bar{\psi} \gamma^{\mu} \psi\\
+&Q^{\prime}=-e \int j^{0} d^{3} x \text { conserved }
+\end{aligned}
+$$
+\end{qt}
+If we write the charge operator in terms of number operators, we have
+$$
+Q=-e \sum_{\mathbf{p}, \mathbf{r}}\left(N_{r}(\mathbf{p})-\bar{N}_{r}(\mathbf{p})\right)
+$$
+Because \redp{it can be proven that $Q$ commutes with $S$, then}
+$$
+Q|f\rangle= q_{f to t}|f\rangle= Q s|i\rangle= s Q|i\rangle= S q_{i t o t}|i\rangle= q_{i t o t} S|i\rangle= q_{i t o t}|f\rangle
+$$
+and
+$$
+q_{f \text {tot}}=q_{\text {itot}}
+$$
+\redp{The total charge remains unchanged during the transition.}
+
+\section{Local Symmetry and Interaction Theory}
+Up to this point, we have dealt exclusively with global symmetry, which \textbf{\redp{gives same change everywhere in spacetime}}. In contrast, we could have an internal transformation where $\alpha=\alpha\left(x^{\mu}\right),$ where \textbf{\redp{the phase angle change is not constant but a function of 3D position and time,}}
+\begin{equation}
+\psi \rightarrow \psi^{\prime}=e^{-i \alpha\left(x^{\mu}\right)} \psi
+\end{equation}
+If the Lagrangian is invarient under such a transformation, we say it has \textbf{local symmetry}.
+
+For $\mathcal{L_0}$,
+$$
+\mathcal{L}_{0}^{1 / 2}=\bar{\psi}\left(i \gamma^{\nu} \partial_{\nu}-m\right) \psi \frac{\psi \rightarrow e^{-i a\left(x^{\mu}\right)} \psi}{ }\rightarrow \bar{\psi} e^{i \alpha\left(x^{\mu}\right)}\left(i \gamma^{\nu} \partial_{\nu}-m\right) \psi e^{-i a\left(x^{\mu}\right)}
+$$
+$$
+=\bar{\psi}\left(i \gamma^{\nu} \partial_{\nu}-m\right) \psi+\bar{\psi} \gamma^{\nu} \psi \partial_{\nu} \alpha\left(x^{\mu}\right)\neq \mathcal{L}_0^{1/2}
+$$
+Thus, \textbf{$\mathcal{L}_{Q}$ is not symmetric under this local transformation}. Similarly, The full Lagrangian $\mathcal{L}$ is not symmetric under this transformation.
+\begin{qt}
+    By carrying out the set of local transformations $\psi \rightarrow \psi^{\prime}=e^{-i a\left(x^{\mu}\right)} \psi$ and $A_{\nu} \rightarrow$ $A^{\prime}_{\nu}=A_{\nu}-(1 / e) \partial_{\nu} \alpha\left(x^{\mu}\right),$ and using $\mathcal{L}_{0}^{1}=-\frac{1}{4} F_{\nu \beta} F^{\nu \beta}$ for the free photon field Lagrangian (second form above), the full QED Lagrangian $\mathcal{L}$ remains invariant.
+\end{qt}
+If we require our theory to have local symmetry, it must
+\begin{itemize}
+    \item use the second form for our Lagrangian with the $F_{\mu\nu}$ term for free photons
+\item  use the particular local transformation set for $\psi$ and $A_{\nu}$ shown above, and
+\item use the full Lagrangian, including the specific interaction term of form $e \bar{\psi} \gamma^{v} \psi A_{v}$
+\end{itemize}
+This has led to the following general rule for QFT
+\begin{qt}
+    If we start with the free Lagrangian and require it to be locally symmetric then it can only be so if we add to it the particular interaction terms that actually describes interactions in the real world.
+\end{qt}
+Note the following
+\begin{qt}
+    \begin{easylist}
+    \NewList
+    @ Noether's theorem applies locally, as well as globally,
+    @ Thus, we can derive a conserved current (the same conserved current) from global symmetry or local symmetry using the second form of the full Lagrangian.
+    @ Symmetry under transformation of one or more fields means the fields are gauge fields (different $\alpha$ in the QED case, means different gauges).
+    @ You may hear the term \redp{Lie group} in this context. A Lie group is the set of all possible continuous transformations of the fields in a gauge theory. In our case, for the field $\psi,$ it is the set of $e^{-i \alpha\left(x^{\mu}\right)}$ for all possible $a\left(x^{\mu}\right) .$ This group is called a $\underline{U}(1)$ group, where the U means unitary and the 1 means it is a 1X1 matrix transformation. (U(n) would entail an $n$ Xn matrix.)
+    \end{easylist}
+\end{qt}
+\section{Minimal Substitution}
+Note that if we define something called the \textbf{gauge covariant derivative} as
+\begin{equation}
+D_{v}=\partial_{v}-i e A_{v}
+\end{equation}
+then \textbf{we can find the interaction Lagrangian by substituting equation above for $\partial_{\nu}$ into the free Lagrangian.} Specifically, This process of substituting the gauge covariant derivative in the free Lagrangian is called \redp{minimal substitution}.
