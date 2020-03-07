@@ -111,7 +111,7 @@ Note the following
     @ Noether's theorem applies locally, as well as globally,
     @ Thus, we can derive a conserved current (the same conserved current) from global symmetry or local symmetry using the second form of the full Lagrangian.
     @ Symmetry under transformation of one or more fields means the fields are gauge fields (different $\alpha$ in the QED case, means different gauges).
-    @ You may hear the term \redp{Lie group} in this context. A Lie group is the set of all possible continuous transformations of the fields in a gauge theory. In our case, for the field $\psi,$ it is the set of $e^{-i \alpha\left(x^{\mu}\right)}$ for all possible $a\left(x^{\mu}\right) .$ This group is called a $\underline{U}(1)$ group, where the U means unitary and the 1 means it is a 1X1 matrix transformation. (U(n) would entail an $n$ Xn matrix.)
+    @ You may hear the term \redp{Lie group} in this context. A Lie group is the set of all possible continuous transformations of the fields in a gauge theory. In our case, for the field $\psi,$ it is the set of $e^{-i \alpha\left(x^{\mu}\right)}$ for all possible $a\left(x^{\mu}\right) .$ This group is called a $U(1)$ group, where the U means unitary and the 1 means it is a $1\times 1$ matrix transformation. (U(n) would entail an $n\times n$ matrix.)
     \end{easylist}
 \end{qt}
 \section{Minimal Substitution}
@@ -120,3 +120,50 @@ Note that if we define something called the \textbf{gauge covariant derivative} 
 D_{v}=\partial_{v}-i e A_{v}
 \end{equation}
 then \textbf{we can find the interaction Lagrangian by substituting equation above for $\partial_{\nu}$ into the free Lagrangian.} Specifically, This process of substituting the gauge covariant derivative in the free Lagrangian is called \redp{minimal substitution}.
+
+\section{Review of Noether Theorem for Free Fields}
+\subsection{For Free Scalar Field}
+The free scalar Lagrangian was invariant under a transformation in phase. That is, 
+$$
+\phi \rightarrow \phi^{\prime}=e^{-i \alpha} \phi
+$$
+$$
+\phi^{\dagger} \rightarrow \phi^{\prime \dagger}=\phi^{\dagger} e^{i \alpha}
+$$
+where $\alpha$ is a real constant, the Lagrangian
+$$
+\mathcal{L}_{0}^{0}\left(\phi^{\dagger}, \phi, \phi^{\dagger}_{,\mu}, \phi^{,\mu}\right)=\phi^{\dagger}_{, \mu} \phi^{,\mu}-\mu^{2} \phi^{\dagger} \phi
+$$
+remains the same function of primed fields as it was of unprimed fields, Applying Noether's theorem with $\phi^{r=1}=\phi$ and $\phi^{r=2}=\phi^{\dagger}$,we found
+$$
+j^{\mu}\left(\phi^{r}, \phi^{r}_{, \nu}\right)=\frac{\partial \mathcal{L}}{\partial \phi^{r}_{, \mu}} \frac{\partial \phi^{r}}{\partial \alpha} \quad(\text { sum on } r)
+$$
+$$
+j_{\phi}^{\mu}\left(\phi^{r}, \phi^{r, \mu}\right)=i\left(\phi^{,\mu}\left(x^{\eta}\right) \phi^{\dagger}\left(x^{\eta}\right)-\phi^{\dagger, \mu}\left(x^{\eta}\right) \phi\left(x^{\eta}\right)\right)
+$$
+And total charge $Q_{\phi}=q_{\phi} \int j^{0} d^{3} x$ conserved.
+
+\subsection{For Free Dirac Fermion Fields}
+Under the transformation
+$$
+\left.\psi \rightarrow \psi^{\prime}=e^{-i \alpha} \psi \text { (implies also } \bar{\psi} \rightarrow \bar{\psi}^{\prime}=\bar{\psi} e^{i \alpha}\right)
+$$
+the free Dirac Lagrangian is symmetric. And thus, via Noether's theorem with $\phi^{r=1}=\psi, \phi^{r=2}=\bar{\psi}$, and $-e$ the charge on an electron, we have
+$$
+j_{\psi}^{\mu}=(\rho, \mathbf{j})=\bar{\psi} \gamma^{\mu} \psi
+$$
+total charge conserved, since $Q_{\psi}=-e \int j^{0} d^{3} x$ conserved.
+
+\subsection{For free Photon fields}
+Under the transformation
+$$
+A_{\mu} \rightarrow A_{\mu}^{\prime}=e^{-i \alpha} A_{\mu}
+$$
+where no conjugate transformation is for photon (since its anti-particle field is itself), \redp{the free electromagnetic Lagrangian following is not symmetric, and there is no 4-current for photons.}
+$$
+\mathcal{L}_{0}^{1}=-\frac{1}{2}\left(\partial_{v} A_{\mu}\right)\left(\partial^{v} A^{\mu}\right)
+$$
+and
+$$
+j_{A_{\mu}}^{\mu}=0 \rightarrow \text { total charge } Q_{A_{\mu}}=0 \text { conserved }
+$$
