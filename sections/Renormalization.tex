@@ -341,6 +341,170 @@ Note that the last diagram of Fig. \ref{fig:compton-tree-2nd} can be expressed i
 \begin{qt}
     \textbf{Only reducible diagrams yield divergent integrals and thus, divergent amplitudes}.
 \end{qt}
-
+\newpage
 \section{Renormalizing 2nd Order Divergent Amplitudes}
 \subsection{Steps of Renormalization}
+\subsubsection{1.Feynman Diagram Modification}
+From Fig.(\ref{fig:2nd-fermion-propagator}-\ref{fig:2nd-vertex}), we need to first modify the Feynman diagrams at tree level. The propagator, leg, and vertex are modified as
+$$\begin{array}{l}
+i D_{F} \alpha \beta(k) \Rightarrow i D_{F \alpha \beta}^{2 n d} \\
+\quad=i D_{F a \beta}(k)+i D_{F \alpha \mu}(k) i e_{0}^{2} \Pi^{\mu \nu}(k)iD_{F\nu\beta}(k)
+\end{array}$$
+
+$$\begin{array}{l}
+i S_{F}(p) \stackrel{(A) \text { for } m_{0}}{\Rightarrow} \quad i S_{F}^{2 n d}(p) \\
+\quad=i S_{F}(p)+i S_{F}(p) i e_{0}^{2} \Sigma(p) i S_{F}(p)
+\end{array}$$
+
+$$\begin{array}{l}
+u_{r}(\mathbf{p}) \Rightarrow u_{r}^{2 n d}(\mathbf{p}) \\
+\quad=u_{r}(\mathbf{p})+i S_{F}(p) i e_{0}^{2} \Sigma(p) u_{r}(\mathbf{p})+i S_{F}(p)(i\delta m)u_r(\mathbf{p})
+\end{array}$$
+analogous for $\bar{u}_{r}(\mathbf{p}), v_{r}(\mathbf{p}), \bar{v}_{r}(\mathbf{p}), \varepsilon_{\mu}(\mathbf{k})$.
+
+$$\gamma^{\mu} \Rightarrow \gamma_{2 n d}^{\mu}\left(p, p^{\prime}\right)=\gamma^{\mu}+e_{0}^{2} \Lambda^{\mu}\left(p, p^{\prime}\right)$$
+
+\subsubsection{2.Expand Loop Integral}
+From previous chapters we know
+$$
+\Pi^{\mu\nu}(k)=-i(2 \pi)^{-4} \operatorname{Tr} \int i S_{F}(p) \times \gamma^{\mu} i S_{F}(p-k) \gamma^{\nu} d^{4} p
+$$
+
+$$\Sigma(p)=i(2 \pi)^{-4} \int i D_{F \alpha \beta}(k) \times\gamma^{\alpha} i S_{F}(p-k) \gamma^{\beta} d^{4} k$$
+
+$$
+\Lambda^{\mu}\left(p, p^{\prime}\right)=-(2 \pi)^{-4} \int i D_{F a \beta}(k) \gamma^{\alpha} \times i S_{F}\left(p^{\prime}-k\right) \gamma^{\mu} i S_{F}(p-k) \gamma^{\beta} d^{4} k
+$$
+
+By performing regularization process, we can write these loop integrals in their most general from as:
+$$\Pi^{\mu\nu}(k)=-g^{\mu \nu} A\left(k^{2}\right)+\underbrace{k^{\mu} k^{v} B\left(k^{2}\right)}_{not in this case}$$
+
+$$
+\Sigma(p)= A+(\not p-m) B +(\not p-m) \Sigma_{c}(\not p-m)
+$$
+where $A$ and $B$ are different in the two equations above. The most general form for vertex modification is
+$$\Lambda^{\mu}(p,p^{\prime})=a \gamma^{\mu}+b_{1} p^{\mu}+b_{2} p^{\prime\mu}$$
+
+Note that the series expansion of $\Pi^{\mu\nu}$ and $\Lambda^{\mu}(p,p^{\prime})$ are 
+$$\Lambda^{\mu}\left(p, p^{\prime}\right)=L \gamma^{\mu}+\Lambda_{c}^{\mu}\left(p, p^{\prime}\right)$$
+$$\Pi^{\mu \nu}(k)=-g^{\mu \nu}\left(\underbrace{A(0)}_{=0}+k^{2} A^{\prime}(0)+k^{2} \Pi_{c}\left(k^{2}\right)\right)$$
+
+\subsubsection{3.Put Expansion of Loop Integral into Modified Leg, Vertex, and Propagator}
+To second order, we then have
+\begin{equation}
+    i D_{F a \beta}^{2 n d}(k)=\underbrace{\frac{-i g_{a \beta}}{k^{2}+i \varepsilon}}_{iD_{F\alpha\beta}(k)}\left(\underbrace{1}_{1st order}-e_{0}^{2} A^{\prime}-e_{0}^{2} \Pi_{c}\right)
+    \label{iD-2nd}
+\end{equation}
+
+$$i S_{F}^{2 n d}(p) \approx \frac{i}{p \underbrace{-m_{0}+e_{0}^{2} A}_{-m}+e_{0}^{2}(\not p-m) B+e_{0}^{2}(\cancel{p}-m) \Sigma_{c}+i \varepsilon}=\frac{i}{(\cancel{p}-m)\left(1+e_{0}^{2} B+e_{0}^{2} \Sigma_{c}\right)+i \varepsilon}$$
+\begin{equation}
+    \approx \frac{i}{\left(\cancel{p}-m+i s\right)\left(1+e_{0}^{2} B+e_{0}^{2} \Sigma_{c}\right)}\approx \underbrace{\frac{i}{\cancel{p}-m+i \varepsilon}}_{iS_{F}(p)}(1-\underbrace{-e_{0}^{2} B-e_{0}^{2} \Sigma_{c}}_{\text{loop contribution}})
+\end{equation}
+
+\begin{equation}
+    u_{r}^{2 n d}(\mathbf{p})=\left(1-e_{0}^{2} B\right)^{1 / 2} u_{r}(\mathbf{p})=\left(Z_{f}^{2 n d}\right)^{1 / 2} u_{r}(\mathbf{p}) \approx\left(1-\frac{1}{2} e_{0}^{2} B\right) u_{r}(\mathbf{p})\approx\frac{1}{\left(1+e_{0}^{2} B\right)^{1 / 2}} u_{r}(\mathrm{p})
+\end{equation}
+same for $\bar{u}_{r}^{2 n d}(\mathbf{p}), v_{r}^{2 n d}(\mathbf{p}), \bar{v}_{r}^{2 n d}(\mathbf{p})$
+
+$$\varepsilon_{\mu}^{2 n d}(\mathbf{k})=\left(1-e_{0}^{2} A^{\prime}\right)^{1 / 2} \varepsilon_{\mu}(\mathbf{k})=\left(Z_{\gamma}^{2 n d}\right)^{1 / 2} \varepsilon_{\mu}(\mathbf{k})\approx\left(1-\frac{1}{2} e_{0}^{2} A^{\prime}\right) \varepsilon_{\mu}(\mathbf{k})$$
+and
+\begin{equation}
+    \gamma_{2 n d}^{\mu}\left(p, p^{\prime}\right)=\gamma^{\mu}\left(1+e_{0}^{2} L\right)+e_{0}^{2} \Lambda_{c}^{\mu}=\underbrace{\gamma^{\mu}}_{\text {1st order}} \underbrace{+\gamma^{\mu} e_{0}^{2} L+e_{0}^{2} \Lambda_{c}^{\mu}}_{\text {2nd order }}
+    \label{gamma-2nd}
+\end{equation}
+
+\subsubsection{4.Set New Definitions}
+After we renormalize the mass of fermions as $\not p-m=p-m_{0}+e_{0}^{2} A(\Lambda)=\not p-m_{0}-\delta m$, we define shorthand symbols for quantities we will see repeatedly. The abbreviation h.o. stands for "higer order". The subscripts indicate association with photons($\gamma$), fermion($f$), or vertices(V).
+$$Z_{\gamma}^{2 n d}=1-e_{0}^{2} A^{\prime}$$
+$$Z_{f}^{2 n d}=1-e_{0}^{2} B=\frac{1}{1+e_{0}^{2} B}(\text { ignore h.o. terms on RHS, at } 2 \text { nd order })$$
+$$Z_{V}^{2 n d}=1+e_{0}^{2} L$$
+\textbf{Because $B=L$}, then
+$$Z_{Y}^{2 n d}=1 / Z_{f}^{2 n d}$$
+
+\subsubsection{5.Assembling second order amplitude}
+Here we use Compton scattering as an example:
+$$\underbrace{\mathcal{M}_{C 1}^{(2)}+\mathcal{M}_{C 2}^{(2)}}_{\text {tree level, finite }}+\underbrace{\sum_{j}^{i=7} \mathcal{M}_{C 1-i}^{(4)}+\sum_{i}^{i=7} \mathcal{M}_{C 2-i}^{(4)}}_{\text {contain divergent integrals }}$$
+Let us begin by examining just the firs way for Compton scattering:
+$$\mathcal{M}_{C 1}^{(2)}=-e_{0}^{2} \bar{u}_{s^{\prime}}\left(\mathbf{p}^{\prime}\right) \varepsilon_{\mu, s^{\prime}}\left(\mathbf{k}^{\prime}\right) \gamma^{\mu}i S_{F}(p+k) \varepsilon_{\nu, r}(\mathbf{k}) \gamma^{v} u_{s}(\mathbf{p})$$
+$$M_{C 1-1}^{(4)}=-e_{0}^{2} \bar{u}_{s'}\left(\mathbf{p}^{\prime}\right) \varepsilon_{\mu, r^{\prime}}\left(\mathbf{k}^{\prime}\right) \gamma^{\mu}_{i S_{F}}(p+k)\underbrace{\left(-\frac{1}{2} e_{0}^{2} A^{\prime}\right) \varepsilon_{v,r}(\mathbf{k})}_{\text{external photon loop contrib'}} \gamma^{v} u_{s}(\mathbf{p})$$
+\bluep{Note that we only have $(-\frac{1}{2} e_{0}^{2} A^{\prime})$ in the eqn. above because we do not want to double counting the 1st contribution.}
+$$\mathcal{M}_{C 1-2}^{(4)}=-e_{0}^{2} \bar{u}_{s^{\prime}}\left(\mathbf{p}^{\prime}\right) \varepsilon_{\mu, r^{\prime}}\left(\mathbf{k}^{\prime}\right) \gamma^{\mu} i S_{F}(p+k) \varepsilon_{v, r}(\mathbf{k}) \gamma^{v}\left(-\frac{1}{2} e_{0}^{2} B\right) u_{s}(\mathbf{p})$$
+$$\mathcal{M}_{C 1-3}^{(4)}=-e_{0}^{2} \bar{u}_{s^{\prime}}\left(\mathbf{p}^{\prime}\right) \varepsilon_{\mu, r^{\prime}}\left(\mathbf{k}^{\prime}\right) \gamma^{\mu} i S_{F}(p+k)\left(-e_{0}^{2} B-e_{0}^{2} \Sigma_{c}\right) \varepsilon_{\nu,r} |(\mathbf{k}) \gamma^{v} u_{s}(\mathbf{p})$$
+$$\mathcal{M}_{C 1-4}^{(4)}=-e_{0}^{2} \bar{u}_{s^{\prime}}\left(\mathbf{p}^{\prime}\right)\left(-\frac{1}{2} e_{0}^{2} A^{\prime}\right) \varepsilon_{\mu, r^{\prime}}\left(\mathbf{k}^{\prime}\right) \gamma^{\mu} i S_{F}(p+k) \varepsilon_{v, r}(\mathbf{k}) \gamma^{v} u_{s}(\mathbf{p})$$
+$$\mathcal{M}_{C 1-5}^{(4)}=-e_{0}^{2}\left(-\frac{1}{2} e_{0}^{2} B\right) \bar{u}_{s^{\prime}}\left(\mathbf{p}^{\prime}\right)\varepsilon_{\mu, r^{\prime}}\left(\mathbf{k}^{\prime}\right) \gamma^{\mu} i \delta_{F}(p+k) \varepsilon_{v, r}(\mathbf{k}) \gamma^{v} u_{s}(\mathbf{p})$$
+$$\mathcal{M}_{\mathrm{Cl}-6}^{(4)}=-e_{0}^{2} \bar{u}_{s^{\prime}}\left(\mathbf{p}^{\prime}\right) \varepsilon_{\mu, r^{\prime}}\left(\mathbf{k}^{\prime}\right) \gamma^{\mu} i S_{F}(p+k) \varepsilon_{v, r}(\mathbf{k})\left(\gamma^{v} e_{0}^{2} L+e_{0}^{2} \Lambda_{c}^{v}\right) u_{s}(\mathrm{p})$$
+$$\mathcal{M}_{C |-7}^{(4)}=-e_{0}^{2} \bar{u}_{s^{\prime}}\left(\mathbf{p}^{\prime}\right) \varepsilon_{\mu, r^{\prime}}\left(\mathbf{k}^{\prime}\right)\left(\gamma^{\mu} e_{0}^{2} L+e_{0}^{2} \Lambda_{c}^{\mu}\right) \quad i S_{F}(p+k) \varepsilon_{v, r}(\mathbf{k}) \gamma^{v} u_{s}(\mathbf{p})$$
+\redp{\textbf{Keep in mind: $\Sigma_c$ and $\Lambda_c^{\mu}$ are spinor quantities, $A^{\prime}$, $B$, $L$ are scalars.}}
+$$\begin{array}{r}
+\mathcal{M}_{C 1}^{(2)}+\sum_{i}^{i=7} \mathcal{M}_{C1-i}^{(4)}=\left(1-\frac{1}{2} e_{0}^{2} A^{\prime}-\frac{1}{2} e_{0}^{2} B-e_{0}^{2} B-\frac{1}{2} e_{0}^{2} A^{\prime}-\frac{1}{2} e_{0}^{2} B+e_{0}^{2} L+e_{0}^{2} L\right) x \\
+\underbrace{\left(-e_{0}^{2} \bar{u}_{s^{\prime}}\left(\mathbf{p}^{\prime}\right) \varepsilon_{\mu, r^{\prime}}\left(\mathbf{k}^{\prime}\right) \gamma^{\mu} i S_{F}(p+k) \varepsilon_{v, r}(\mathbf{k}) \gamma^{v} u_{s}(\mathbf{p})\right)}_{
+M_{C 1}^{(2)}}
+\end{array}$$
+$$\begin{aligned}
+&\begin{array}{l}
+-e^{2} \bar{u}_{s^{\prime}}\left(\mathbf{p}^{\prime}\right) \varepsilon_{\mu, r^{\prime}}\left(\mathbf{k}^{\prime}\right) \gamma^{\mu} i S_{F}(p+k)\left(-e_{0}^{2} \Sigma_{c}\right) \varepsilon_{\nu, r}(\mathbf{k}) \gamma^{\nu} u_{s}(\mathbf{p}) \\
+-e_{0}^{2} \bar{u}_{s^{\prime}}\left(\mathbf{p}^{\prime}\right) \varepsilon_{\mu, r^{\prime}}\left(\mathbf{k}^{\prime}\right) \gamma^{\mu} i S_{F}(p+k) \varepsilon_{v, r}(\mathbf{k}) e_{0}^{2} \Lambda_{c}^{v} u_{s}(\mathbf{p})
+\end{array}\\
+&-e_{0}^{2} \bar{u}_{s^{\prime}}\left(\mathbf{p}^{\prime}\right) \varepsilon_{\mu, r^{\prime}}\left(\mathbf{k}^{\prime}\right) e_{0}^{2} \Lambda_{c}^{\mu} i S_{F}(p+k) \varepsilon_{v, r}(\mathbf{k}) \gamma^{\nu} u_{s}(\mathbf{p})
+\end{aligned}$$
+where the last three lines are finite (and so is the factor shown in the second row). Ignoring higher order terms and using our newly defined symbols, we can re-write the equation above as
+$$\mathcal{M}_{C 1}^{(2)}+\sum_{i}^{i=7} \mathcal{M}_{C 1-i}^{(4)} \approx$$
+$$\left(1-\frac{1}{2} e_{0}^{2} A^{\prime}\right)\left(1-\frac{1}{2} e_{0}^{2} B\right)\left(1-e_{0}^{2} B\right)\left(1-\frac{1}{2} e_{0}^{2} A^{\prime}\right)\left(1-\frac{1}{2} e_{0}^{2} B\right)\left(1+e_{0}^{2} L\right)\left(1+e_{0}^{2} L\right)\times$$
+$$-e_{0}^{2} \bar{u}_{s^{\prime}}\left(\mathbf{p}^{\prime}\right) \varepsilon_{\mu, r^{\prime}}\left(\mathbf{k}^{\prime}\right)\left(\gamma^{\mu}+e_{0}^{2} \Lambda_{c}^{\mu}\right) i S_{F}(p+k)\left(1-e_{0}^{2} \Sigma_{c}\right)\varepsilon_{v, r}(\mathbf{k})\left(\gamma^{v}+e_{0}^{2} \Lambda_{c}^{v}\right) u_{s}(\mathbf{p})$$
+where 
+$$\left(\gamma^{\mu}+e_{0}^{2} \Lambda_{c}^{\mu}\right)=\gamma^{\mu}_{e_0,mod}$$
+$$i S_{F}(p+k)\left(1-e_{0}^{2} \Sigma_{c}\right)=iS_F^{e_0,mod}(p+k)$$
+$$\left(\gamma^{\nu}+e_{0}^{2} \Lambda_{c}^{\nu}\right)=\gamma^{\nu}_{e_0,mod}$$
+Using these new symbols, we can express the eqn. above more succinctly as
+$$\mathcal{M}_{C 1}^{(2)}+\sum_{i}^{i=7} \mathcal{M}_{C 1-i}^{(4)} \approx\left(Z_{\gamma}^{2 n d}\right)\left(Z_{f}^{2 n d}\right)^{2}\left(Z_{V}^{2 n d}\right)^{2} \times\underbrace{\left(-e_{0}^{2} \bar{u}_{s^{\prime}}\left(\mathbf{p}^{\prime}\right) \varepsilon_{\mu, t^{\prime}}\left(\mathbf{k}^{\prime}\right) \gamma_{e_{0}, M o d}^{\mu} i S_{F}^{e_0,mod}(p+k) \varepsilon_{v, r}(\mathbf{k}) \gamma_{e_{0} M o d}^{\nu} u_{s}(\mathbf{p})\right)}_{\mathcal{M}^{(2)}_{C1,e_0,mod}}$$
+where the last term is a modified parallel to our tree level amplitude. Because $B=L$, we finally arrive at
+\begin{equation}
+    \mathcal{M}_{C 2}^{(2)}+\sum_{i}^{i=7} \mathcal{M}_{C 2-i}^{(4)} \approx Z_{\gamma}^{2 n d} \mathcal{M}_{C 2,e_0,mod}^{(2)}
+\end{equation}
+\textbf{\redp{This is the key step where we cancel out the infinities introduced by higher order corrections.}}
+
+In the divergent parts of our second order amplitude, for any type of QED scattering, \redp{the divergent fermion factors will cancel with the divergent vertex factors, leaving only a photon divergent factor $Z_{\gamma}^{2nd}$.} \textbf{The remainder of the amplitude can be found by substituting finite modifications to the propagator and vertex relations for those in the tree level amplitude.}
+
+\subsubsection{6.Charge renormalization}
+We now renormalize charges, as
+\begin{equation}e_{0}^{2}\left(1-e_{0}^{2} A^{\prime}\right)=e_{0}^{2} Z_{\gamma}^{2 n d}=e^{2}=\text { measured charge squared }\end{equation}
+or
+\begin{equation}e_{0}\left(1-\frac{1}{2} e_{0}^{2} A^{\prime}\right) \approx e_{0}\left(Z_{\gamma}^{2 n d}\right)^{1 / 2} \approx e=\text { measured charge }\end{equation}
+\textbf{Bottom line}: So, from now on we can simply replace $\left(1-e_{0}^{2} A^{\prime}\right) e_{0}^{2}$ with $e^{2}$ in every QED amplitude calculation to $2^{\text {nd }}$ order, and our total amplitude to that order will be finite. We need to keep in mind that $e$ depends on energy level (modestly via a log dependence).
+
+\redp{For $e_0$ in $iS_{F}^{e_0,mod}$,$\gamma^{\mu}_{e_0,mod}$, and $iD_{F\mu\nu}^{e_0,mod}$, we simply replace $e_0$ with $e$} in their expressions. This is because $e_0$ parts are themselves modified by 3rd and higher order corrections. Thus
+\begin{equation}
+i S_{F}^{2 n d,mod}(p+k)=i S_{F}(p+k)\left(1-e^{2} \Sigma_{e}\right)
+\label{iS-2nd-e}
+\end{equation}
+\begin{equation}
+\gamma_{2nd,mod}^{\mu}=\gamma^{\mu}+e^{2} \Lambda_{c}^{\mu}
+\label{gamma-2nd-e}
+\end{equation}
+\begin{equation}
+i D_{F \mu v}^{2 n d,mod}(k)=i D_{F \mu v}(k)\left(1-e^{2} \Pi_{c}\right)
+\label{iD-2nd-e}
+\end{equation}
+\begin{qt}
+    To renormalize any interaction amplitude to 2nd order in $\alpha$, in the tree level amplitude make the substitutions:
+    \begin{itemize}
+        \item $e_{0} \Rightarrow e(k)$
+        \item $i S_{F}, \gamma^{\mu}, i D_{F \mu \nu} \Rightarrow$ (\ref{iS-2nd-e})-(\ref{gamma-2nd-e})
+    \end{itemize}
+\end{qt}
+\subsection{The Short Cut Route}
+To get the final amplitude, we can use \textbf{only tree amplitude and substitute relations (\ref{iD-2nd})-(\ref{gamma-2nd}) to tree amplitude.} Then we rearrange amplitude, via approximations to have factors susch as
+$$Z_{f}^{2 n d}=\left(1-e_{0}^{2} B\right) \text { and } i S_{F}^{2nd,e_{0}, M o d}=\left(1-e_{0}^{2} \Sigma_{c}\right) i S_{F}$$
+$$\text { Cancel } Z_{f}^{2 n d} \text { and } Z_{V}^{2 n d} \text { factors leaving } Z_{\gamma}^{2 n d} \mathcal{M}_{\text {Generic}}^{(2)}$$
+Finally, renormalize via $Z_{\gamma}^{2 n d} e_{0}^{2}=e^{2}$.
+
+\section{The Total Amplitude to 2nd Order}
+The total Compton scattering amplitude to second order is then the finite value
+\begin{equation}
+    \mathcal{M}_{C,2nd}=\underbrace{\dot{M}_{C 1}^{(2)}+\mathcal{M}_{C 2}^{(2)}}_{\text {tree level, finite }}+\underbrace{\sum_{i}^{i=7} M_{C 1-i}^{(4)}+\sum_{i}^{i=7} M_{C 2-i}^{(4)}}_{\text {contain divergent integrals }}+\underbrace{M_{C 1-8}^{(4)}+\mathcal{M}_{C 2-8}^{(4)}}_{\text {finite using }e_0^{4}}+\underbrace{M_{C 19}^{(4)}+M_{C 20}^{(4)}}_{\text {cancel out }}
+\end{equation}
+$$=\mathcal{M}_{C 1,mod,2nd}^{(2)}+\mathcal{M}_{C 2,mod,2nd}^{(2)}+\underbrace{M_{C 1-8,mod,2nd}^{(4)}+M_{C 2-8,mod,2nd}^{(4)}}_{\text{finite using} e^4,negligible}$$
+The sub-amplitudes $\mathcal{M}_{C 1-8}^{(4)}$ and $\mathcal{M}_{C 2-8}^{(4)}$ originally had factors of $e_{0}^{4}$,but in similar manner as discussed in previous section, higher order corrections modify this to $e^4$. They are then of higher order in $e$ than the other terms, which are of order $e^2$, and can, at 2nd order, be ignored. Thus, for any type of interaction in general, the renormalized amplitude to 2nd order is
+\begin{equation}
+\mathcal{M}_{\text {Generic }}=\sum_{j}^{\text {\# ways }} \mathcal{M}_{\text {Gen } j}^{(2)}+\underbrace{\sum_{j, k} \mathcal{M}_{\operatorname{Gen} j-k}^{(4)}}_{\text{finite using }e^4,negligible}
+\end{equation}
