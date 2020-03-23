@@ -1,0 +1,28 @@
+\chapter{A Short CheatSheet for Path Integral}
+Let
+\begin{equation}U\left(x_{i}, x_{f} ; T\right)=\left\langle x_{f}\left|e^{-i H T / \hbar}\right| x_{i}\right\rangle\end{equation}
+and
+\begin{equation}\left|U\left(x_{i}, x_{f} ; T\right)\right|^{2}=\left|\psi\left(x_{f}, T\right)\right|^{2}=\psi^{*}\left(x_{f}, T\right) \psi\left(x_{f}, T\right)=\left\{\begin{array}{c}
+\text { probability density of measuring } \\
+\text { particle at } x_{f} \text { at time } T
+\end{array}\right.\end{equation}
+Approximation for transition amplitude
+\begin{equation}U\left(i, f ; T=t_{f}-t_{i}\right) \approx C \int_{x_{n}=x_{L}}^{x_{n}=x_{R}} \ldots \int_{x_{2}=x_{L}}^{x_{2}=x_{R}} \int_{x_{1}=x_{L}}^{x_{1}=x_{R}} e^{i \int_{t_{i}}^{t_f} \frac{L}{h} d t} d x_{1} d x_{2} \ldots d x_{n}\end{equation}
+To get an exact, not approximate, relation we have to do two things.
+1. Take the $x$ range from $i$ to infinity, i.e., $x_{\mathrm{L}} \rightarrow-\infty$ and $x_{\mathrm{R}} \rightarrow \infty,$ and
+
+2. Take $\Delta t \rightarrow d t$ for the saine $T$ (time between events) so the number of time slices $\rightarrow \infty$
+
+Doing this, we have
+\begin{equation}U\left(i, f ; T=t_{f}-t_{i}\right)=C \int_{x= x_{i}}^{x=x_{f}} e^{i \int_{t_{i}}^{t_f} \frac{L}{\hbar} d t} \mathcal{D}_{x}\end{equation}
+
+For QFT, we have
+\begin{equation}U(i, f ; T)=C \int_{\phi_{i}}^{\phi_{f}} e^{i \int_{0}^{T} \frac{\mathcal{L}}{h} d^{4} x} \mathcal{D} \phi\left(x^{\mu}\right)\end{equation}
+
+Some well-known relations
+\begin{equation}\delta\left(x-x_{i}\right)=\frac{1}{2 \pi} \int_{-\infty}^{+\infty} e^{i k\left(x-x_{i}\right)} d k=\frac{1}{2 \pi h} \int_{-\infty}^{+\infty} e^{i \frac{p}{\hbar}\left(x-x_{i}\right)} d p\end{equation}
+Borel's theorem
+\begin{equation}\begin{aligned}
+&\mathcal{F}\left\{\int \ldots \iint_{\zeta}\left(x_{f}-x_{n}\right) \ldots f_{\gamma}\left(x_{3}-x_{2}\right) f_{\beta}\left(x_{2}-x_{1}\right) f_{\alpha}\left(x_{1}\right) d x_{1} d x_{2} \ldots d x_{n}\right\} \\
+&=\mathcal{F}\left\{f_{\zeta}\right\} \ldots \mathcal{F}\left\{f_{\gamma}\right\} \mathcal{F}\left\{f_{\beta}\right\} \mathcal{F}\left\{f_{\alpha}\right\}
+\end{aligned}\end{equation}

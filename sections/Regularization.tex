@@ -1,1 +1,485 @@
 \chapter{Regularization}
+\section{Ways to Regularization}
+There are a number of ways to regularize unbounded integrals. The four most common are 
+\begin{easylist}
+\NewList
+@ Cut off regularization
+
+Instead of integrating from $-\infty$ to $+\infty,$ we integrate from $-\Lambda$ to $+\Lambda .$ When we renormalize using the resulting relation, we take $\Lambda \rightarrow \infty$
+
+@ Pauli-Villars regularization
+
+We add in to QED an additional fictitious particle with mass $\Lambda$. So in the propagator for this particle, $m^{2}=\Lambda^{2}$ appears as a term in the denominator (as mass does for all propagators). This adds an additional term to the Feynman amplitude (think of an extra Feynman diagram having this extra virtual particle). As it turns out, this causes the amplitude to converge over the $-\infty$ to $+\infty$ integration range. The result is in terms of $\Lambda$ but turns out to be divergent as $\Lambda \rightarrow \infty$. But we can use that result to renormalize. When we take $\Lambda \rightarrow \infty$ in the renormalization process, that means our fictitious particle has infinite mass, so it really never shows up anywhere in creation and drops out of the theory. Mathematically, the propagator denominator goes to infinity, so the term with that propagator makes zero contribution to the amplitude, at the end of the day.
+
+@ Dimensional Regularization
+
+Our unbounded loop integrals are over four dimensional spacetime. It turns out that for dimensions $D$ other than $D=4$ for spacetime, these integrals can be evaluated readily. So we take the same integrals over $D=4-\eta,$ where $\eta \neq 0 .$ In the result, we get terms that are unbounded as $\eta \rightarrow 0$ (which corresponds to $\Lambda \rightarrow \infty$). We use these terms for renormalization in the same way as we do the results from any other method of regularization. Interestingly, $\eta$ (and thus $D$ ) does not have to be an integer in this, method. That is, we can have fractional dimensions. This seems weird, but mathematically it works.
+
+@ Gauge Lattice regularization(Wilson)
+
+This approach approximates continuous spacetime by breaking it into a lattice comprising a large number of small hyper-cubes(4D "cubes") of fixed grid size (cube edge). Thus, \textbf{\redp{fields with wavelengths approaching, and smaller than the cube grid length cannot be represented since the fields are approximated by their values at the boundaries of the cubes.}} This means \redp{particle 3-momenta and energies for shorter wavelengths are excluded.} The result, for any given grid size, is a finite Feynman amplitude. After doing calculations on lattices with several different size grids, one can extrapolate to zero grid length, i.e., our natural universe with virtually unbounded possible particle energy and 3-momentum. The gauge lattice approach is an advanced topic and will not be covered in this note.
+\end{easylist}
+\textbf{Ideally, every regularization method should give us the same result.}
+
+\section{Relations We need}
+Recall that for the $\Gamma$ function used below, we have
+$$\Gamma(n)=(n-1) !\quad n \Gamma(n)=n(n-1) !=n !=\Gamma(n+1)$$
+The following integrals can simply be accepted. In the following section we derive one of these to illustrate a procedure called Wick rotation that plays a vital role in regularization.
+\begin{equation}
+\int \frac{d^{4} p}{\left(p^{2}+s+i \varepsilon\right)}=i \pi^{2}\left(s\log(-s)-s\log \left(\Lambda^{2}-s\right)-\Lambda^{2}\right)
+\label{inttb-1}
+\end{equation}
+\begin{equation}
+\int \frac{d^{4} p}{\left(p^{2}+s+i \varepsilon\right)^{2}}=-i \pi^{2}\left(\ln (-s)-\ln \left(\Lambda^{2}-s\right)+\frac{s}{\Lambda^{2}-s}+1\right)
+\label{wick-test-int}
+\end{equation}
+\begin{equation}
+\int \frac{d^{4} p}{\left(p^{2}+s+i \varepsilon\right)^{n}}=i \pi^{2} \frac{\Gamma(n-2)}{\Gamma(n)} \frac{1}{s^{n-2}}\quad n\geq 3
+\label{inttb-3}
+\end{equation}
+\begin{equation}
+\int \frac{p^{\mu}}{\left(p^{2}+s+i \varepsilon\right)^{n}} d^{4} p=0 \quad n \geq 3
+\label{inttb-4}
+\end{equation}
+\begin{equation}
+\int \frac{p^{\mu} p^{v}}{\left(p^{2}+s+i \varepsilon\right)^{n}} d^{4} p=i \pi^{2} \frac{\Gamma(n-3)}{2 \Gamma(n)} \frac{g^{\mu v}}{s^{n-3}} \quad n \geq 4
+\label{inttb-5}
+\end{equation}
+\begin{equation}
+\int \frac{d^{4} p}{\left(p^{2}+2 p q+t+i \varepsilon\right)^{n}}=i \pi^{2} \frac{\Gamma(n-2)}{\Gamma(n)} \frac{1}{\left(t-q^{2}\right)^{n-2}} \quad n \geq 3
+\label{inttb-6}
+\end{equation}
+\begin{equation}\int \frac{p^{\mu}}{\left(p^{2}+2 p q+t+i \varepsilon\right)^{n}} d^{4} p=-i \pi^{2} \frac{\Gamma(n-2)}{\Gamma(n)} \frac{q^{\mu}}{\left(t-q^{2}\right)^{n-2}} \quad n \geq 3
+\label{inttb-7}
+\end{equation}
+\begin{equation}
+\int \frac{p^{\mu} p^{v}}{\left(p^{2}+2 p q+t+i \varepsilon\right)^{n}} d^{4} p=i \pi^{2} \frac{\Gamma(n-3)}{2 \Gamma(n)} \frac{\left(2(n-3) q^{\mu} q^{v}+\left(t-q^{2}\right) g^{\mu v}\right)}{\left(t-q^{2}\right)^{n-2}} \quad n \geq 4
+\label{inttb-8}
+\end{equation}
+\begin{equation}
+\int p^{\mu} p^{v} d^{4} p=\frac{1}{4} \int g^{\mu v} p^{2} d^{4} p
+\label{inttb-9}
+\end{equation}
+\begin{equation}
+\int \frac{p^{\mu} p^{v}}{p^{2}+s} d^{4} p=\frac{1}{4} \int g^{\mu v} \frac{p^{2}}{p^{2}+s} d^{4} p
+\label{inttb-10}
+\end{equation}
+\subsection{Deriving Spacetime Integrals Using Wick Rotation}
+An integral in 4D Euclidean space is "relatively" easy to evaluate since we can convert from 4D Cartesian form of differential element $d^{4} x=dw dx d y d z$ to 4 D spherical coordinates of differential element $d V_{4 D}=d^{4} r=2 \pi^{2} r^{3} d r,$ where $2 \pi^{2} r^{3}$ is the 3 D "surface" of a $4 D$ hypersphere. Additionally, our radial distance is $r=\sqrt{w^{2}+x^{2}+y^{2}+z^{2}}$ and that is simply the measured distance from the origin to a point.
+
+In $4 D$ spacetime, however, things are not so simple because $r=\sqrt{t^{2}-x^{2}-y^{2}-z^{2}}$ and there is no simple interpretation of that as a distance in $4 \mathrm{D}$ space. Further, defining a suitable differential element, due to the minus signs in the metric, is problematic. To evaluate 4D spacetime integrals we use a trick called \textbf{\redp{Wick rotation}}
+
+\redp{\textbf{Wick rotation is used to convert 4 D spacetime to an associated 4 D Euclidean space, in which a given integral is easier to evaluate. For it, we simply transform (or, equivalently, make a substitution of variables in the spacetime integral of) $E \rightarrow i E$}}
+
+The differential element $d^4p$ has a factor of $dE$ in it, so it transforms as shown in Wholeness chart below:
+\begin{table}[H]
+\caption{Wick Rotation Summary}
+\label{tab:wick-rotation}
+\begin{tabular}{|c|c|c|c|}
+\hline
+                                    & Minkowski                             &               & Euclidean                                \\ \hline
+Time component                      & $E$                                   & $\rightarrow$ & $iE$                                     \\ \hline
+Space component                     & $p^i$ or $\mathbf{p}$                 & $\rightarrow$ & $p^i$ or $\mathbf{p}$                    \\ \hline
+Differential element                & $d^4p$                                & $\rightarrow$ & $id^4p_E$                                \\ \hline
+4D vector definition                & $p^{\mu}=(E,\mathbf{p})$              &               & $p_E^{\mu}=(E,\mathbf{p})$               \\ \hline
+4D vector transformation            & $(E,\mathbf{p})$                      & $\rightarrow$ & $(iE,\mathbf{p})$                        \\ \hline
+Square of 4D vector definition      & $p^2=p^{\mu}p_{\mu}=E^2-\mathbf{p}^2$ &               & $p^2=p_E^{\mu}p_{E\mu}=E^2+\mathbf{p}^2$ \\ \hline
+Square of 4D vector, transformation & $p^2$                                 & $\rightarrow$ & $-p_E^2$                                 \\ \hline
+\end{tabular}
+\end{table}
+Note, for the last line in the chart if $p_{E}^{2}=E^{2}+p^{2}=E^{2}+\left(p^{1}\right)^{2}+\left(p^{2}\right)^{2}+\left(p^{3}\right)^{2},$ then it is essentially the length squared in Euclidean energy-momentum space. And thus, the transformation is
+\begin{equation}p^{2}=p^{\mu} p_{\mu}=E^{2}-\sum\left(p^{\prime}\right)^{2}=E^{2}-\mathrm{p}^{2} \frac{\text { Wick }}{\text { Rotation }}\rightarrow-E^{2}-\mathrm{p}^{2}=p_{E}^{\mu} p_{E \mu}=-p_{E}^{2}\end{equation}
+
+To derive (\ref{wick-test-int}), we first convert our integral to Euclidean coordinates via the Wick transformation. \bluep{We can ignore the $i\varepsilon$, or simply think of it as included temporarily in the constant $s$.}
+\begin{equation}
+I=\int \frac{d^{4} p}{\left(p^{2}+s\right)^{2}}=\int \frac{i d^{4} p_{E}}{\left(-p_{E}^{2}+s\right)^{2}}=i \int \frac{d^{4} p_{E}}{\left(p_{E}^{2}-s\right)^{2}}=i 2 \pi^{2} \int_{0}^{\Lambda} \frac{p_{E}^{3} d p_{E}}{\left(p_{E}^{2}-s\right)^{2}}\end{equation}
+We then use the following relation from integral tables (or from manipulating the RHS integrands)
+\begin{equation}\int \frac{x^{m} d x}{\left(a x^{n}+c\right)^{r}}=\frac{1}{a} \int \frac{x^{m-n} d x}{\left(a x^{n}+c\right)^{r-1}}-\frac{c}{a} \int \frac{x^{m-n} d x}{\left(a x^{n}+c\right)^{r}}\end{equation}
+where $x=p_{E}, a=1, c=-s, n=2, m=3,$ and $r=2$. We have
+\begin{equation}
+I=i 2 \pi^{2} \underbrace{\int_{0}^{\Lambda} \frac{p_{E} d p_{E}}{\left(p_{E}^{2}-s\right)}}_{\left.\frac{1}{2} \ln \left(p_{E}^{2}-s\right)\right|_{0} ^{\Lambda}}\underbrace{-(-s) i 2 \pi^{2} \int_{0}^{\Lambda} \frac{p_{E} d p_{E}}{\left(p_{E}^{2}-s\right)^{2}}}_{I^{\prime}}\end{equation}
+From integral tables, we find
+\begin{equation}\int x\left(a x^{2}+c\right)^{n} d x=\frac{1}{2 a} \frac{\left(a x^{2}+c\right)^{n+1}}{n+1}\end{equation}
+Taking $x=p_{E}, a=1, c=-s, n=-2$, we have
+\begin{equation}
+    I^{\prime}=-\left.i \pi^{2} s \frac{1}{\left(p_{E}^{2}-s\right)}\right|_{0} ^{\Lambda}
+\end{equation}
+Thus,
+\begin{equation}
+I=i \pi^{2}\left[\ln \left(p_{E}^{2}-s\right)-s \frac{1}{\left(p_{E}^{2}-s\right)}\right]_{0}^{\Lambda}=-i \pi^{2}\left(\ln (-s)-\ln \left(\Lambda^{2}-s\right)+\frac{s}{\Lambda^{2}-s}+1\right)\quad QED.
+\end{equation}
+\subsection{Some Gamma Matrix Relations from Chapter 3}
+\begin{equation}\operatorname{Tr}\left(\gamma^{a} \gamma^{\beta}\right)=4 g^{\alpha \beta}\end{equation}
+\begin{equation}\operatorname{Tr}\left(\gamma^{\sigma} \gamma^{\delta} \gamma^{\mu} \gamma^{\beta}\right)=4\left(g^{\sigma \delta} g^{\mu \beta}-g^{\sigma \mu} g^{\delta \beta}+g^{\sigma \beta} g^{\delta \mu}\right)\end{equation}
+\begin{equation}\begin{array}{l}
+\gamma_{\lambda} \gamma^{\lambda}=4, \quad \gamma_{\lambda} \gamma^{\alpha} \gamma^{\lambda}=-2 \gamma^{\alpha} \\
+\gamma_{\lambda} \gamma^{a} \gamma^{\beta} \gamma^{\lambda}=4 g^{\alpha \beta} \quad \gamma_{\lambda} \gamma^{\alpha} \gamma^{\beta} \gamma^{\gamma} \gamma^{\lambda}=-2 \gamma^{\gamma} \gamma^{\beta} \gamma^{\alpha} \\
+\gamma_{\lambda} \gamma^{\alpha} \gamma^{\beta} \gamma^{\gamma} \gamma^{\delta} \gamma^{\lambda}=2\left(\gamma^{\delta} \gamma^{\alpha} \gamma^{\beta} \gamma^{\gamma}+\gamma^{\gamma} \gamma^{\beta} \gamma^{\alpha} \gamma^{\delta}\right)
+\end{array}\end{equation}
+
+\subsection{Feynman Parameterization}
+Integrals (\ref{inttb-8}) and (\ref{inttb-3}) are not of the same form as the loop integrals. But thanks to a technique developed by Feynman, we can convert the loop integrals to forms for which we can use (\ref{inttb-8}) and (\ref{inttb-3}). The loop integrals typically have a product of several different polynomials multiplied in the denominator rather than a single such polynomial (raised to a power typically), as in the integrals (\ref{inttb-8}) and (\ref{inttb-3}).
+
+The fist of these useful relations is 
+\begin{equation}\frac{1}{a b}=\frac{1}{b-a} \int_{a}^{b} \frac{d t}{t^{2}} \quad=\frac{1}{b-a}\left(\frac{1}{a}-\frac{1}{b}\right)=\frac{1}{b-a}\left(\frac{b-a}{a b}\right)=\frac{1}{a b}
+\label{first-feynman-param}
+\end{equation}
+\redp{Define the \textbf{Feynman parameter} z via}
+$$t=b+(a-b) z \rightarrow d t=(a-b) d z$$
+where for the integration limits, $ t=a$ means $z=1,$ and $t=b$ means $z=0 .$ The LHS of (\ref{first-feynman-param}) then becomes (where the RHS of (15-26) follows from the symmetry of a and $b$ on the LHS)
+\begin{qt}
+    \begin{equation}\frac{1}{a b}=-\int_{1}^{0} \frac{d z}{(b+(a-b) z)^{2}}=\int_{0}^{1} \frac{d z}{(b+(a-b) z)^{2}}=\int_{0}^{1} \frac{d z}{(a+(b-a) z)^{2}}
+    \label{second-feynman-param}
+    \end{equation}
+\end{qt}
+Relation (\ref{second-feynman-param}) readily extends to three factors, 
+\begin{equation}\begin{aligned}
+\frac{1}{a b c} &=2 \int_{0}^{1} d x \int_{0}^{x} d y \frac{1}{(a+(b-a) x+(c-b) y)^{3}} \\
+&=2 \int_{0}^{1} d x \int_{0}^{1-x} d z \frac{1}{(a+(b-a) x+(c-a) z)^{3}}
+\end{aligned}\end{equation}
+These results can be generalized, via induction, to
+\begin{qt}
+    \begin{equation}\frac{1}{a_{0} a_{1} a_{2} \ldots a_{n}}=\Gamma(n+1) \int_{0}^{1} d z_{1} \int_{0}^{z_i} d z_{2} \cdots \int_{0}^{z_{n-1}} d z_{n} \frac{1}{\left(a_{0}+\left(a_{1}-a_{0}\right) z_{1}+\ldots\left(a_{n}-a_{n-1}\right) z_{n}\right)^{n+1}}\end{equation}
+\end{qt}
+\subsection{Leading Log Approximations}
+Note that for a function of $\varepsilon, f(\varepsilon)=\ln \left(\Lambda^{\prime}+\varepsilon\right)$ where $\varepsilon<<\Lambda^{\prime}$
+\begin{equation}\begin{aligned}
+&\ln \left(\Lambda^{\prime}+\varepsilon\right)=\\
+&\left.\ln \left(\Lambda^{\prime}+\varepsilon\right)\right|_{\varepsilon=0}+\frac{\varepsilon}{\left(\Lambda^{\prime}+\varepsilon\right)_{\varepsilon=0}}-\frac{\varepsilon^{2}}{\left.2\left(\Lambda^{\prime}+\varepsilon\right)^{2}\right|_{\varepsilon=0}}+\ldots=\ln \Lambda^{\prime}+\frac{\varepsilon}{\Lambda^{\prime}}-\frac{1}{2}\left(\frac{\varepsilon}{h^{\prime}}\right)^{2}+\dots\\
+&\approx \ln{\Lambda^{\prime}}
+\end{aligned}\end{equation}
+
+\section{Pauli-Villars Regularization}
+\subsection{The Concept}
+Imagine there were an extremely heavy fermion, identical to the electron, muon, and tau in all qualities except mass. In our low energy (far below the mass of this fermion) experiments it could never play a role as a real particle, since all of them would have decayed into lighter particles at the beginning of the universe, and we would not have enough energy in the experiment to create another one. And it could never influence particle collision interactions (such as Compton scattering) as a tree level virtual particle since those interactions would never reach the mass-energy level of this fermion. We would never know it exists.
+
+However, in our higher order correction loop integrals we integrate to infinite energy levels and it could play a role there. If so, the effect would be like adding another Feynman diagram loop with that particular particle in addition to the one for the electron (and muon and tau) coupled with its antiparticle. That is, if the heavy fermion mass were $\Lambda$, then all our propagators in our theory would have to be modified as in (\ref{pauli-villars-mass}). But, in order for this to work, we have to change the propagator of the so-called heavy particle a bit. \textbf{We give it a negative sign and keep the " $\mathrm{m}$" in the numerator without changing it to "$\Lambda$",h e we do m the denominator.} \bluep{The goal mathematically is first to perturb the propagator by adding a term to it containing $\Lambda$, then take $\Lambda$ to infinity.} For this, the form chosen in (\ref{pauli-villars-mass}) works best
+\begin{equation}
+\frac{\cancel{p}+m}{p^{2}-m^{2}+i \varepsilon} \rightarrow \frac{\cancel{p}+m}{p^{2}-m^{2}+i \varepsilon}-\frac{\cancel{p}+m}{p^{2}-\Lambda^{2}+i \varepsilon}=(\cancel{p}+m) \frac{m^{2}-\Lambda^{2}}{\left(p^{2}-m^{2}+i \varepsilon\right)\left(p^{2}-\Lambda^{2}+i \varepsilon\right)}
+\label{pauli-villars-mass}
+\end{equation}
+The valuable part of all this, from the point of view of regularization, is that \redp{\textbf{the RHS of (\ref{pauli-villars-mass}) falls off, at high $p$, with $1 / p^{3}$, whereas the LHS falls off with $1/p$. This allows loop integrals to converge as $p\rightarrow\infty$.}} They will diverge with $\Lambda$, however. But we take care of that with renormalization where, as $\Lambda \rightarrow \infty$ (and our heavy fermion cannot then exist in any sense), quantities like $e$ and $m$ take on physical, finite values.
+\subsection{A Simple(Unphysical) Example}
+Suppose we had an integral of the form
+\begin{equation}\frac{1}{(2 \pi)^{4}} \int \frac{1}{\left(p^{2}-m^{2}+i \varepsilon\right)^{2}} d^{4} p\end{equation}
+We could use the Pauli-Villars methodology of (\ref{pauli-villars-mass})(applied just to the denominator of that expression) to turn this into (where we drop the small $\varepsilon$ for convenience)
+\begin{equation}\frac{1}{(2 \pi)^{4}} \int \frac{1}{\left(p^{2}-m^{2}\right)^{2}} d^{4} p \rightarrow \frac{1}{(2 \pi)^{4}} \int\left(\frac{1}{\left(p^{2}-m^{2}\right)^{2}}-\frac{1}{\left(p^{2}-\Lambda^{2}\right)^{2}}\right) d^{4} p\end{equation}
+Using(\ref{wick-test-int}) in the above with the integration limit $\Lambda$ in (\ref{wick-test-int}) now equal to infinity and $s=-m^2$ for the first term and $-\Lambda^2$(now the heavy fermion mass) for the second, we get
+$$\begin{array}{l}
+\frac{1}{(2 \pi)^{4}} \int \frac{1}{\left(p^{2}-m^{2}\right)^{2}} d^{4} p \rightarrow \\
+\quad=\frac{1}{(2 \pi)^{4}}\left(-i \pi^{2}\left(\ln \left(m^{2}\right)-\ln \left(\infty^{2}+m^{2}\right)+1\right)+i \pi^{2}\left(\ln \left(\Lambda^{2}\right)-\ln \left(\infty^{2}+\Lambda^{2}\right)+1\right)\right) \\
+\quad=\frac{i}{(4 \pi)^{2}}(\left(\ln \frac{\Lambda^{2}}{m^{2}}\right)+\underbrace{\ln \left(\infty^{2}+m^{2}\right)}_{2\ln\infty+\frac{m^2}{\infty^2}+\dots}-\underbrace{\ln \left(\infty^{2}+\Lambda^{2}\right)}_{2\ln\infty+\frac{\Lambda^2}{\infty^2}+\dots})
+\end{array}$$
+This gives us
+$$\frac{1}{(2 \pi)^{4}} \int \frac{1}{\left(p^{2}-m^{2}\right)^{2}} d^{4} p \rightarrow \frac{i}{(4 \pi)^{2}}\left(\ln \frac{\Lambda^{2}}{m^{2}}\right)-\frac{i\Lambda^2}{(4 \pi)^{2} \infty^{2}}+\ldots=\frac{i 2}{(4 \pi)^{2}}\left(\ln \Lambda-\ln m-\frac{1}{2} \frac{\Lambda^{2}}{\infty^{2}}\right)+\ldots$$
+and
+$$\frac{1}{(2 \pi)^{4}} \int \frac{1}{\left(p^{2}-m^{2}\right)^{2}} d^{4} p \overset{\Lambda\rightarrow\infty}{\rightarrow} \frac{i 2}{(4 \pi)^{2}} \ln \Lambda$$
+
+\section{Dimensional Regularization}
+\subsection{The Concept}
+We take the same integrals over $D=4-\eta$, where $\eta\neq0$. In the result, we get terms that are unbounded as $\eta\rightarrow0$ (which corresponds to $\Lambda\rightarrow\infty$). We then re-express the result in 4D and $\Lambda$ for use in renormalization, just as we do for any other regularization technique. \bluep{Note that in $D\neq 4$ spacetime, one dimension is time and all the rest are spatial.}
+\subsection{Relations for Arbitrary Dimension Spacetime}
+For any integer $D$, $g_{\mu\nu}$ is a $D\times D$ matrix. Parallel to $g_{\mu\nu}g^{\mu\nu}=4$ for $D=4$ spacetime, we have
+\begin{equation}g_{\mu v} g^{\mu \nu}=D\end{equation}
+In $D$ dimensions, where $D$ is an integer, there are $D$ gamma matrices labeled $\gamma^{0}, \gamma^{1}, \ldots \gamma^{D-1}$ These are $f(P) \times f(D)$ matrices, where $f(D)$ is an integer that depends on $D .$ For $D=4, f(D)=4$. And we have anti-commutation relations as
+\begin{equation}\gamma^{\mu} \gamma^{v}+\gamma^{\nu} \gamma^{\mu}=2 g^{\mu \nu}\end{equation}
+From these, one can derive contraction and trace relation as
+\begin{equation}\begin{array}{l}
+\gamma_{\lambda} \gamma^{\lambda}=D, \quad \gamma_{\lambda} \gamma^{\alpha} \gamma^{\lambda}=-(D-2) \gamma^{\alpha} \\
+\gamma_{\lambda} \gamma^{a} \gamma^{\beta} \gamma^{\lambda}=-(D-4) \gamma^{\alpha} \gamma^{\beta}+4 g^{a \beta} \quad \text { etc. }
+\end{array}
+\label{gamma-relation-for-lambda}
+\end{equation}
+\begin{equation}\operatorname{Tr}\left(\gamma^{\alpha} \gamma^{\beta}\right)=f(D) g^{\alpha \beta}\end{equation}
+\begin{equation}\operatorname{Tr}\left(\gamma^{\sigma} \gamma^{\delta} \gamma^{\mu}\dots\right)=0 \quad \text { for any odd number of gamma matrices, }\end{equation}
+\begin{equation}\operatorname{Tr}\left(\gamma^{\mu} \gamma^{\delta} \gamma^{\nu} \gamma^{\sigma}\right)=f(D)\left(g^{\mu \delta} g^{\nu \sigma}-g^{\mu \nu} g^{\delta \sigma}+g^{\mu \sigma} g^{\delta v}\right)\end{equation}
+For a Euclidean space of arbitrary integer dimension D, the mathematicians have provided us with the integral:
+\begin{qt}
+    \begin{equation}\int \frac{1}{(2 \pi)^{D}} \frac{d^{D} p_{E}}{\left(p_{E}^{2}-s\right)^{2}}=\frac{1}{(4 \pi)^{D / 2}} \cdot \frac{\Gamma\left(2-\frac{D}{2}\right)}{\Gamma(2)} \frac{1}{s^{2-\frac{D}{2}}}
+    \label{key-integral-in-D-dimension}
+    \end{equation}
+\end{qt}
+We can use this to find its equivalent in D dimensional spacetime. First perform a inverse Wick rotation transformation to get
+\begin{equation}\int \frac{1}{(2 \pi)^{D}} \frac{1}{\left(p_{E}^{2}-s\right)^{2}} d^{D} p_{E}=\frac{1}{(2 \pi)^{D}} \int \frac{1}{\left(-p_{E}^{2}+s\right)^{2}} d^{D} p_{E}=\frac{-i}{(2 \pi)^{D}} \int \frac{1}{\left(p^{2}+s\right)^{2}} d^{D} p\end{equation}
+From (\ref{key-integral-in-D-dimension}),
+\begin{qt}
+    \begin{equation}\frac{1}{(2 \pi)^{D}} \int \frac{1}{\left(p^{2}+s\right)^{2}} d^{D} p=\frac{i}{(4 \pi)^{D / 2}} \frac{\Gamma\left(2-\frac{D}{2}\right)}{\Gamma(2)} \frac{1}{s^{2-\frac{D}{2}}}
+    \label{key-integral-in-D-spacetime}
+    \end{equation}
+\end{qt}
+In similar fashion, one can deduce other relations for D dimensional spacetime parallel to (\ref{inttb-1}) to (\ref{inttb-10}). We list the most relevant of these below where we use $q$ instead of $p$ to represent the general case. 
+\begin{equation}\int \frac{1}{\left(q^{2}+s\right)^{n}} d^{D} q=i \pi^{D / 2} \frac{\Gamma\left(n-\frac{D}{2}\right)}{\Gamma(n)} \frac{1}{s^{n-\frac{D}{2}}}
+\label{inttb2-0}
+\end{equation}
+\begin{equation}\int \frac{q^{\mu}}{\left(q^{2}+s\right)^{n}} d^{D} q=0
+\label{inttb2-1}
+\end{equation}
+\begin{equation}\int \frac{q^{\mu} q^{v}}{\left(q^{2}+s\right)^{n}} d^{D} q=i \pi^{D / 2} \frac{\Gamma\left(n-1-\frac{D}{2}\right)}{2 \Gamma(n)} \frac{g^{\mu \nu}}{s^{n-1-D / 2}}
+\label{inttb2-2}
+\end{equation}
+\begin{equation}\int \frac{q^{2}}{\left(q^{2}+s\right)^{n}} d^{D} q=i \pi^{D / 2} \frac{\Gamma\left(n-1-\frac{D}{2}\right)}{2 \Gamma(n)} \frac{D}{s^{n-1-D / 2}}
+\label{inttb2-3}
+\end{equation}
+Note that \redp{the gamma function $\Gamma$ is also defined for non-integer $D$,} so the RHS of integrals above remain valid in that case as well.
+
+\subsection{The Same Unphysical Example Again}
+$$\frac{1}{(2 \pi)^{4}} \int \frac{1}{\left(p^{2}-m^{2}\right)^{2}} d^{4} p \longrightarrow \frac{1}{(2 \pi)^{D}} \int \frac{1}{\left(p^{2}-m^{2}\right)^{2}} d^{D} p=\frac{i}{(4 \pi)^{D / 2}} \frac{\Gamma\left(2-\frac{D}{2}\right)}{\Gamma(2)}\left(\frac{1}{-m^{2}}\right)^{2-\frac{D}{2}}$$
+$\Gamma(z)$ has poles (goes to infinity) at $0,-1,-2, \ldots \ldots$ so eqn. above has poles at $D=4,6,8, \ldots$. To examine the behavior around $D=4$, define $\eta=4-D$ and use the approximation 
+\begin{qt}
+    \begin{equation}\Gamma\left(2-\frac{D}{2}\right)=\Gamma\left(\frac{\eta}{2}\right)\overset{\eta\rightarrow0}{\rightarrow} \frac{2}{\eta}-\gamma+\mathcal{O}(\eta)
+    \label{gamma-approx}
+    \end{equation}
+where $\gamma$ is the Euler-Mascheroni constant$\approx0.5772$, which will always cancel, or be negligible in observable quantities.
+\end{qt}
+We also use the standard relation
+\begin{equation}a^{x}=1+x \ln a+\frac{(x \ln a)^{2}}{2 !}+\frac{(x \ln a)^{3}}{3 !}+\ldots=e^{\ln a^x}
+\label{ax-expand}
+\end{equation}
+with $a=1 / m^{2}$ and $x=\eta / 2$ to obtain 
+$$\left(\frac{1}{-m^{2}}\right)^{2-\frac{D}{2}}=(-1)^{\frac{\eta}{2}}\left(\frac{1}{m^{2}}\right)^{\frac{\eta}{2}}\overset{\eta\rightarrow0}{\rightarrow}\frac{i}{(4 \pi)^{2}}\left(\frac{2}{\eta}-\gamma+\mathcal{O}(\eta)\right)\left(1-\frac{\eta}{2} \ln m^{2}\right)=\frac{i 2}{(4 \pi)^{2}}\left(\frac{1}{\eta}-\frac{\gamma}{2}-\ln m\right)
+$$
+Of course, in the full limit $\eta \rightarrow 0$ and $D \rightarrow 4$, we have
+\begin{equation}
+\frac{1}{(2 \pi)^{4}} \int \frac{1}{\left(p^{2}-m^{2}\right)^{2}} d^{4} p\rightarrow\frac{i 2}{(4 \pi)^{2}} \frac{1}{\eta}
+\end{equation}
+\subsection{Important Conclusion}
+If the dimensional regularization gives the same results as Pauli-Villars regularization, we can conclude that 
+\begin{qt}
+    \begin{equation}
+        \text { for finite } \Lambda \text { and } \eta \text { small, } \ln \Lambda=\frac{1}{\eta}-\frac{\gamma}{2}
+        \label{eta-Lambda-relation}
+    \end{equation}
+    $$\text { For } \Lambda \rightarrow \infty \text { and } \eta \rightarrow 0, \quad \ln \Lambda=\frac{1}{\eta}$$
+\end{qt}
+\section{Comparing Various Regularization Approach}
+\begin{itemize}
+    \item Cut-off method: Simple in concept but violates gauge and Lorentz invariance, and not very useful. 
+    \item Pauli-Villars: Works for QED, but not (to date) for weak or strong interactions. Dimensional regularization: Works for QED and weak, but not strong, interactions. (Because strong interaction theory is non-perturbative, so our renormalization scheme does not hold.) 
+    \item Gauge lattice: Works for QED, weak, and strong interactions.
+\end{itemize}
+\section{Finding Photon Self Energy Factor Using Dimensional Regularization}
+We now reproduce the second order photon propagator below
+\begin{equation}
+i D_{F a \beta}^{2 n d}(k)=i D_{F \alpha \beta}(k)+i D_{F a \mu}(k)\frac{(-1)}{(2 \pi)^{4}}\left\{\operatorname{Tr} \int i e_{0} \gamma^{\mu} i S_{F}(p-k) i e_{0} \gamma^{\nu} i S_{F}(p) d^{4} p\right\} i D_{F \nu \beta}(k)
+\end{equation}
+where
+\begin{equation}
+i e_{0}^{2} \Pi^{\mu \nu}(k)=\frac{(-1)}{(2 \pi)^{4}}\left\{\operatorname{Tr} \int i e_{0} \gamma^{\mu} i \frac{\cancel{p}-k+m}{(p-k)^{2}-m^{2}+i \varepsilon} i e_{0} \gamma^{\nu}i \frac{\cancel{p}+m}{p^{2}-m^{2}+i \varepsilon} d^{4} p\right\}
+\end{equation}
+We introduce new symbol $N^{\mu\nu}(p,k)\operatorname{Tr}\left\{\gamma^{\mu}(\not p-\cancel{k}+m) \gamma^{\nu}(\cancel{p}+m)\right\}$. Converting equation above to D diminsional space and dividing by $ie_0^2$, we have
+\begin{equation}
+\Pi^{\mu \nu}(k)=\frac{i}{(2 \pi)^{D}} \int \frac{N^{\mu \nu}(p, k)}{\left((p-k)^{2}-m^{2}+i \varepsilon\right)\left(p^{2}-m^{2}+i \varepsilon\right)} d^{D} p
+\end{equation}
+Now using Feynman parameterization with $a=(p-k)^{2}-m^{2}+i \varepsilon$ and $b=p^{2}-m^{2}+i \varepsilon$,
+$$\Pi^{\mu \nu}(k)=\frac{i}{(2 \pi)^{D}} \iint_{0}^{1} \frac{N^{\mu \nu}(p, k)}{\left(p^{2}-m^{2}+i \varepsilon+\left(k^{2}-2 p k\right) z\right)^{2}} d z d^{D} p$$
+We introduce the new variable
+$$q=p-k z \quad d q=d p \rightarrow d^{D} q=d^{D} p \quad p=q+k z$$
+and substituting for p gives us
+\begin{equation}\begin{aligned}
+\Pi^{\mu \nu}(k) &=\frac{i}{(2 \pi)^{D}} \int_{0}^{1} \int \frac{N^{\mu \nu}(q+k, k)}{\left((q+k z)^{2}-m^{2}+k^{2} z-2(q+k) k+i \varepsilon\right)^{2}} d^{D} q d z \\
+&=\frac{i}{(2 \pi)^{D}} \int_{0}^{1} \int \frac{N^{\mu \nu}(q+k, k)}{\left(q^{2}+2 q k z+k^{2} z^{2}-m^{2}+k^{2} z-2 q k z-2 k^{2} z^{2}+i \varepsilon\right)^{2}} d^{D} q d z\\
+&=\frac{i}{(2 \pi)^{D}} \int_{0}^{1} \int \frac{N^{\mu \nu}(q+k z, k)}{\left(q^{2}+k^{2} z(1-z)-m^{2}+i \varepsilon\right)^{2}} d^{D} q d z
+\end{aligned}\end{equation}
+Note that the denominator is even in the integration variable $q$.
+
+Using the trace relations in the numerator of $\Pi^{\mu\nu}$ yields
+$$\begin{aligned}
+&N^{\mu \nu}(p, k)=\operatorname{Tr}\left\{\gamma^{\mu}(\not p-\cancel{k}+m) \gamma^{\nu}(\not p+m)\right\}\\
+&=\operatorname{Tr}\left\{\gamma^{\mu}(\cancel{p}-\cancel{k}) \gamma^{\nu} p+\gamma^{\mu}(\cancel{p}-\not k) \gamma^{\nu} m+\gamma^{\mu} m \gamma^{\nu} \not p^{\mu}+\gamma^{\mu} \gamma^{\nu} m^{2}\right\}\\
+&=\left\{\left(p_{\delta}-k_{\delta}\right) p_{\sigma} \operatorname{Tr} \gamma^{\mu} \gamma^{\delta} \gamma^{v} \gamma^{\sigma}\right.+\left(p_{\delta}-k_{\delta}\right) m \underbrace{\operatorname{Tr} \gamma^{\mu} \gamma^{\delta} \gamma^{v}}_{=0}\\
+&+p_{\sigma}^{m} \underbrace{\operatorname{Tr} \gamma^{\mu} \gamma^{\nu} \gamma^{\sigma}}_{=0}+m^{2} \underbrace{\operatorname{Tr} \gamma^{\mu} \gamma^{\nu}}_{f(D) g^{\mu \nu}}\}
+\end{aligned}$$
+This becomes,
+$$\begin{aligned}
+N^{\mu \nu}(p, k) &=f(D)\left\{\left(p^{\mu}-k^{\mu}\right) p^{\nu}-g^{\mu \nu}\left(p_{\delta}-k_{\delta}\right) p^{\delta}+\left(p^{\nu}-k^{\nu}\right) p^{\mu}+m^{2} g^{\mu \nu}\right\} \\
+&=f(D)\left\{\left(p^{\mu}-k^{\mu}\right) p^{\nu}+\left(p^{\nu}-k^{\nu}\right) p^{\mu}+(m^{2}-\underbrace{\left(p_{\delta}-k_{\delta}\right) p^{\delta}}_{(p-k) p}) g^{\mu \nu}\right\}
+\end{aligned}$$
+Since $q=p+kz$, we have
+$$\begin{aligned}
+N^{\mu \nu}(q+k z, k)&=f(D)\left\{\left(q^{\mu}+k^{\mu} z-k^{\mu}\right)\left(q^{\nu}+k^{\nu} z\right)+\left(q^{\nu}+k^{\nu} z-k^{\nu}\right)\left(q^{\mu}+k^{\mu} z\right)\right.\\
+&+\left.\left(m^{2}-(q+k z-k)(q+k z)\right) g^{\mu \nu}\right\}
+\end{aligned}$$
+In expanding the eqn. above we can \redp{drop all terms linear in $q$ since they make the integrand odd and will therefore yield zero}. We can then take $N^{\mu\nu}$ as
+\begin{equation}\begin{aligned}
+N^{\mu \nu}(q+k z, k)&=f(D)\left\{q^{\mu} q^{\nu}+k^{\mu} k^{\nu} z^{2}-k^{\mu} k^{\nu} z+q^{\mu} q^{\nu}+k^{\mu} k^{\nu} z^{2}-k^{\mu} k^{\nu} z\right.\\
+&\left.+m^{2} g^{\mu \nu}-q^{2} g^{\mu \nu}-k^{2} z^{2} g^{\mu \nu}+k^{2} z g^{\mu \nu}\right\}+\ldots\\
+&=f(D)\{\underbrace{\left(2 q^{\mu} q^{v}-q^{2} g^{\mu v}\right)}_{N_1^{\mu\nu}} \underbrace{-2 k^{\mu} k^{\nu} z(1-z)}_{N_{2}^{\mu v}}+\underbrace{\left(m^{2}+k^{2} z(1-z)\right) g^{\mu v}}_{N_{3}^{\mu v}}\}+\ldots
+\end{aligned}\end{equation}
+Returning to the Whole integral and breaking it into three parts
+\begin{equation}\begin{aligned}
+\Pi^{\mu \nu}(k) &=\frac{i}{(2 \pi)^{D}} f(D) \int_{0}^{1} \int \frac{N_{1}^{\mu \nu}+N_{2}^{\mu \nu}+N_{3}^{\mu \nu}}{\left(q^{2}+k^{2} z(1-z)-m^{2}+i \varepsilon\right)^{2}} d^{D} q d z \\
+&=\frac{i}{(2 \pi)^{D}} f(D) \int_{0}^{1}\left(I_{1}^{\mu \nu}+I_{2}^{\mu \nu}+I_{3}^{\mu \nu}\right) d z
+\end{aligned}\end{equation}
+For $I^{\mu\nu}_1$
+\begin{equation}l_{1}^{\mu \nu}=\int \frac{2 q^{\mu} q^{\nu}-q^{2} g^{\mu \nu}}{\left(q^{2}+k^{2} z(1-z)-m^{2}+i \varepsilon\right)^{2}} d^{D} q\end{equation}
+With (\ref{inttb2-2}) and (\ref{inttb2-3}), $s=k^{2} z(1-z)-m^{2}+i \varepsilon,$ and $n=2$, this becomes
+$$
+I_1^{\mu\nu}=i \pi^{D / 2} \frac{\Gamma\left(1-\frac{D}{2}\right)}{2 \Gamma(2)} \frac{2 g^{\mu \nu}}{\left(k^{2} z(1-z)-m^{2}\right)^{1-D / 2}}-i \pi^{D / 2} \frac{\Gamma\left(1-\frac{D}{2}\right)}{2 \Gamma(2)} \frac{D g^{\mu v}}{\left(k^{2} z(1-z)-m^{2}\right)^{1-D / 2}}
+$$
+$$=\frac{i \pi^{D / 2} g^{\mu \nu}}{\left(k^{2} z(1-z)-m^{2}\right)^{1-D / 2}} \frac{\Gamma\left(1-\frac{D}{2}\right)}{2}(2-D)=\frac{i \pi^{D / 2} g^{\mu v}}{\left(k^{2} z(1-z)-m^{2}\right)^{1-D / 2}} \underbrace{\left(1-\frac{D}{2}\right) \Gamma\left(1-\frac{D}{2}\right)}_{\Gamma\left(2-\frac{D}{2}\right)}
+$$
+$$=\frac{i \pi^{D / 2} \Gamma\left(2-\frac{D}{2}\right)}{\left(k^{2} z(1-z)-m^{2}\right)^{1-D / 2}} g^{\mu \nu}=\frac{i \pi^{D / 2} \Gamma\left(2-\frac{D}{2}\right)}{\left(k^{2} z(1-z)-m^{2}\right)^{2-D / 2}}\left(k^{2} z(1-z)-m^{2}\right) g^{\mu \nu}
+$$
+For $I_2^{\mu\nu}$
+\begin{equation}I_{2}^{\mu \nu}=\int \frac{-2 k^{\mu} k^{\nu} z(1-z)}{\left(q^{2}+k^{2} z(1-z)-m^{2}+i \varepsilon\right)^{2}} d^{D} q\end{equation}
+From (\ref{inttb2-0}) with $n=2$ and $s=k^2z(1-z)-m^2+i\varepsilon$, this becomes
+$$-i \pi^{D / 2} \frac{\Gamma\left(2-\frac{D}{2}\right)}{\Gamma(2)} \frac{2 k^{\mu} k^{\nu} z(1-z)}{\left(k^{2} z(1-z)-m^{2}\right)^{2-D / 2}}=-\frac{i \pi^{D / 2} \Gamma\left(2-\frac{D}{2}\right)}{\left(k^{2} z(1-z)-m^{2}\right)^{2-D / 2}} 2 z(1-z) k^{\mu} k^{\nu}$$
+For $I_3^{\mu\nu}$, using (\ref{inttb2-0}) but with a different numerator
+\begin{equation}I_{3}^{\mu \nu}=\frac{i \pi^{D / 2} \Gamma\left(2-\frac{D}{2}\right)}{\left(k^{2} z(1-z)-m^{2}\right)^{2-D / 2}}\left(m^{2}+k^{2} z(1-z)\right) g^{\mu \nu}\end{equation}
+
+Adding three integrals yields
+\begin{equation}I_{1}^{\mu \nu}+I_{2}^{\mu \nu}+I_{3}^{\mu \nu}=\frac{i \pi^{D / 2} \Gamma\left(2-\frac{D}{2}\right)}{\left(k^{2} z(1-z)-m^{2}\right)^{2-D / 2}} 2 z(1-z)\left(k^{2} g^{\mu \nu}-k^{\mu} k^{\nu}\right)
+\end{equation}
+Now we find
+$$\Pi^{\mu \nu}(k)=\frac{i}{(2 \pi)^{D}} f(D) \int_{0}^{1}\left(\frac{i \pi^{D / 2} \Gamma\left(2-\frac{D}{2}\right)}{\left(k^{2} z(1-z)-m^{2}\right)^{2-D / 2}} 2 z(1-z)\left(k^{2} g^{\mu \nu}-k^{\mu} k^{\nu}\right)\right) d z$$
+$$=\frac{-1}{2^{D-1} \pi^{D-D / 2}} f(D) \Gamma\left(2-\frac{D}{2}\right)\left(k^{2} g^{\mu \nu}-k^{\mu} k^{\nu}\right) \int_{0}^{1} \frac{z(1-z)}{\left(k^{2} z(1-z)-m^{2}\right)^{2-D / 2}} d z$$
+Recall from previous chapter, we have
+\begin{equation}\Pi^{\mu \nu}(k)=-g^{\mu \nu} A\left(k^{2}\right)+\underbrace{k^{\mu} k^{\nu} B\left(k^{2}\right)}_{\text {drops out of amplitude }}\end{equation}
+\textbf{\redp{The term with $k^{\mu} k^{\nu}$ drops out due to current conservation (gauge invariance).}} So we can only consider that 
+\begin{equation}\Pi^{\mu \nu}(k)=\frac{-1}{2^{D-1} \pi^{D / 2}} f(D) \Gamma\left(2-\frac{D}{2}\right) k^{2} g^{\mu \nu} \int_{0}^{1} \frac{z(1-z)}{\left(k^{2} z(1-z)-m^{2}\right)^{2-D / 2}} d z\end{equation}
+Now take the limit of $D\rightarrow4$, and use the expansion of $a^x$ with $a=(k^2z(1-z)-m^2)$, we have that
+\begin{equation}\begin{array}{l}
+\lim _{D \rightarrow 4} \left(k^{2} z(1-z)-m^{2}\right)^{2-D / 2}=\lim _{D \rightarrow 4}\left(k^{2} z(1-z)-m^{2}\right)^{\eta / 2} \\
+=\lim _{D \rightarrow 4}\left(k^{2} z(1-z)-m^{2}\right)^{-\eta / 2}=1-\frac{\eta}{2} \ln \left(k^{2} z(1-z)-m^{2}\right)+\ldots \\
+\eta \rightarrow 0
+\end{array}\end{equation}
+Recalling the behavior of Gamma function(\ref{gamma-approx}), and now with $f(D)\rightarrow4$, we have
+$$\Pi^{\mu \nu}(k)=\frac{-1}{2^{3} \pi^{2}} 4 k^{2} g^{\mu \nu}\left(\frac{2}{\eta}-\gamma+\mathcal{O}(\eta)\right) \int_{0}^{1} z(1-z)\left\{1-\frac{\eta}{2} \ln \left(k^{2} z(1-z)-m^{2}\right)\right\} d z$$
+$$\begin{aligned}
+&=\frac{-1}{2 \pi^{2}} k^{2} g^{\mu \nu}\left(\frac{2}{\eta}-\gamma\right) \int_{0}^{1} z(1-z)\left\{1-\frac{\eta}{2} \ln \left(k^{2} z(1-z)-m^{2}\right)\right\} d z\\
+&=\frac{-1}{2 \pi^{2}} k^{2} g^{\mu \nu}\left(\left(\frac{2}{\eta}-\gamma\right) \int_{0}^{1} z(1-z) d z-\int_{0}^{1} z(1-z) \ln \left(k^{2} z(1-z)-m^{2}\right) d z\right)
+\end{aligned}$$
+\textbf{where we again dropped terms of order $\eta$ in the last line.} Since $(2/\eta-\gamma)=\ln\Lambda$, this becomes
+\begin{equation}
+\Pi^{\mu\nu}(k)=\frac{g^{\mu \nu}}{6 \pi^{2}} k^{2} \ln \frac{k}{\Lambda}+\frac{g^{\mu \nu}}{2 \pi^{2}} k^{2} \int_{0}^{1} z(1-z) \ln \left(z(1-z)-m^{2} / k^{2}\right) d z\end{equation}
+Compare what we have in Chap 12, we now have
+\begin{qt}
+    \begin{equation}
+    \Pi^{\mu v}(k)=g^{\mu v} k^{2} \underbrace{2 b_{n} \ln \frac{k}{\Lambda}}_{-A^{\prime}(k, \Lambda)}+g^{\mu v} k^{2} \underbrace{\frac{1}{2 \pi^{2}} \int_{0}^{1} z(1-z) \ln \left(z(1-z)-m^{2} / k^{2}\right)dz}_{-\Pi_c(k^2)}
+    \end{equation}
+    where $b_n=1/(12\pi^2)$ for $n=1$ (only electron-position loop) as we have here.
+\end{qt}
+\section{Finding the Vertex Correction Factor Using Dimensional Regularization}
+From Chapter 14, we have
+\begin{equation}\gamma^{\mu} \Rightarrow \gamma_{2 n d}^{\mu}\left(p, p^{\prime}\right)=\gamma^{\mu}+e_{0}^{2} \Lambda^{\mu}\left(p, p^{\prime}\right)\end{equation}
+and
+\begin{equation}\Lambda^{\mu}\left(p, p^{\prime}\right)=\frac{1}{(2 \pi)^{4}} \int \frac{-i g_{\alpha \beta}}{k^{2}+i \varepsilon} i \gamma^{\alpha} \frac{i}{\left(\cancel{p}^{\prime}-\cancel{k}\right)-m+i \varepsilon} \gamma^{\mu} \frac{i}{(\cancel{p}-\cancel{k})-m+i \varepsilon} i \gamma^{\beta} d^{4} k
+\end{equation}
+Not that we do not have 2nd field spinors $u_{2nd}$ or $v_{2nd}$ here, this is just for a vertex. Since
+\begin{equation}
+    \Lambda^{\mu}(p,p^{\prime})=\frac{-i}{(2 \pi)^{4}} \int \frac{g_{a \beta} \gamma^{\alpha}\left(\not p^{\prime}-\not k+m\right) \gamma^{\mu}(\not p-\cancel{k}+m) \gamma^{\beta}}{k^{2}\left(\left(p^{\prime}-k\right)^{2}-m^{2}\right)\left((p-k)^{2}-m^{2}\right)} d^{4} k
+    \label{explicit-lambda}
+\end{equation}
+Doing the contraction in the numerator yields
+\begin{equation}N^{\mu}\left(p, p^{\prime}, k\right)=\gamma_{\beta}\left(\cancel{p}^{\prime}-\cancel{k}+m\right) r^{\mu}\left(\cancel{p}-\cancel{k}+m\right) \gamma^{\beta}\end{equation}
+Note that if $k\rightarrow0$, then $p^{\prime 2} \rightarrow m^{2}$ and $p^{2} \rightarrow m^2$. Thus, \bluep{the denominator of the integrand in (\ref{explicit-lambda}) approaches zero proportional to the sixth power, ie., as $0^6$, whereas the numerator (with $d^4k$ taken as proportional to $k^3dk$) as, at best, proportional to $0^5$. So \textbf{the integrand will diverge for $k$ approaching zero.}}
+
+We can correct that by \redp{temporarily assuming the virtual photon has a mass $\lambda$.} That keeps the photon propagator finite and prevents the integrand from diverging in the infrared regime. That is
+\begin{qt}
+    \begin{equation}\Lambda^{\mu}\left(p, p^{\prime}\right)=\frac{-i}{(2 \pi)^{4}} \int \frac{N^{\mu}\left(p, p^{\prime}, k\right)}{\left(k^{2}-\lambda^{2}\right)\left(\left(p^{\prime}-k\right)^{2}-m^{2}\right)\left((p-k)^{2}-m^{2}\right)} d^{4}k
+    \label{Lambda-with-lambda}
+    \end{equation}
+\end{qt}
+and \redp{at the end of our calculation we take $\lambda=0$.} lgnoring the small $\varepsilon$ terms, and using Feynman parameterization with
+$$a=k^{2}-\lambda^{2} \quad \quad b=\left(p^{\prime}-k\right)^{2}-m^{2} \quad c=(p-k)^{2}-m^{2}$$
+in the denominator of (\ref{Lambda-with-lambda}), we can rewrite (\ref{Lambda-with-lambda}) as
+$$\Lambda^{\mu}\left(p, p^{\prime}\right)=\frac{-i}{(2 \pi)^{D}} \iint_{0}^{1} \int_{0}^{1-x} \frac{2 N^{\mu}\left(p, p^{\prime}, k\right)}{(a+(b-a) x+(c-a) z)^{3}} d z d x d^{D} k$$
+$$=\frac{-2 i}{(2 \pi)^{D}} \iint_{0}^{1} \int_{0}^{1-x} \frac{N^{\mu}\left(p, p^{\prime}, k\right)}{\left(k^{2}-2 k\left(p^{\prime} x+p z\right)+\underbrace{x\left(p^{\prime 2}-m^{2}\right)+z\left(p^{2}-m^{2}\right)-\lambda^{2}(1-x-z)}_{-r}\right)^{3}} d z d x d^{D} k$$
+where the symbol $r$, is used as a shorthand symbol to keep notation streamlined. Recall that in the present case, photon $k=p-p^{\prime} \rightarrow 0,$ so the fermions approach on-shell, i.e., $\left(p^{\prime}\right)^{2} \approx p^{2}$ $\approx m^{2}$. If we further define the following variables:
+$$\begin{aligned}
+&t^{\mu}=k^{\mu}-\underbrace{\left(p^{\prime} x+p z\right)^{\mu}}_{a^{\mu}}=k^{\mu}-a^{\mu} \quad d^{4} t=d^{4} k \rightarrow d^{D} t=d^{D} k\\
+&t^{2}=k^{2}-2 k\left(p^{\prime} x+p z\right)+\left(p^{\prime} x+p z\right)^{2}=k^{2}-2 k\left(p^{\prime} x+p z\right)+a^{2}
+\end{aligned}$$
+then
+\begin{equation}\begin{aligned}
+\Lambda^{\mu}\left(p, p^{\prime}\right) &=\frac{-2 i}{(2 \pi)^{D}} \iint_{0}^{1} \int_{0}^{1-x} \frac{N^{\mu}\left(p, p^{\prime}, t+a\right)}{\left(t^{2}-r-a^{2}\right)^{3}} d z d x d^{D} t \\
+&=\frac{-2 i}{(2 \pi)^{D}} \int_{0}^{1} \int_{0}^{1-x} \int \frac{N^{\mu}\left(p, p^{\prime}, t+a\right)}{\left(t^{2}-r-a^{2}\right)^{3}} d^{D} t d z d x
+\end{aligned}\end{equation}
+By rearranging the numerator, we have
+$$
+\begin{aligned}
+N^{\mu}\left(p, p^{\prime}, t+a\right) &=\underbrace{\gamma_{\beta}\left(\not p^{\prime}-\not a+m\right) \gamma^{\mu}(\not p-\cancel{a}+m) \gamma^{\beta}}_{N_{0}^{\mu}\left(p^{\prime}, p, a\right)}\\
+&\underbrace{-\gamma_{\beta}\left(\cancel{t} \gamma^{\mu}(\not p-\cancel{a}+m)+\left(\not p^{\prime}-\cancel{a}+m\right) \gamma^{\mu} \cancel{t}\right) \gamma^{\beta}}_{N_1^{\mu}\left(p^{\prime}, p, a, t\right)}\underbrace{+\gamma_{\beta} \cancel{t} \gamma^{\mu} \cancel{t} \gamma^{\beta}}_{N_{2}^{\mu}\left(p^{\prime}, p, a\right)}
+\end{aligned}
+$$
+For $\Lambda_0^{\mu}(p,p^{\prime})$, we have
+$$\Lambda_{0}^{\mu}\left(p, p^{\prime}\right)=\frac{-2 i}{(2 \pi)^{D}} \int_{0}^{1} \int_{0}^{1-x} \gamma_{\beta}\left(\cancel{p}^{\prime}-\cancel{a}+m\right) \gamma^{\mu}(\cancel{p}-\cancel{a}+m) \gamma^{\beta}\left(\int \frac{1}{\left(t^{2}-r-a^{2}\right)^{3}} d^{D} t\right) d z d x$$
+Using (\ref{inttb2-0}) with $q=t$ and $s=-r-a^2$. The result is
+$$\begin{array}{l}
+\Lambda_{0}^{\mu}\left(p, p^{\prime}\right)=\frac{-2 i}{(2 \pi)^{D}} \int_{0}^{1} \int_{0}^{1-x} \gamma_{\beta}\left(\cancel{p}^{\prime}-\cancel{a}+m\right) \gamma^{\mu}(\cancel{p}-\cancel{a}+m) \gamma^{\beta} \times \\
+\quad\left(i \pi^{D / 2} \frac{\Gamma\left(3-\frac{D}{2}\right)}{\Gamma(3)} \frac{1}{\left(-r-a^{2}\right)^{3-\frac{p}{2}}}\right) d z d x
+\end{array}$$
+For $D\rightarrow4$, this becomes
+\begin{equation}
+\Lambda_0^{\mu}(p,p^{\prime})=-\frac{1}{2^{4} \pi^{2}} \int_{0}^{1} \int_{0}^{1-x} \frac{\gamma_{\beta}\left(\cancel{p}^{\prime}-\cancel{a}+m\right) \gamma^{\mu}(\not p-\cancel{a}+m) \gamma^{\beta}}{\left(r+a^{2}\right)} d z d r\end{equation}
+where $r$ and $a$ are functions of $x, z, p^{\prime},$ and $p .$ We see that the eqn. above has a finite value and can be rewritten, using the gamma matrix relations of (\ref{gamma-relation-for-lambda}) as
+\begin{equation}
+\begin{aligned}
+\Lambda_{0}^{\mu}\left(p, p^{\prime}\right)&=-\frac{1}{16 \pi^{2}} \int_{0}^{1} \int_{0}^{1-x} \frac{1}{\left(r+a^{2}\right)}\left(\underbrace{\gamma_{\beta} \gamma^{\sigma} \gamma^{\mu} \gamma^{\rho} \gamma^{\beta}}_{-2 \gamma^{\rho} \gamma^{\mu} \gamma^{\sigma}}\left(p_{\sigma}^{\prime}-a_{\sigma}\right)\left(p_{\rho}-a_{\rho}\right)+\right.\\
+&\left.\underbrace{\gamma_{\beta} \gamma^{\sigma} \gamma^{\mu} \gamma^{\beta}}_{4 g^{\sigma \mu}}\left(p_{\sigma}^{\prime}-a_{\sigma}\right)^{m}+\underbrace{\gamma_{\beta} \gamma^{\mu} \gamma^{\rho} \gamma^{\beta}}_{4 g^{\mu\rho}}\left(p_{\rho}-a_{\rho}\right)m+\underbrace{\gamma_{\beta} \gamma^{\mu} \gamma^{\beta}}_{-2\gamma^{\mu}} m^{2}\right)dzdx
+\end{aligned}
+\end{equation}
+Or, switching the dummy variable in the next to last term from $\rho$ to $\sigma$,
+\begin{equation}\begin{aligned}
+\Lambda_{0}^{\mu}\left(p, p^{\prime}\right)=\int_{0}^{1} \int_{0}^{1-x} \frac{1}{\left(r+a^{2}\right)}\left(\frac{1}{8 \pi^{2}} \gamma^{\rho} \gamma^{\mu} \gamma^{\sigma}\left(p_{\sigma}^{\prime}-a_{\sigma}\right)\left(p_{\rho}-a_{\rho}\right)\right.& \\
+\left.-\frac{1}{4 \pi^{2}} g^{\mu \sigma}\left(p_{\sigma}^{\prime}+p_{\sigma}-2 a_{\sigma}\right) m+\frac{1}{8 \pi^{2}} \gamma^{\mu} m^{2}\right) d z d x
+\end{aligned}\end{equation}
+For $\Lambda_1^{\mu}$ we see that $N_1^{\mu}$ is odd in $t$, so this term will be 0.
+
+For $\Lambda_2^{\mu}$, we have
+\begin{equation}\Lambda_{2}^{\mu}\left(p, p^{\prime}\right)=\frac{-2 i}{(2 \pi)^{D}} \int_{0}^{1} \int_{0}^{1-x} \int \frac{\overbrace{\gamma_{\beta} \cancel{t} r^{\mu} \cancel{t} \gamma^{\beta}}^{\gamma_{\beta} \gamma^{\rho} \gamma^{\mu} \gamma^{\sigma} \gamma^{\beta} t_{\rho} t_{\sigma}}}{\left(t^{2}-r-a^{2}\right)^{3}} d^{D} t d z d x\end{equation}
+Using (\ref{inttb2-2}) with $q=t$ makes this
+$$\Lambda_{2}^{\mu}\left(p, p^{\prime}\right)=\frac{-2 i}{(2 \pi)^{D}} \gamma_{\beta} \gamma^{\rho} \gamma^{\mu} \gamma^{\sigma} \gamma^{\beta} \int_{0}^{1} \int_{0}^{1-x} \int \frac{t_{\rho} t_{\sigma}}{\left(t^{2}-r-a^{2}\right)^{3}} d^{D} t d z d x$$
+$$=\frac{-2 i}{(2 \pi)^{D}} \gamma_{\beta} \gamma^{\rho} \gamma^{\mu} \gamma^{\sigma} \gamma^{\beta} \int_{0}^{1} \int_{0}^{1-x}\left(i \pi^{D / 2} \frac{\Gamma\left(\frac{\eta}{2}=2-\frac{D}{2}\right)}{2 \Gamma(3)} \frac{g_{\rho \sigma}}{\left(-r-a^{2}\right)^{\frac{\eta}{2}}}\right) d z d x$$
+Now take $D \rightarrow 4$ (i.e., $\eta \rightarrow 0$ ) and use (\ref{gamma-approx}) and (\ref{ax-expand}) with $a=-r-a^{2}$ above and $x=-\eta / 2 .$ This, along with two gamma matrix relations of (\ref{gamma-relation-for-lambda}) yields
+$$\Lambda_{2}^{\mu}\left(p, p^{\prime}\right)=\frac{2}{2^{4} \pi^{2}} \underbrace{\gamma_{\beta} \gamma^{\rho} \gamma^{\mu} \gamma^{\sigma} \gamma^{\beta}}_{-2 \gamma^{\sigma} \gamma^{\mu} \gamma^{\rho}} g_{\rho \sigma}\int_{0}^{1} \int_{0}^{1-x} \lim _{\eta \rightarrow 0}\left(\frac{\Gamma\left(\frac{\eta}{2}\right)}{2 \Gamma(3)}\left(-r-a^{2}\right)^{-\frac{\eta}{2}}\right) d z d x
+$$
+$$=\frac{-1}{4 \pi^{2} \cdot 2 \cdot 2} \underbrace{\gamma_{\rho} \gamma^{\mu} \gamma^{\rho}}_{-2 \gamma^{\mu}} \int_{0}^{1} \int_{0}^{1-x}\left(\frac{2}{\eta}-\gamma+\mathcal{O}(\eta)\right)\left(1-\frac{\eta}{2} \ln \left(-r-a^{2}\right)+\mathcal{O}\left(\eta^{2}\right)\right) d z d x$$
+Keeping only lowest order terms gives us
+$$\Lambda_{2}^{\mu}\left(p, p^{\prime}\right)=\frac{1}{8 \pi^{2}} \gamma^{\mu} \int_{0}^{1} \int_{0}^{1-x}\left(\frac{2}{\eta}-\gamma-\ln \left(-r-a^{2}\right)\right) d z d x$$
+Using \ref{eta-Lambda-relation} yields
+\begin{equation}
+\Lambda_{2}^{\mu}\left(p, p^{\prime}\right)=\frac{1}{8 \pi^{2}} \gamma^{\mu} \ln \Lambda-\frac{1}{8 \pi^{2}} \gamma^{\mu} \int_{0}^{1} \int_{0}^{1-x} \ln \left(-r-a^{2}\right) d z d x\end{equation}
+Compare with what we used in Chap 13 and 14, we would find:
+\begin{equation}
+L(\Lambda)=\frac{1}{8 \pi^{2}} \ln \Lambda
+\end{equation}
+and
+\begin{equation}\left.\begin{array}{c}
+-\frac{1}{8 \pi^{2}} \gamma^{\mu} \int_{0}^{1} \int_{0}^{1-x} \ln \left(-r-a^{2}\right) d z d x+\frac{1}{8 \pi^{2}} \int_{0}^{1} \int_{0}^{1-x} \frac{1}{\left(r+a^{2}\right)} \times \\
+\left(\gamma^{\rho} \gamma^{\mu} \gamma^{\sigma}\left(p_{\sigma}^{\prime}-a_{\sigma}\right)\left(p_{\rho}-a_{\rho}\right)-2\left(p^{\prime \mu}+p^{\mu}-2 a^{\mu}\right) m+\gamma^{\mu} m^{2}\right) d z d x
+\end{array}\right\}=\Lambda_{c}^{\mu}\left(p, p^{\prime}\right)\end{equation}
+
+\section{Finding Fermion Self Energy Factor Using Dimensional Regularization}
+\begin{equation}i S_{F}^{2 n d}(p)=i S_{F}(p)+i S_{F}(p) i e_{0}^{2} \Sigma(p) i S_{F}(p)\end{equation}
+where
+\begin{equation}\begin{aligned}
+\Sigma(p) &=\frac{i}{(2 \pi)^{4}} \int i D_{F \alpha \beta}(k) \gamma^{\alpha} i S_{F}(p-k) \gamma^{\beta} d^{4} k \\
+&=\frac{i}{(2 \pi)^{4}} \int \frac{-i g_{\alpha \beta}}{k^{2}+i \varepsilon} \gamma^{\alpha} i \frac{\left(\cancel{p}-\not k+m_{0}\right)}{(p-k)^{2}-m_{0}^{2}+i \varepsilon} \gamma^{\beta} d^{4} k
+\end{aligned}\end{equation}
+By following similar procedures, we find
+\begin{equation}\Sigma(p)=\underbrace{-\frac{3 m}{8 \pi^{2}} \ln \frac{\Lambda}{m}}_{A(\Lambda, m)}+(\not p-m) \underbrace{\frac{1}{8 \pi^{2}} \ln \Lambda}_{B(\Lambda)}\underbrace{+(p-m) \Sigma_{c}(p-m)}_{\text {complicated }}
+\end{equation}
+\section{Additional Notes on Integrals}
+In the relation
+\begin{equation}I^{\prime \prime}=\int p^{\mu} p^{v} d^{4} p=\frac{1}{4} \int g^{\mu v} p^{2} d^{4} p\end{equation}
+we can see that for $\mu \neq v$, the RHS is zero. For $\mu \neq v$ in the middle part, we have an odd factor of at least one 3 -momentum component $p^{1}$. so the integral from $+\infty$ to $-\infty$ will be zero as well. So, we only have to worry about diagonal terms, i.e., terms with $\mu=\nu .$ We can therefore express the middle part of the equation above after Wick rotation, as
+$$I^{\prime \prime}=\int p^{\mu} p^{v} d^{4} p=i \int\left[\begin{array}{cccc}
+-E^{2} & & & \\
+& \left(p^{1}\right)^{2} & & \\
+& & \left(p^{2}\right)^{2} & \\
+& & & \left(p^{3}\right)^{2}
+\end{array}\right] d^{4} p_{E}$$
+So the absolute value of each integral is the same. That is
+$$\int(E)^{2} i d E d p^{1} d p^{2} d p^{3}=\int\left(p^{1}\right)^{2} i d E d p^{1} d p^{2} d p^{3}=\int\left(p^{2}\right)^{2} i d E d p^{1} d p^{2} d p^{3}=\int\left(p^{3}\right)^{2} i d E d p^{1} d p^{2} d p^{3}$$
+With this, we find
+$$I^{\prime\prime}=i \int\left[\begin{array}{cccc}
+-E^{2} & & & \\
+& E^{2} & & \\
+& & E^{2} & \\
+& & & E^{2}
+\end{array}\right]d^{4} p_{E}=-i \int g^{\mu v} E^{2} d^{4} p_{E}
+$$
+$$=-\frac{i}{4} \int g^{\mu \nu}\left(E^{2}+\left(p^{1}\right)^{2}+\left(p^{2}\right)^{2}+\left(p^{3}\right)^{2}\right) d^{4} p_{E}$$
+\redp{We now do a reverse Wick rotation for the eqn. above to get back to 4D spacetime (Minkowski) coordinates. That is, take $E \rightarrow E / i$ and $d^{4} p_{E} \rightarrow d^{4} p / i$ to find}
+\begin{equation}I^{\prime\prime}=-\frac{i}{4} \int g^{\mu \nu}\left(\left(\frac{E}{i}\right)^{2}+\mathbf{p}^{2}\right) \frac{d^{4} p}{i}=\frac{1}{4} \int g^{\mu \nu}\left(E^{2}-\mathbf{p}^{2}\right) d^{4} p=\frac{1}{4} \int g^{\mu \nu} p^{2} d^{4} p\end{equation}
